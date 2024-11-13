@@ -25,10 +25,9 @@ namespace PBO_B1
 
             if (login_Akun != null)
             {
-                MessageBox.Show("Login berhasil!", "INFO", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-
-                V_HalUtama Halutama = new V_HalUtama();
+                Hide();
+                
+                V_HalUtamaPemilik Halutama = new V_HalUtamaPemilik();
                 Halutama.ShowDialog();
             }
             else
@@ -38,6 +37,9 @@ namespace PBO_B1
             }
         }
 
+        private void V_Login_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

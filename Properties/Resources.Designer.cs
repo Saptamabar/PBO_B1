@@ -59,5 +59,15 @@ namespace PBO_B1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chart_histogram__2__1 {
+            get {
+                object obj = ResourceManager.GetObject("chart-histogram (2) 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

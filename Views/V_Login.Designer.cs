@@ -61,7 +61,7 @@ namespace PBO_B1
             btnLogin.TabIndex = 2;
             btnLogin.Text = "LOGIN";
             btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += this.btnLogin_Click;
+            btnLogin.Click += btnLogin_Click;
             // 
             // V_Login
             // 
@@ -75,8 +75,12 @@ namespace PBO_B1
             Controls.Add(tbUsername);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "V_Login";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Patungan";
+            Load += V_Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }
