@@ -115,7 +115,7 @@ namespace PBO_B1.Views
             btnLaporan.BackColor = Color.DarkOrange;
             btnLaporan.Dock = DockStyle.Top;
             btnLaporan.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLaporan.Image = Properties.Resources.chart_histogram__2__1;
+            btnLaporan.Image = (Image)resources.GetObject("btnLaporan.Image");
             btnLaporan.Location = new Point(0, 338);
             btnLaporan.Name = "btnLaporan";
             btnLaporan.Size = new Size(197, 78);
