@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PBO_B1.Views
 {
-    public partial class V_HalUtama : Form
+    public partial class V_HalProfile : UserControl
     {
-        public V_HalUtama()
+        public V_HalProfile()
         {
             InitializeComponent();
         }
