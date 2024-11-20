@@ -74,7 +74,7 @@
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Name = "V_HalProfile";
-            Size = new Size(686, 577);
+            Size = new Size(1062, 577);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
