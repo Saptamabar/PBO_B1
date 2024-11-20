@@ -17,6 +17,7 @@ namespace PBO_B1.Views
         V_HalTransaksi v_HalTransaksi = new V_HalTransaksi();
         V_HalLaporan v_HalLaporan = new V_HalLaporan();
         V_HalAdmin v_HalAdmin = new V_HalAdmin();
+        V_HalProfileUbah v_HalProfileUbah = new V_HalProfileUbah();
         public V_HalUtamaPemilik()
         {
             InitializeComponent();
