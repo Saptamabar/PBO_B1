@@ -14,6 +14,8 @@ namespace PBO_B1.Views
 {
     public partial class V_HalProfileUbah : UserControl
     {
+        private byte[] imageBytes;
+
         public V_HalProfileUbah()
         {
             InitializeComponent();
@@ -24,7 +26,10 @@ namespace PBO_B1.Views
             tbNohp.Text = data.no_hp;
             tbEmail.Text = "kocak di db ga ada email";
             tbJabatan.Text = data.jabatan;
-            byte[] imageBytes = Convert.FromBase64String(data.foto_profile);
+            if (!string.IsNullOrEmpty(data.foto_profile))
+            {
+                imageBytes = Convert.FromBase64String(data.foto_profile);
+            }
             using (MemoryStream ms = new MemoryStream(imageBytes))
             {
                 fotoprofile.Image = Image.FromStream(ms);
