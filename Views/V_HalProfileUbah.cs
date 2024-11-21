@@ -29,11 +29,12 @@ namespace PBO_B1.Views
             if (!string.IsNullOrEmpty(data.foto_profile))
             {
                 imageBytes = Convert.FromBase64String(data.foto_profile);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    fotoprofile.Image = Image.FromStream(ms);
+                }
             }
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                fotoprofile.Image = Image.FromStream(ms);
-            }
+            
         }
 
         private void tbNama_TextChanged(object sender, EventArgs e)

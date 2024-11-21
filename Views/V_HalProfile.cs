@@ -16,6 +16,7 @@ namespace PBO_B1.Views
 {
     public partial class V_HalProfile : UserControl
     {
+        private byte[] imageBytes;
         V_HalProfileUbah v_HalProfileUbah = new V_HalProfileUbah();
         public V_HalProfile()
         {
@@ -27,10 +28,13 @@ namespace PBO_B1.Views
             LabelNoHP.Text = data.no_hp;
             LabelEmail.Text = "Ga ada email";
             LabelJabatan.Text = data.jabatan;
-            byte[] imageBytes = Convert.FromBase64String(data.foto_profile);
-            using (MemoryStream ms = new MemoryStream(imageBytes))
+            if (!string.IsNullOrEmpty(data.foto_profile))
             {
-                Fotoprofile.Image = Image.FromStream(ms);
+                imageBytes = Convert.FromBase64String(data.foto_profile);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    Fotoprofile.Image = Image.FromStream(ms);
+                }
             }
         }
 

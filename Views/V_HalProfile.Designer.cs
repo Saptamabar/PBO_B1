@@ -39,7 +39,6 @@
             LabelNama = new Label();
             btnEdit = new Button();
             openFileDialog1 = new OpenFileDialog();
-            saveFileDialog1 = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)Fotoprofile).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -189,6 +188,5 @@
         private Label LabelEmail;
         private Button btnEdit;
         private OpenFileDialog openFileDialog1;
-        private SaveFileDialog saveFileDialog1;
     }
 }
