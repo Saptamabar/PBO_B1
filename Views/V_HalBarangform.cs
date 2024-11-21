@@ -19,7 +19,7 @@ namespace PBO_B1.Views
         public V_HalBarang()
         {
             InitializeComponent();
-            this.Load += V_HalBarang_Load;
+            
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -119,7 +119,7 @@ namespace PBO_B1.Views
                     if (mahasiswaData.Rows.Count > 0)
                     {
                         DataRow row = mahasiswaData.Rows[0];
-                        C_Barang barang = new C_Barang
+                        M_Barang barang = new M_Barang
                         {
                             barang_id = (int)row["barang_id"],
                             nama_barang = row["nama_barang"].ToString(),
