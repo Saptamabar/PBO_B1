@@ -35,11 +35,19 @@ namespace PBO_B1.App.Context
 
                 if (reader.Read())
                 {
-                    loginAkun = new M_Akun(username, password);
-                    loginAkun.Username = (string)reader["username"];
-                    loginAkun.Password = (string)reader["password"];
-
+                    loginAkun = new M_Akun(username, password)
+                    {
+                        Akun_id = (int)reader["akun_id"],
+                        Username = (string)reader["username"],
+                        Password = (string)reader["password"],
+                        Nama = (string)reader["Nama"],
+                        jabatan = (string)reader["jabatan"],
+                        foto_profile = reader["foto_profile"] == DBNull.Value ? null : (string)reader["foto_profile"],
+                        Email = (string)reader["email"],
+                        no_hp = (string)reader["no_hp"]
+                    };
                 };
+            Session.CurrentUser = loginAkun;
             return loginAkun;
 
 
