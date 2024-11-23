@@ -30,51 +30,93 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalProfileUbah));
             fotoprofile = new PictureBox();
-            panel1 = new Panel();
-            btnSimpan = new Button();
-            tbNama = new TextBox();
-            tbUsername = new TextBox();
-            tbNohp = new TextBox();
-            tbJabatan = new TextBox();
-            tbEmail = new TextBox();
+            panelprofileubah = new Panel();
             tbPassword = new TextBox();
+            tbEmail = new TextBox();
+            tbJabatan = new TextBox();
+            tbNohp = new TextBox();
+            tbUsername = new TextBox();
+            tbNama = new TextBox();
+            btnSimpan = new Button();
+            btnBatal = new Button();
+            panelmain = new Panel();
             ((System.ComponentModel.ISupportInitialize)fotoprofile).BeginInit();
-            panel1.SuspendLayout();
+            panelprofileubah.SuspendLayout();
+            panelmain.SuspendLayout();
             SuspendLayout();
             // 
             // fotoprofile
             // 
+            fotoprofile.BackColor = Color.White;
             fotoprofile.BackgroundImage = (Image)resources.GetObject("fotoprofile.BackgroundImage");
             fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
             fotoprofile.Location = new Point(119, 92);
             fotoprofile.Name = "fotoprofile";
             fotoprofile.Size = new Size(150, 200);
+            fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
             fotoprofile.TabIndex = 0;
             fotoprofile.TabStop = false;
+            fotoprofile.Click += fotoprofile_Click;
             // 
-            // panel1
+            // panelprofileubah
             // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
-            panel1.BackgroundImageLayout = ImageLayout.Zoom;
-            panel1.Controls.Add(tbPassword);
-            panel1.Controls.Add(tbEmail);
-            panel1.Controls.Add(tbJabatan);
-            panel1.Controls.Add(tbNohp);
-            panel1.Controls.Add(tbUsername);
-            panel1.Controls.Add(tbNama);
-            panel1.Location = new Point(428, 92);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(603, 373);
-            panel1.TabIndex = 1;
+            panelprofileubah.BackgroundImage = (Image)resources.GetObject("panelprofileubah.BackgroundImage");
+            panelprofileubah.BackgroundImageLayout = ImageLayout.Zoom;
+            panelprofileubah.Controls.Add(tbPassword);
+            panelprofileubah.Controls.Add(tbEmail);
+            panelprofileubah.Controls.Add(tbJabatan);
+            panelprofileubah.Controls.Add(tbNohp);
+            panelprofileubah.Controls.Add(tbUsername);
+            panelprofileubah.Controls.Add(tbNama);
+            panelprofileubah.Location = new Point(428, 92);
+            panelprofileubah.Name = "panelprofileubah";
+            panelprofileubah.Size = new Size(603, 373);
+            panelprofileubah.TabIndex = 1;
             // 
-            // btnSimpan
+            // tbPassword
             // 
-            btnSimpan.Location = new Point(538, 593);
-            btnSimpan.Name = "btnSimpan";
-            btnSimpan.Size = new Size(94, 29);
-            btnSimpan.TabIndex = 2;
-            btnSimpan.Text = "Simpan";
-            btnSimpan.UseVisualStyleBackColor = true;
+            tbPassword.BorderStyle = BorderStyle.None;
+            tbPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbPassword.Location = new Point(337, 277);
+            tbPassword.Name = "tbPassword";
+            tbPassword.Size = new Size(229, 27);
+            tbPassword.TabIndex = 5;
+            // 
+            // tbEmail
+            // 
+            tbEmail.BorderStyle = BorderStyle.None;
+            tbEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbEmail.Location = new Point(337, 180);
+            tbEmail.Name = "tbEmail";
+            tbEmail.Size = new Size(229, 27);
+            tbEmail.TabIndex = 4;
+            // 
+            // tbJabatan
+            // 
+            tbJabatan.BorderStyle = BorderStyle.None;
+            tbJabatan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbJabatan.Location = new Point(337, 79);
+            tbJabatan.Name = "tbJabatan";
+            tbJabatan.Size = new Size(229, 27);
+            tbJabatan.TabIndex = 3;
+            // 
+            // tbNohp
+            // 
+            tbNohp.BorderStyle = BorderStyle.None;
+            tbNohp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbNohp.Location = new Point(38, 277);
+            tbNohp.Name = "tbNohp";
+            tbNohp.Size = new Size(229, 27);
+            tbNohp.TabIndex = 2;
+            // 
+            // tbUsername
+            // 
+            tbUsername.BorderStyle = BorderStyle.None;
+            tbUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbUsername.Location = new Point(38, 180);
+            tbUsername.Name = "tbUsername";
+            tbUsername.Size = new Size(229, 27);
+            tbUsername.TabIndex = 1;
             // 
             // tbNama
             // 
@@ -86,70 +128,59 @@
             tbNama.TabIndex = 0;
             tbNama.TextChanged += tbNama_TextChanged;
             // 
-            // tbUsername
+            // btnSimpan
             // 
-            tbUsername.BorderStyle = BorderStyle.None;
-            tbUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbUsername.Location = new Point(38, 180);
-            tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(229, 27);
-            tbUsername.TabIndex = 1;
+            btnSimpan.ForeColor = Color.Black;
+            btnSimpan.Location = new Point(584, 577);
+            btnSimpan.Name = "btnSimpan";
+            btnSimpan.Size = new Size(94, 29);
+            btnSimpan.TabIndex = 2;
+            btnSimpan.Text = "Simpan";
+            btnSimpan.UseVisualStyleBackColor = true;
+            btnSimpan.Click += btnSimpan_Click;
             // 
-            // tbNohp
+            // btnBatal
             // 
-            tbNohp.BorderStyle = BorderStyle.None;
-            tbNohp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbNohp.Location = new Point(38, 277);
-            tbNohp.Name = "tbNohp";
-            tbNohp.Size = new Size(229, 27);
-            tbNohp.TabIndex = 2;
+            btnBatal.ForeColor = Color.Black;
+            btnBatal.Location = new Point(353, 577);
+            btnBatal.Name = "btnBatal";
+            btnBatal.Size = new Size(94, 29);
+            btnBatal.TabIndex = 3;
+            btnBatal.Text = "Batal";
+            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.Click += btnBatal_Click;
             // 
-            // tbJabatan
+            // panelmain
             // 
-            tbJabatan.BorderStyle = BorderStyle.None;
-            tbJabatan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbJabatan.Location = new Point(337, 79);
-            tbJabatan.Name = "tbJabatan";
-            tbJabatan.Size = new Size(229, 27);
-            tbJabatan.TabIndex = 3;
-            // 
-            // tbEmail
-            // 
-            tbEmail.BorderStyle = BorderStyle.None;
-            tbEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbEmail.Location = new Point(337, 180);
-            tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(229, 27);
-            tbEmail.TabIndex = 4;
-            // 
-            // tbPassword
-            // 
-            tbPassword.BorderStyle = BorderStyle.None;
-            tbPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbPassword.Location = new Point(337, 277);
-            tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(229, 27);
-            tbPassword.TabIndex = 5;
+            panelmain.Controls.Add(btnBatal);
+            panelmain.Controls.Add(fotoprofile);
+            panelmain.Controls.Add(btnSimpan);
+            panelmain.Controls.Add(panelprofileubah);
+            panelmain.Dock = DockStyle.Fill;
+            panelmain.Location = new Point(0, 0);
+            panelmain.Name = "panelmain";
+            panelmain.Size = new Size(1152, 810);
+            panelmain.TabIndex = 4;
             // 
             // V_HalProfileUbah
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(btnSimpan);
-            Controls.Add(panel1);
-            Controls.Add(fotoprofile);
+            Controls.Add(panelmain);
             Name = "V_HalProfileUbah";
             Size = new Size(1152, 810);
+            Load += V_HalProfileUbah_Load;
             ((System.ComponentModel.ISupportInitialize)fotoprofile).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelprofileubah.ResumeLayout(false);
+            panelprofileubah.PerformLayout();
+            panelmain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private PictureBox fotoprofile;
-        private Panel panel1;
+        private Panel panelprofileubah;
         private Button btnSimpan;
         private TextBox tbNama;
         private TextBox tbPassword;
@@ -157,5 +188,7 @@
         private TextBox tbJabatan;
         private TextBox tbNohp;
         private TextBox tbUsername;
+        private Button btnBatal;
+        private Panel panelmain;
     }
 }

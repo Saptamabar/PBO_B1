@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalProfile));
             Fotoprofile = new PictureBox();
-            panel1 = new Panel();
+            panelprofile = new Panel();
             LabelPassword = new Label();
             LabelEmail = new Label();
             LabelJabatan = new Label();
@@ -39,8 +39,9 @@
             LabelNama = new Label();
             btnEdit = new Button();
             openFileDialog1 = new OpenFileDialog();
+            panelmain = new Panel();
             ((System.ComponentModel.ISupportInitialize)Fotoprofile).BeginInit();
-            panel1.SuspendLayout();
+            panelprofile.SuspendLayout();
             SuspendLayout();
             // 
             // Fotoprofile
@@ -56,20 +57,20 @@
             Fotoprofile.TabIndex = 0;
             Fotoprofile.TabStop = false;
             // 
-            // panel1
+            // panelprofile
             // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
-            panel1.BackgroundImageLayout = ImageLayout.Zoom;
-            panel1.Controls.Add(LabelPassword);
-            panel1.Controls.Add(LabelEmail);
-            panel1.Controls.Add(LabelJabatan);
-            panel1.Controls.Add(LabelNoHP);
-            panel1.Controls.Add(LabelUsername);
-            panel1.Controls.Add(LabelNama);
-            panel1.Location = new Point(428, 92);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(603, 373);
-            panel1.TabIndex = 1;
+            panelprofile.BackgroundImage = (Image)resources.GetObject("panelprofile.BackgroundImage");
+            panelprofile.BackgroundImageLayout = ImageLayout.Zoom;
+            panelprofile.Controls.Add(LabelPassword);
+            panelprofile.Controls.Add(LabelEmail);
+            panelprofile.Controls.Add(LabelJabatan);
+            panelprofile.Controls.Add(LabelNoHP);
+            panelprofile.Controls.Add(LabelUsername);
+            panelprofile.Controls.Add(LabelNama);
+            panelprofile.Location = new Point(428, 92);
+            panelprofile.Name = "panelprofile";
+            panelprofile.Size = new Size(603, 373);
+            panelprofile.TabIndex = 1;
             // 
             // LabelPassword
             // 
@@ -159,27 +160,36 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // panelmain
+            // 
+            panelmain.Location = new Point(0, 0);
+            panelmain.Name = "panelmain";
+            panelmain.Size = new Size(1152, 810);
+            panelmain.Controls.Add(btnEdit);
+            panelmain.Controls.Add(panelprofile);
+            panelmain.Controls.Add(Fotoprofile);
+            panelmain.TabIndex = 3;
+            // 
             // V_HalProfile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
-            Controls.Add(btnEdit);
-            Controls.Add(panel1);
-            Controls.Add(Fotoprofile);
+            
+            Controls.Add(panelmain);
             DoubleBuffered = true;
             Name = "V_HalProfile";
             Size = new Size(1152, 810);
             ((System.ComponentModel.ISupportInitialize)Fotoprofile).EndInit();
-            panel1.ResumeLayout(false);
+            panelprofile.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private PictureBox Fotoprofile;
-        private Panel panel1;
+        private Panel panelprofile;
         private Label LabelNama;
         private Label LabelUsername;
         private Label LabelJabatan;
@@ -188,5 +198,6 @@
         private Label LabelEmail;
         private Button btnEdit;
         private OpenFileDialog openFileDialog1;
+        private Panel panelmain;
     }
 }

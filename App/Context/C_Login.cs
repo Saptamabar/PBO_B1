@@ -43,7 +43,7 @@ namespace PBO_B1.App.Context
                         Nama = (string)reader["Nama"],
                         jabatan = (string)reader["jabatan"],
                         foto_profile = reader["foto_profile"] == DBNull.Value ? null : (string)reader["foto_profile"],
-                        jabatan_jabatan = (string)reader["jabatan_jabatan"],
+                        Email = (string)reader["email"],
                         no_hp = (string)reader["no_hp"]
                     };
                 };

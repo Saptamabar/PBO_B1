@@ -25,16 +25,30 @@ namespace PBO_B1.App.Context
             }
         }
 
-        public void SaveImageToDatabase(string base64String)
+        public void Updateprofile()
         {
             // Query untuk menyimpan data
-            string query = "UPDATE akun SET foto_profile = @Image where akun_id = @id";
+            string query = "UPDATE akun SET username = @username, " +
+                            "password = @password, " +
+                            "nama = @nama," +
+                            "jabatan = @jabatan, " +
+                            "foto_profile = @foto_profile, " +
+                            "no_hp= @no_hp, " +
+                            "email= @email " +
+                            "where akun_id = @id";
 
             // Parameter untuk query
             NpgsqlParameter[] parameters = new NpgsqlParameter[]
             {
-                new NpgsqlParameter("@Image", DbType.String) { Value = base64String },
-                new NpgsqlParameter("@id", Session.CurrentUser.Akun_id)
+                new NpgsqlParameter("@id", Session.CurrentUser.Akun_id),
+                new NpgsqlParameter("@username", Session.CurrentUser.Username),
+                new NpgsqlParameter("@password", Session.CurrentUser.Password),
+                new NpgsqlParameter("@nama", Session.CurrentUser.Nama),
+                new NpgsqlParameter("@jabatan", Session.CurrentUser.jabatan),
+                new NpgsqlParameter("@foto_profile", DbType.String) {Value = Session.CurrentUser.foto_profile},
+                new NpgsqlParameter("@no_hp", Session.CurrentUser.no_hp),
+                new NpgsqlParameter("@email", Session.CurrentUser.Email),
+
             };
 
             // Gunakan DatabaseWrapper untuk eksekusi
@@ -47,8 +61,7 @@ namespace PBO_B1.App.Context
                 throw new Exception("Kesalahan saat menyimpan ke database: " + ex.Message);
             }
         }
-        
-
-
     }
+
 }
+
