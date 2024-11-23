@@ -31,15 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalProfileUbah));
             fotoprofile = new PictureBox();
             panelprofileubah = new Panel();
+            labeljabatan = new Label();
             tbPassword = new TextBox();
             tbEmail = new TextBox();
-            tbJabatan = new TextBox();
             tbNohp = new TextBox();
             tbUsername = new TextBox();
             tbNama = new TextBox();
             btnSimpan = new Button();
             btnBatal = new Button();
             panelmain = new Panel();
+            lblnama = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)fotoprofile).BeginInit();
             panelprofileubah.SuspendLayout();
             panelmain.SuspendLayout();
@@ -50,7 +52,8 @@
             fotoprofile.BackColor = Color.White;
             fotoprofile.BackgroundImage = (Image)resources.GetObject("fotoprofile.BackgroundImage");
             fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
-            fotoprofile.Location = new Point(119, 92);
+            fotoprofile.BorderStyle = BorderStyle.FixedSingle;
+            fotoprofile.Location = new Point(146, 171);
             fotoprofile.Name = "fotoprofile";
             fotoprofile.Size = new Size(150, 200);
             fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
@@ -62,16 +65,27 @@
             // 
             panelprofileubah.BackgroundImage = (Image)resources.GetObject("panelprofileubah.BackgroundImage");
             panelprofileubah.BackgroundImageLayout = ImageLayout.Zoom;
+            panelprofileubah.Controls.Add(labeljabatan);
             panelprofileubah.Controls.Add(tbPassword);
             panelprofileubah.Controls.Add(tbEmail);
-            panelprofileubah.Controls.Add(tbJabatan);
             panelprofileubah.Controls.Add(tbNohp);
             panelprofileubah.Controls.Add(tbUsername);
             panelprofileubah.Controls.Add(tbNama);
-            panelprofileubah.Location = new Point(428, 92);
+            panelprofileubah.Location = new Point(446, 171);
             panelprofileubah.Name = "panelprofileubah";
             panelprofileubah.Size = new Size(603, 373);
             panelprofileubah.TabIndex = 1;
+            // 
+            // labeljabatan
+            // 
+            labeljabatan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labeljabatan.ForeColor = Color.Black;
+            labeljabatan.Location = new Point(337, 79);
+            labeljabatan.Name = "labeljabatan";
+            labeljabatan.Size = new Size(229, 27);
+            labeljabatan.TabIndex = 6;
+            labeljabatan.Text = "label2";
+            labeljabatan.Click += labeljabatan_Click;
             // 
             // tbPassword
             // 
@@ -90,15 +104,6 @@
             tbEmail.Name = "tbEmail";
             tbEmail.Size = new Size(229, 27);
             tbEmail.TabIndex = 4;
-            // 
-            // tbJabatan
-            // 
-            tbJabatan.BorderStyle = BorderStyle.None;
-            tbJabatan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbJabatan.Location = new Point(337, 79);
-            tbJabatan.Name = "tbJabatan";
-            tbJabatan.Size = new Size(229, 27);
-            tbJabatan.TabIndex = 3;
             // 
             // tbNohp
             // 
@@ -130,28 +135,35 @@
             // 
             // btnSimpan
             // 
+            btnSimpan.BackColor = Color.FromArgb(255, 128, 0);
+            btnSimpan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSimpan.ForeColor = Color.Black;
-            btnSimpan.Location = new Point(584, 577);
+            btnSimpan.Location = new Point(625, 626);
             btnSimpan.Name = "btnSimpan";
-            btnSimpan.Size = new Size(94, 29);
-            btnSimpan.TabIndex = 2;
+            btnSimpan.Size = new Size(140, 49);
+            btnSimpan.TabIndex = 1;
             btnSimpan.Text = "Simpan";
-            btnSimpan.UseVisualStyleBackColor = true;
+            btnSimpan.UseVisualStyleBackColor = false;
             btnSimpan.Click += btnSimpan_Click;
             // 
             // btnBatal
             // 
+            btnBatal.BackColor = Color.FromArgb(255, 128, 0);
+            btnBatal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBatal.ForeColor = Color.Black;
-            btnBatal.Location = new Point(353, 577);
+            btnBatal.Location = new Point(316, 626);
             btnBatal.Name = "btnBatal";
-            btnBatal.Size = new Size(94, 29);
+            btnBatal.Size = new Size(140, 49);
             btnBatal.TabIndex = 3;
             btnBatal.Text = "Batal";
-            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.UseVisualStyleBackColor = false;
             btnBatal.Click += btnBatal_Click;
             // 
             // panelmain
             // 
+            panelmain.BackColor = Color.White;
+            panelmain.Controls.Add(lblnama);
+            panelmain.Controls.Add(label1);
             panelmain.Controls.Add(btnBatal);
             panelmain.Controls.Add(fotoprofile);
             panelmain.Controls.Add(btnSimpan);
@@ -161,6 +173,26 @@
             panelmain.Name = "panelmain";
             panelmain.Size = new Size(1152, 810);
             panelmain.TabIndex = 4;
+            // 
+            // lblnama
+            // 
+            lblnama.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblnama.ForeColor = Color.Black;
+            lblnama.Location = new Point(359, 69);
+            lblnama.Name = "lblnama";
+            lblnama.Size = new Size(283, 52);
+            lblnama.TabIndex = 5;
+            lblnama.Text = "Selamat Datang";
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(95, 69);
+            label1.Name = "label1";
+            label1.Size = new Size(283, 52);
+            label1.TabIndex = 4;
+            label1.Text = "Selamat Datang";
             // 
             // V_HalProfileUbah
             // 
@@ -185,10 +217,12 @@
         private TextBox tbNama;
         private TextBox tbPassword;
         private TextBox tbEmail;
-        private TextBox tbJabatan;
         private TextBox tbNohp;
         private TextBox tbUsername;
         private Button btnBatal;
         private Panel panelmain;
+        private Label label1;
+        private Label lblnama;
+        private Label labeljabatan;
     }
 }

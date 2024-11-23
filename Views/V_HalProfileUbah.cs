@@ -1,25 +1,16 @@
 ﻿using PBO_B1.App.Context;
 using PBO_B1.App.Core;
 using PBO_B1.App.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PBO_B1.Views
 {
     public partial class V_HalProfileUbah : UserControl
     {
         private byte[] imageBytes;
-        string foto_profile;
+
         C_Profile profile = new C_Profile();
         M_Akun data = Session.CurrentUser;
+        Image image;
 
         public V_HalProfileUbah()
         {
@@ -29,14 +20,12 @@ namespace PBO_B1.Views
             tbPassword.Text = data.Password;
             tbNohp.Text = data.no_hp;
             tbEmail.Text = data.Email;
-            tbJabatan.Text = data.jabatan;
+            labeljabatan.Text = data.jabatan;
+            lblnama.Text = data.Nama;
             if (!string.IsNullOrEmpty(data.foto_profile))
             {
-                imageBytes = Convert.FromBase64String(data.foto_profile);
-                using (MemoryStream ms = new MemoryStream(imageBytes))
-                {
-                    fotoprofile.Image = Image.FromStream(ms);
-                }
+                image = Image.FromFile(data.foto_profile);
+                fotoprofile.Image = image;
             }
 
         }
@@ -54,26 +43,49 @@ namespace PBO_B1.Views
         private void btnBatal_Click(object sender, EventArgs e)
         {
             V_HalProfile v_HalProfile = new V_HalProfile();
+
             V_HalUtamaPemilik.LoadUserControl(v_HalProfile);
         }
 
         private void fotoprofile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog f = new OpenFileDialog();
-            f.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+
+            OpenFileDialog f = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+            };
 
             if (f.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    // Membaca file gambar
-                    Image image = Image.FromFile(f.FileName);
-                    fotoprofile.Image = image; // Menampilkan gambar di kontrol (misalnya PictureBox)
+                    // Cek apakah file yang dipilih ada
+                    if (File.Exists(f.FileName))
+                    {
+                        string sourcePath = f.FileName;
 
-                    // Konversi gambar ke Base64 string
-                    foto_profile = profile.ConvertImageToBase64(image);
-                    data.foto_profile = foto_profile;
+                        // Tentukan nama file baru
+                        string fileName = Path.GetFileName(sourcePath);
 
+                        string destinationFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Foto_profile");
+                        if (!Directory.Exists(destinationFolder))
+                        {
+                            Directory.CreateDirectory(destinationFolder);
+                        }
+
+                        // Pastikan nama file memiliki ekstensi
+                        string fileExtension = Path.GetExtension(sourcePath);
+                        string destinationPath = Path.Combine(destinationFolder, fileName);
+
+                        // Salin file ke folder tujuan
+                        File.Copy(sourcePath, destinationPath, overwrite: true);
+
+                        // Simpan path ke dalam data
+                        data.foto_profile = destinationPath;
+                        image = Image.FromFile(data.foto_profile);
+                        fotoprofile.Image = image;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -87,11 +99,28 @@ namespace PBO_B1.Views
             data.Nama = tbNama.Text;
             data.Username = tbUsername.Text;
             data.Password = tbPassword.Text;
-            data.no_hp = tbNohp.Text;
-            data.Email = tbEmail.Text;
-            data.jabatan = tbJabatan.Text;
-            profile.Updateprofile();
-            MessageBox.Show("Profile berhasil di update!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (int.TryParse(tbNohp.Text, out _) == true)
+            {
+                data.no_hp = tbNohp.Text;
+                data.Email = tbEmail.Text;
+                profile.Updateprofile();
+                MessageBox.Show("Profile berhasil di update!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                V_HalProfile v_HalProfile = new V_HalProfile();
+                V_HalUtamaPemilik.LoadUserControl(v_HalProfile);
+            }
+            else
+            {
+                MessageBox.Show("No HP harus berupa angka!", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
+            
         }
+
+        private void labeljabatan_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Jabatan tidak dapat dirubah", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        
     }
 }

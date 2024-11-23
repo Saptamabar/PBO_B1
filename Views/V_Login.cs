@@ -10,6 +10,16 @@ namespace PBO_B1
         public V_Login()
         {
             InitializeComponent();
+            tbUsername.KeyDown += new KeyEventHandler(tb_KeyDown);
+            tbPassword.KeyDown += new KeyEventHandler(tb_KeyDown);
+        }
+
+        private void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               btnLogin_Click(sender, e);
+            }
         }
 
         private void tbUsername_TextChanged(object sender, EventArgs e)

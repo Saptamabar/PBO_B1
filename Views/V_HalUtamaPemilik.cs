@@ -14,7 +14,7 @@ namespace PBO_B1.Views
 {
     public partial class V_HalUtamaPemilik : Form
     {
-        V_HalProfile v_HalProfile = new V_HalProfile();
+        
         V_HalBarang v_HalBarang = new V_HalBarang();
         V_HalTransaksi v_HalTransaksi = new V_HalTransaksi();
         V_HalLaporan v_HalLaporan = new V_HalLaporan();
@@ -22,6 +22,7 @@ namespace PBO_B1.Views
         V_HalProfileUbah v_HalProfileUbah = new V_HalProfileUbah();
         public V_HalUtamaPemilik()
         {
+            V_HalProfile v_HalProfile = new V_HalProfile();
             InitializeComponent();
             LoadUserControl(v_HalProfile);
         }
@@ -51,6 +52,8 @@ namespace PBO_B1.Views
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
+            V_HalProfile v_HalProfile = new V_HalProfile();
+
             LoadUserControl(v_HalProfile);
         }
 

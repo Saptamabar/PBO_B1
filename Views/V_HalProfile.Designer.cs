@@ -38,10 +38,12 @@
             LabelUsername = new Label();
             LabelNama = new Label();
             btnEdit = new Button();
-            openFileDialog1 = new OpenFileDialog();
             panelmain = new Panel();
+            lblnama = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)Fotoprofile).BeginInit();
             panelprofile.SuspendLayout();
+            panelmain.SuspendLayout();
             SuspendLayout();
             // 
             // Fotoprofile
@@ -50,7 +52,7 @@
             Fotoprofile.BackgroundImage = (Image)resources.GetObject("Fotoprofile.BackgroundImage");
             Fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
             Fotoprofile.BorderStyle = BorderStyle.FixedSingle;
-            Fotoprofile.Location = new Point(119, 92);
+            Fotoprofile.Location = new Point(146, 171);
             Fotoprofile.Name = "Fotoprofile";
             Fotoprofile.Size = new Size(150, 200);
             Fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
@@ -67,7 +69,7 @@
             panelprofile.Controls.Add(LabelNoHP);
             panelprofile.Controls.Add(LabelUsername);
             panelprofile.Controls.Add(LabelNama);
-            panelprofile.Location = new Point(428, 92);
+            panelprofile.Location = new Point(446, 171);
             panelprofile.Name = "panelprofile";
             panelprofile.Size = new Size(603, 373);
             panelprofile.TabIndex = 1;
@@ -146,29 +148,48 @@
             // 
             // btnEdit
             // 
-            btnEdit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEdit.BackColor = Color.FromArgb(255, 128, 0);
+            btnEdit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEdit.ForeColor = Color.Black;
-            btnEdit.Location = new Point(134, 368);
+            btnEdit.Location = new Point(165, 498);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(117, 46);
             btnEdit.TabIndex = 2;
             btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
-            // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
             // 
             // panelmain
             // 
-            panelmain.Location = new Point(0, 0);
-            panelmain.Name = "panelmain";
-            panelmain.Size = new Size(1152, 810);
+            panelmain.Controls.Add(lblnama);
+            panelmain.Controls.Add(label1);
             panelmain.Controls.Add(btnEdit);
             panelmain.Controls.Add(panelprofile);
             panelmain.Controls.Add(Fotoprofile);
+            panelmain.Location = new Point(0, 0);
+            panelmain.Name = "panelmain";
+            panelmain.Size = new Size(1152, 810);
             panelmain.TabIndex = 3;
+            // 
+            // lblnama
+            // 
+            lblnama.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblnama.ForeColor = Color.Black;
+            lblnama.Location = new Point(359, 69);
+            lblnama.Name = "lblnama";
+            lblnama.Size = new Size(283, 52);
+            lblnama.TabIndex = 4;
+            lblnama.Text = "Selamat datang";
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(95, 69);
+            label1.Name = "label1";
+            label1.Size = new Size(283, 52);
+            label1.TabIndex = 3;
+            label1.Text = "Selamat Datang";
             // 
             // V_HalProfile
             // 
@@ -176,13 +197,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
-            
             Controls.Add(panelmain);
             DoubleBuffered = true;
             Name = "V_HalProfile";
             Size = new Size(1152, 810);
             ((System.ComponentModel.ISupportInitialize)Fotoprofile).EndInit();
             panelprofile.ResumeLayout(false);
+            panelmain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -197,7 +218,8 @@
         private Label LabelPassword;
         private Label LabelEmail;
         private Button btnEdit;
-        private OpenFileDialog openFileDialog1;
         private Panel panelmain;
+        private Label label1;
+        private Label lblnama;
     }
 }
