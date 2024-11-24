@@ -50,7 +50,6 @@ namespace PBO_B1.Views
         private void fotoprofile_Click(object sender, EventArgs e)
         {
 
-
             OpenFileDialog f = new OpenFileDialog
             {
                 Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
@@ -63,6 +62,7 @@ namespace PBO_B1.Views
                     // Cek apakah file yang dipilih ada
                     if (File.Exists(f.FileName))
                     {
+
                         string sourcePath = f.FileName;
 
                         // Tentukan nama file baru
@@ -99,7 +99,7 @@ namespace PBO_B1.Views
             data.Nama = tbNama.Text;
             data.Username = tbUsername.Text;
             data.Password = tbPassword.Text;
-            if (int.TryParse(tbNohp.Text, out _) == true)
+            if (double.TryParse(tbNohp.Text, out _) == true)
             {
                 data.no_hp = tbNohp.Text;
                 data.Email = tbEmail.Text;
@@ -120,7 +120,5 @@ namespace PBO_B1.Views
         {
             MessageBox.Show("Jabatan tidak dapat dirubah", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        
     }
 }

@@ -15,16 +15,6 @@ namespace PBO_B1.App.Context
     internal class C_Profile : DatabaseWrapper
     {
         
-        public string ConvertImageToBase64(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, ImageFormat.Png); // Simpan dalam format PNG (atau format lainnya sesuai kebutuhan)
-                byte[] imageBytes = ms.ToArray();
-                return Convert.ToBase64String(imageBytes); // Konversi ke string Base64
-            }
-        }
-
         public void Updateprofile()
         {
             // Query untuk menyimpan data
