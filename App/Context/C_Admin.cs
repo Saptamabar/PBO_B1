@@ -9,6 +9,8 @@ using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using PBO_B1.App.Core;
+using PBO_B1.App.Models;
 
 namespace PBO_B1.App.Context
 {

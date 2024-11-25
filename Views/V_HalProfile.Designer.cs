@@ -29,66 +29,197 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalProfile));
-            pictureBox1 = new PictureBox();
+            Fotoprofile = new PictureBox();
+            panelprofile = new Panel();
+            LabelPassword = new Label();
+            LabelEmail = new Label();
+            LabelJabatan = new Label();
+            LabelNoHP = new Label();
+            LabelUsername = new Label();
+            LabelNama = new Label();
+            btnEdit = new Button();
+            panelmain = new Panel();
+            lblnama = new Label();
             label1 = new Label();
-            panel1 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Fotoprofile).BeginInit();
+            panelprofile.SuspendLayout();
+            panelmain.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
+            // Fotoprofile
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(95, 84);
-            pictureBox1.Margin = new Padding(4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(189, 155);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            Fotoprofile.BackColor = Color.White;
+            Fotoprofile.BackgroundImage = (Image)resources.GetObject("Fotoprofile.BackgroundImage");
+            Fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
+            Fotoprofile.BorderStyle = BorderStyle.FixedSingle;
+            Fotoprofile.Location = new Point(146, 171);
+            Fotoprofile.Name = "Fotoprofile";
+            Fotoprofile.Size = new Size(150, 200);
+            Fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
+            Fotoprofile.TabIndex = 0;
+            Fotoprofile.TabStop = false;
+            // 
+            // panelprofile
+            // 
+            panelprofile.BackgroundImage = (Image)resources.GetObject("panelprofile.BackgroundImage");
+            panelprofile.BackgroundImageLayout = ImageLayout.Zoom;
+            panelprofile.Controls.Add(LabelPassword);
+            panelprofile.Controls.Add(LabelEmail);
+            panelprofile.Controls.Add(LabelJabatan);
+            panelprofile.Controls.Add(LabelNoHP);
+            panelprofile.Controls.Add(LabelUsername);
+            panelprofile.Controls.Add(LabelNama);
+            panelprofile.Location = new Point(446, 171);
+            panelprofile.Name = "panelprofile";
+            panelprofile.Size = new Size(603, 373);
+            panelprofile.TabIndex = 1;
+            // 
+            // LabelPassword
+            // 
+            LabelPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelPassword.ForeColor = Color.Black;
+            LabelPassword.Location = new Point(334, 276);
+            LabelPassword.Name = "LabelPassword";
+            LabelPassword.Size = new Size(236, 36);
+            LabelPassword.TabIndex = 5;
+            LabelPassword.Text = "Nama";
+            LabelPassword.TextAlign = ContentAlignment.MiddleLeft;
+            LabelPassword.Click += LabelPassword_Click;
+            // 
+            // LabelEmail
+            // 
+            LabelEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelEmail.ForeColor = Color.Black;
+            LabelEmail.Location = new Point(334, 177);
+            LabelEmail.Name = "LabelEmail";
+            LabelEmail.Size = new Size(236, 36);
+            LabelEmail.TabIndex = 4;
+            LabelEmail.Text = "Nama";
+            LabelEmail.TextAlign = ContentAlignment.MiddleLeft;
+            LabelEmail.Click += LabelEmail_Click;
+            // 
+            // LabelJabatan
+            // 
+            LabelJabatan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelJabatan.ForeColor = Color.Black;
+            LabelJabatan.Location = new Point(334, 76);
+            LabelJabatan.Name = "LabelJabatan";
+            LabelJabatan.Size = new Size(236, 36);
+            LabelJabatan.TabIndex = 3;
+            LabelJabatan.Text = "Nama";
+            LabelJabatan.TextAlign = ContentAlignment.MiddleLeft;
+            LabelJabatan.Click += LabelJabatan_Click;
+            // 
+            // LabelNoHP
+            // 
+            LabelNoHP.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelNoHP.ForeColor = Color.Black;
+            LabelNoHP.Location = new Point(36, 276);
+            LabelNoHP.Name = "LabelNoHP";
+            LabelNoHP.Size = new Size(236, 36);
+            LabelNoHP.TabIndex = 2;
+            LabelNoHP.Text = "Nama";
+            LabelNoHP.TextAlign = ContentAlignment.MiddleLeft;
+            LabelNoHP.Click += LabelNoHP_Click;
+            // 
+            // LabelUsername
+            // 
+            LabelUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelUsername.ForeColor = Color.Black;
+            LabelUsername.Location = new Point(36, 177);
+            LabelUsername.Name = "LabelUsername";
+            LabelUsername.Size = new Size(236, 36);
+            LabelUsername.TabIndex = 1;
+            LabelUsername.Text = "Nama";
+            LabelUsername.TextAlign = ContentAlignment.MiddleLeft;
+            LabelUsername.Click += LabelUsername_Click;
+            // 
+            // LabelNama
+            // 
+            LabelNama.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelNama.ForeColor = Color.Black;
+            LabelNama.Location = new Point(36, 76);
+            LabelNama.Name = "LabelNama";
+            LabelNama.Size = new Size(236, 36);
+            LabelNama.TabIndex = 0;
+            LabelNama.Text = "Nama";
+            LabelNama.TextAlign = ContentAlignment.MiddleLeft;
+            LabelNama.Click += LabelNama_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = Color.FromArgb(255, 128, 0);
+            btnEdit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEdit.ForeColor = Color.Black;
+            btnEdit.Location = new Point(165, 498);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(117, 46);
+            btnEdit.TabIndex = 2;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // panelmain
+            // 
+            panelmain.Controls.Add(lblnama);
+            panelmain.Controls.Add(label1);
+            panelmain.Controls.Add(btnEdit);
+            panelmain.Controls.Add(panelprofile);
+            panelmain.Controls.Add(Fotoprofile);
+            panelmain.Location = new Point(0, 0);
+            panelmain.Name = "panelmain";
+            panelmain.Size = new Size(1152, 810);
+            panelmain.TabIndex = 3;
+            // 
+            // lblnama
+            // 
+            lblnama.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblnama.ForeColor = Color.Black;
+            lblnama.Location = new Point(359, 69);
+            lblnama.Name = "lblnama";
+            lblnama.Size = new Size(283, 52);
+            lblnama.TabIndex = 4;
+            lblnama.Text = "Selamat datang";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Silver;
-            label1.Dock = DockStyle.Top;
-            label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(95, 69);
             label1.Name = "label1";
-            label1.Size = new Size(59, 25);
-            label1.TabIndex = 1;
-            label1.Text = "Nama";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.Control;
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(420, 84);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(312, 250);
-            panel1.TabIndex = 2;
+            label1.Size = new Size(283, 52);
+            label1.TabIndex = 3;
+            label1.Text = "Selamat Datang";
             // 
             // V_HalProfile
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
-            Controls.Add(panel1);
-            Controls.Add(pictureBox1);
-            Margin = new Padding(4);
+            BackColor = Color.White;
+            BackgroundImageLayout = ImageLayout.Zoom;
+            Controls.Add(panelmain);
+            DoubleBuffered = true;
             Name = "V_HalProfile";
-            Size = new Size(858, 721);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Size = new Size(1152, 810);
+            ((System.ComponentModel.ISupportInitialize)Fotoprofile).EndInit();
+            panelprofile.ResumeLayout(false);
+            panelmain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox Fotoprofile;
+        private Panel panelprofile;
+        private Label LabelNama;
+        private Label LabelUsername;
+        private Label LabelJabatan;
+        private Label LabelNoHP;
+        private Label LabelPassword;
+        private Label LabelEmail;
+        private Button btnEdit;
+        private Panel panelmain;
         private Label label1;
-        private Panel panel1;
+        private Label lblnama;
     }
 }
