@@ -39,9 +39,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(76, 67);
+            pictureBox1.Location = new Point(95, 84);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(151, 124);
+            pictureBox1.Size = new Size(189, 155);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -52,8 +53,9 @@
             label1.BackColor = Color.Silver;
             label1.Dock = DockStyle.Top;
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(49, 20);
+            label1.Size = new Size(59, 25);
             label1.TabIndex = 1;
             label1.Text = "Nama";
             // 
@@ -61,20 +63,22 @@
             // 
             panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(336, 67);
+            panel1.Location = new Point(420, 84);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 200);
+            panel1.Size = new Size(312, 250);
             panel1.TabIndex = 2;
             // 
             // V_HalProfile
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
+            Margin = new Padding(4);
             Name = "V_HalProfile";
-            Size = new Size(686, 577);
+            Size = new Size(858, 721);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

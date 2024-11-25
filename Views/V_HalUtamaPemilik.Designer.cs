@@ -55,10 +55,11 @@ namespace PBO_B1.Views
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.ForeColor = Color.White;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1017, 588);
+            tableLayoutPanel1.Size = new Size(1271, 735);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -72,9 +73,10 @@ namespace PBO_B1.Views
             panel1.Controls.Add(btnProfile);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(4, 4);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(197, 582);
+            panel1.Size = new Size(246, 727);
             panel1.TabIndex = 6;
             // 
             // btnLogout
@@ -84,9 +86,10 @@ namespace PBO_B1.Views
             btnLogout.Dock = DockStyle.Bottom;
             btnLogout.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
-            btnLogout.Location = new Point(0, 504);
+            btnLogout.Location = new Point(0, 629);
+            btnLogout.Margin = new Padding(4, 4, 4, 4);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(197, 78);
+            btnLogout.Size = new Size(246, 98);
             btnLogout.TabIndex = 6;
             btnLogout.Text = "Logout";
             btnLogout.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -100,9 +103,10 @@ namespace PBO_B1.Views
             btnAdmin.Dock = DockStyle.Top;
             btnAdmin.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdmin.Image = (Image)resources.GetObject("btnAdmin.Image");
-            btnAdmin.Location = new Point(0, 416);
+            btnAdmin.Location = new Point(0, 522);
+            btnAdmin.Margin = new Padding(4, 4, 4, 4);
             btnAdmin.Name = "btnAdmin";
-            btnAdmin.Size = new Size(197, 78);
+            btnAdmin.Size = new Size(246, 98);
             btnAdmin.TabIndex = 5;
             btnAdmin.Text = "Admin";
             btnAdmin.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -116,9 +120,10 @@ namespace PBO_B1.Views
             btnLaporan.Dock = DockStyle.Top;
             btnLaporan.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLaporan.Image = (Image)resources.GetObject("btnLaporan.Image");
-            btnLaporan.Location = new Point(0, 338);
+            btnLaporan.Location = new Point(0, 424);
+            btnLaporan.Margin = new Padding(4, 4, 4, 4);
             btnLaporan.Name = "btnLaporan";
-            btnLaporan.Size = new Size(197, 78);
+            btnLaporan.Size = new Size(246, 98);
             btnLaporan.TabIndex = 4;
             btnLaporan.Text = "Laporan";
             btnLaporan.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -132,9 +137,10 @@ namespace PBO_B1.Views
             btnTransaksi.Dock = DockStyle.Top;
             btnTransaksi.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTransaksi.Image = (Image)resources.GetObject("btnTransaksi.Image");
-            btnTransaksi.Location = new Point(0, 260);
+            btnTransaksi.Location = new Point(0, 326);
+            btnTransaksi.Margin = new Padding(4, 4, 4, 4);
             btnTransaksi.Name = "btnTransaksi";
-            btnTransaksi.Size = new Size(197, 78);
+            btnTransaksi.Size = new Size(246, 98);
             btnTransaksi.TabIndex = 3;
             btnTransaksi.Text = "Transaksi";
             btnTransaksi.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -148,9 +154,10 @@ namespace PBO_B1.Views
             btnBarang.Dock = DockStyle.Top;
             btnBarang.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBarang.Image = (Image)resources.GetObject("btnBarang.Image");
-            btnBarang.Location = new Point(0, 182);
+            btnBarang.Location = new Point(0, 228);
+            btnBarang.Margin = new Padding(4, 4, 4, 4);
             btnBarang.Name = "btnBarang";
-            btnBarang.Size = new Size(197, 78);
+            btnBarang.Size = new Size(246, 98);
             btnBarang.TabIndex = 2;
             btnBarang.Text = "Barang";
             btnBarang.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -164,9 +171,10 @@ namespace PBO_B1.Views
             btnProfile.Dock = DockStyle.Top;
             btnProfile.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnProfile.Image = (Image)resources.GetObject("btnProfile.Image");
-            btnProfile.Location = new Point(0, 104);
+            btnProfile.Location = new Point(0, 130);
+            btnProfile.Margin = new Padding(4, 4, 4, 4);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(197, 78);
+            btnProfile.Size = new Size(246, 98);
             btnProfile.TabIndex = 1;
             btnProfile.Text = "Profile";
             btnProfile.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -178,8 +186,9 @@ namespace PBO_B1.Views
             pictureBox1.Dock = DockStyle.Top;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(197, 104);
+            pictureBox1.Size = new Size(246, 130);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -187,18 +196,21 @@ namespace PBO_B1.Views
             // panelmain
             // 
             panelmain.Dock = DockStyle.Fill;
-            panelmain.Location = new Point(206, 3);
+            panelmain.Location = new Point(258, 4);
+            panelmain.Margin = new Padding(4, 4, 4, 4);
             panelmain.Name = "panelmain";
-            panelmain.Size = new Size(808, 582);
+            panelmain.Size = new Size(1009, 727);
             panelmain.TabIndex = 7;
+            panelmain.Paint += panelmain_Paint;
             // 
             // V_HalUtamaPemilik
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1017, 588);
+            ClientSize = new Size(1271, 735);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "V_HalUtamaPemilik";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Patungan";

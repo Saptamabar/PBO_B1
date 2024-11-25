@@ -84,5 +84,10 @@ namespace PBO_B1.Views
             panelmain.Controls.Add(v_HalAdmin);
             v_HalAdmin.Dock = DockStyle.Fill;
         }
+
+        private void panelmain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
