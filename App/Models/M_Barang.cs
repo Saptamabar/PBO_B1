@@ -23,11 +23,9 @@ namespace PBO_B1.App.Models
         public string kategori { get; set; }
         [Required]
         public int jumlah { get; set; }
-        [Required]
-        public DateTime tanggal_pembelian { get; set; }
-        public string kategori_nama_kategori { get; set; }
-        [Required]
+        public DateOnly tanggal_pembelian { get; set; }
         public string foto_barang { get; set; }
-        public int id { get; internal set; }
+        public string kategori { get; set; }
+        public string merk {  get; set; }
     }
 }

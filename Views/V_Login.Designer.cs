@@ -38,26 +38,28 @@ namespace PBO_B1
             // tbUsername
             // 
             tbUsername.BorderStyle = BorderStyle.None;
-            tbUsername.Location = new Point(507, 219);
+            tbUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbUsername.Location = new Point(765, 341);
             tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(349, 20);
+            tbUsername.Size = new Size(349, 27);
             tbUsername.TabIndex = 0;
             tbUsername.TextChanged += tbUsername_TextChanged;
             // 
             // tbPassword
             // 
             tbPassword.BorderStyle = BorderStyle.None;
-            tbPassword.Location = new Point(507, 294);
+            tbPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbPassword.Location = new Point(765, 458);
             tbPassword.Name = "tbPassword";
             tbPassword.PasswordChar = '*';
-            tbPassword.Size = new Size(349, 20);
+            tbPassword.Size = new Size(349, 27);
             tbPassword.TabIndex = 1;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(630, 385);
+            btnLogin.Location = new Point(985, 607);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(97, 29);
+            btnLogin.Size = new Size(117, 44);
             btnLogin.TabIndex = 2;
             btnLogin.Text = "LOGIN";
             btnLogin.UseVisualStyleBackColor = true;
@@ -69,7 +71,7 @@ namespace PBO_B1
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(942, 493);
+            ClientSize = new Size(1422, 763);
             Controls.Add(btnLogin);
             Controls.Add(tbPassword);
             Controls.Add(tbUsername);
