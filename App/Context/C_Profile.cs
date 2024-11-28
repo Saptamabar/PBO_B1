@@ -14,7 +14,7 @@ namespace PBO_B1.App.Context
 {
     internal class C_Profile : DatabaseWrapper
     {
-        
+
         public void Updateprofile()
         {
             // Query untuk menyimpan data
