@@ -26,7 +26,6 @@ namespace PBO_B1.Views
 
             dataGridAdmin.Columns.Clear();
 
-            // Mengatur DataSource terlebih dahulu
             DataTable data_admin = C_Admin.Admin();
             if (data_admin == null)
             {
@@ -35,7 +34,6 @@ namespace PBO_B1.Views
             }
             dataGridAdmin.DataSource = data_admin;
 
-            // Mengatur header kolom yang berasal dari DataSource
             if (dataGridAdmin.Columns["akun_id"] != null)
                 dataGridAdmin.Columns["akun_id"].HeaderText = "ID";
 

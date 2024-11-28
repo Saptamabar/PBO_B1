@@ -71,7 +71,7 @@
             dataGridAdmin.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Transparent;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridAdmin.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridAdmin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
