@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace PBO_B1.App.Context
 {
-    internal class C_Barang
+    internal class C_Barang : DatabaseWrapper
     {
         public static M_Barang[] getAllBarang()
         {
             string query = "select * from barang";
 
             // Panggil queryExecutor untuk mengambil data
-            DataTable databarang = DatabaseWrapper.queryExecutor(query);
+            DataTable databarang = queryExecutor(query);
 
             // Mapping data dari DataTable ke List<M_Barang>
             List<M_Barang> Daftar_barang = databarang.AsEnumerable().Select(row => new M_Barang

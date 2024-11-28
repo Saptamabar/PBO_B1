@@ -20,8 +20,7 @@ namespace PBO_B1.App.Models
         [Required]
         public int harga { get; set; }
         [Required]
-        public string kategori { get; set; }
-        [Required]
+        
         public int jumlah { get; set; }
         public DateOnly tanggal_pembelian { get; set; }
         public string foto_barang { get; set; }
