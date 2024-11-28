@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btnTambahAdmin = new Button();
             dataGridAdmin = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -51,16 +52,29 @@
             // 
             // dataGridAdmin
             // 
+            dataGridAdmin.AllowUserToResizeColumns = false;
+            dataGridAdmin.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.White;
             dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridAdmin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridAdmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridAdmin.BackgroundColor = Color.White;
+            dataGridAdmin.BorderStyle = BorderStyle.None;
             dataGridAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridAdmin.Dock = DockStyle.Fill;
             dataGridAdmin.GridColor = Color.Black;
             dataGridAdmin.Location = new Point(3, 165);
             dataGridAdmin.Name = "dataGridAdmin";
             dataGridAdmin.RowHeadersWidth = 51;
+            dataGridAdmin.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridAdmin.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridAdmin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridAdmin.Size = new Size(1146, 642);
             dataGridAdmin.TabIndex = 1;
             // 

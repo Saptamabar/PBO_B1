@@ -25,7 +25,7 @@ namespace PBO_B1.Views
             V_HalProfile v_HalProfile = new V_HalProfile();
             InitializeComponent();
             LoadUserControl(v_HalProfile);
-        }
+         }
 
         public static void LoadUserControl(Control control)
         {
