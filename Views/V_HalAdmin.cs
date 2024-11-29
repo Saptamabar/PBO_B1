@@ -12,7 +12,6 @@ namespace PBO_B1.Views
 {
     public partial class V_HalAdmin : UserControl
     {
-        V_HalTambahAdmin v_HalTambahAdmin = new V_HalTambahAdmin();
         public V_HalAdmin()
         {
             InitializeComponent();
