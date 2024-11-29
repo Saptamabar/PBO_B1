@@ -84,9 +84,10 @@ namespace PBO_B1.Views
             btnLogout.Dock = DockStyle.Bottom;
             btnLogout.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
-            btnLogout.Location = new Point(0, 675);
+            btnLogout.Location = new Point(0, 685);
+            btnLogout.Margin = new Padding(2, 2, 2, 2);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(277, 78);
+            btnLogout.Size = new Size(277, 68);
             btnLogout.TabIndex = 6;
             btnLogout.Text = "Logout";
             btnLogout.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -179,7 +180,7 @@ namespace PBO_B1.Views
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(277, 104);
+            pictureBox1.Size = new Size(277, 83);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -187,9 +188,10 @@ namespace PBO_B1.Views
             // panelmain
             // 
             panelmain.Dock = DockStyle.Fill;
-            panelmain.Location = new Point(286, 3);
+            panelmain.Location = new Point(285, 2);
+            panelmain.Margin = new Padding(2, 2, 2, 2);
             panelmain.Name = "panelmain";
-            panelmain.Size = new Size(1129, 753);
+            panelmain.Size = new Size(1131, 755);
             panelmain.TabIndex = 7;
             // 
             // V_HalUtamaPemilik
@@ -202,7 +204,6 @@ namespace PBO_B1.Views
             Name = "V_HalUtamaPemilik";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Patungan";
-            
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -223,6 +224,6 @@ namespace PBO_B1.Views
         private Button btnProfile;
         private Button btnLogout;
         private Button btnAdmin;
-        private static Panel panelmain;
+        public static Panel panelmain;
     }
 }
