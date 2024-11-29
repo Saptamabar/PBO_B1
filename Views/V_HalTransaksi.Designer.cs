@@ -2,43 +2,55 @@
 {
     partial class V_HalTransaksi
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Component Designer generated code
-
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
+            dataGridViewTransaksi = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransaksi).BeginInit();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.DarkOrange;
+            label1.Dock = DockStyle.Top;
+            label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(1688, 166);
+            label1.TabIndex = 0;
+            label1.Text = "Transaksi ";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
+            // 
+            // dataGridViewTransaksi
+            // 
+            dataGridViewTransaksi.AllowUserToOrderColumns = true;
+            dataGridViewTransaksi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTransaksi.Dock = DockStyle.Fill;
+            dataGridViewTransaksi.Location = new Point(0, 166);
+            dataGridViewTransaksi.Name = "dataGridViewTransaksi";
+            dataGridViewTransaksi.RowHeadersWidth = 82;
+            dataGridViewTransaksi.Size = new Size(1688, 658);
+            dataGridViewTransaksi.TabIndex = 2;
+            dataGridViewTransaksi.CellContentClick += dataGridViewTransaksi_CellContentClick; // Perbaiki nama event handler
             // 
             // V_HalTransaksi
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dataGridViewTransaksi);
+            Controls.Add(label1);
+            Margin = new Padding(5);
             Name = "V_HalTransaksi";
-            Size = new Size(1152, 810);
+            Size = new Size(1688, 824);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransaksi).EndInit();
             ResumeLayout(false);
         }
 
-        #endregion
+        private Label label1;
+        private DataGridView dataGridViewTransaksi;
+
     }
 }

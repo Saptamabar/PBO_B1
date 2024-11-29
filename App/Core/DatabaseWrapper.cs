@@ -13,7 +13,6 @@ namespace PBO_B1.App.Core
         private static readonly string DB_HOST = "localhost";
         private static readonly string DB_DATABASE = "Patungan";
         private static readonly string DB_USERNAME = "postgres";
-        private static readonly string DB_PASSWORD = "yesa";
         private static readonly string DB_PORT = "5432";
 
         private static NpgsqlConnection connection;

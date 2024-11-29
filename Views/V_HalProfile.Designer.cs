@@ -48,6 +48,7 @@
             // 
             // Fotoprofile
             // 
+          
             Fotoprofile.BackColor = Color.White;
             Fotoprofile.BackgroundImage = (Image)resources.GetObject("Fotoprofile.BackgroundImage");
             Fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
