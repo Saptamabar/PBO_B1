@@ -61,12 +61,12 @@ namespace PBO_B1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap Group_8 {
+        internal static byte[] DefaultImageBarang {
             get {
-                object obj = ResourceManager.GetObject("Group 8", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DefaultImageBarang", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

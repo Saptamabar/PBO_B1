@@ -10,7 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Npgsql" Version="9.0.1" />
+    <None Remove="Resources\DefaultImageBarang.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\DefaultImageBarang.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>

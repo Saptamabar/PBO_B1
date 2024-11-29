@@ -15,6 +15,7 @@ namespace PBO_B1.Views
         public V_HalLaporan()
         {
             InitializeComponent();
+            
         }
     }
 }

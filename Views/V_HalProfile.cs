@@ -55,7 +55,7 @@ namespace PBO_B1.Views
 
         private void LabelJabatan_Click(object sender, EventArgs e)
         {
-            ;
+            
         }
 
         private void LabelEmail_Click(object sender, EventArgs e)
