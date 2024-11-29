@@ -36,19 +36,22 @@
             label1.BackColor = SystemColors.AppWorkspace;
             label1.Dock = DockStyle.Top;
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(590, 138);
+            label1.Size = new Size(738, 172);
             label1.TabIndex = 0;
             label1.Text = "Barang";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // V_HalBarang
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "V_HalBarang";
-            Size = new Size(590, 508);
+            Size = new Size(738, 635);
+            Load += V_HalBarang_Load;
             ResumeLayout(false);
         }
 

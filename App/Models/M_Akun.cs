@@ -8,6 +8,7 @@ namespace PBO_B1.App.Models
 {
     public class M_Akun
     {
+        //public M_Akun() { }
         public M_Akun(string username, string password)
         {
             Username = username;

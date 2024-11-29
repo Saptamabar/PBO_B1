@@ -170,6 +170,7 @@
             panelmain.Name = "panelmain";
             panelmain.Size = new Size(1152, 810);
             panelmain.TabIndex = 3;
+            panelmain.Paint += panelmain_Paint;
             // 
             // lblnama
             // 
@@ -180,6 +181,7 @@
             lblnama.Size = new Size(283, 52);
             lblnama.TabIndex = 4;
             lblnama.Text = "Selamat datang";
+            lblnama.Click += lblnama_Click;
             // 
             // label1
             // 

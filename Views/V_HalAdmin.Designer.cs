@@ -28,45 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
+            btnTambahAdmin = new Button();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.BackgroundColor = Color.FromArgb(255, 224, 192);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(39, 87);
+            dataGridView1.Location = new Point(125, 104);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1146, 448);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.Size = new Size(1301, 557);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button1
+            // btnTambahAdmin
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(925, 597);
-            button1.Name = "button1";
-            button1.Size = new Size(204, 53);
-            button1.TabIndex = 1;
-            button1.Text = "Tambah";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnTambahAdmin.Anchor = AnchorStyles.None;
+            btnTambahAdmin.AutoSize = true;
+            btnTambahAdmin.ForeColor = Color.Black;
+            btnTambahAdmin.Location = new Point(1181, 689);
+            btnTambahAdmin.Name = "btnTambahAdmin";
+            btnTambahAdmin.Size = new Size(244, 53);
+            btnTambahAdmin.TabIndex = 1;
+            btnTambahAdmin.Text = "Tambah";
+            btnTambahAdmin.UseVisualStyleBackColor = true;
+            btnTambahAdmin.Click += btnTambahAdmin_Click;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 15F);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(524, 43);
+            label1.Location = new Point(589, 40);
             label1.Name = "label1";
-            label1.Size = new Size(193, 41);
+            label1.Size = new Size(371, 41);
             label1.TabIndex = 2;
             label1.Text = "DATA ADMIN";
             label1.Click += label1_Click;
@@ -76,20 +79,21 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(label1);
-            Controls.Add(button1);
             Controls.Add(dataGridView1);
+            Controls.Add(label1);
+            Controls.Add(btnTambahAdmin);
             Name = "V_HalAdmin";
-            Size = new Size(1230, 693);
+            Size = new Size(1512, 849);
             Load += V_HalAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
+        private Button btnTambahAdmin;
         private Label label1;
     }
 }
