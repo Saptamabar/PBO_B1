@@ -59,5 +59,15 @@ namespace PBO_B1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DefaultImageBarang {
+            get {
+                object obj = ResourceManager.GetObject("DefaultImageBarang", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

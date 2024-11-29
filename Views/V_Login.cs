@@ -10,6 +10,16 @@ namespace PBO_B1
         public V_Login()
         {
             InitializeComponent();
+            tbUsername.KeyDown += new KeyEventHandler(tb_KeyDown);
+            tbPassword.KeyDown += new KeyEventHandler(tb_KeyDown);
+        }
+
+        private void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               btnLogin_Click(sender, e);
+            }
         }
 
         private void tbUsername_TextChanged(object sender, EventArgs e)
@@ -25,10 +35,18 @@ namespace PBO_B1
 
             if (login_Akun != null)
             {
-                Hide();
-                
-                V_HalUtamaPemilik Halutama = new V_HalUtamaPemilik();
-                Halutama.ShowDialog();
+                if (login_Akun.jabatan == "Owner")
+                {
+                    Hide();
+                    V_HalUtamaPemilik Halutama = new V_HalUtamaPemilik();
+                    Halutama.ShowDialog();
+                }
+                else
+                {
+                    Hide() ;
+                    V_HalUtamaKaryawan halUtamaKaryawan = new V_HalUtamaKaryawan();
+                    halUtamaKaryawan.ShowDialog();
+                }
             }
             else
             {

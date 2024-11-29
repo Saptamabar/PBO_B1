@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace PBO_B1.Views
 {
-    public partial class V_HalLaporan : UserControl
+    public partial class V_HalUtamaKaryawan : Form
     {
-        public V_HalLaporan()
+        public V_HalUtamaKaryawan()
         {
             InitializeComponent();
-            
+        }
+
+        private void V_HalUtamaKaryawan_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,82 +7,81 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBO_B1.App.Context;
+
 
 namespace PBO_B1.Views
 {
     public partial class V_HalUtamaPemilik : Form
     {
-        V_HalProfile v_HalProfile = new V_HalProfile();
+        
         V_HalBarang v_HalBarang = new V_HalBarang();
         V_HalTransaksi v_HalTransaksi = new V_HalTransaksi();
         V_HalLaporan v_HalLaporan = new V_HalLaporan();
         V_HalAdmin v_HalAdmin = new V_HalAdmin();
+        V_HalProfileUbah v_HalProfileUbah = new V_HalProfileUbah();
         public V_HalUtamaPemilik()
         {
+            V_HalProfile v_HalProfile = new V_HalProfile();
             InitializeComponent();
+            LoadUserControl(v_HalProfile);
+         }
+
+        public static void LoadUserControl(Control control)
+        {
             panelmain.Controls.Clear();
-            panelmain.Controls.Add(v_HalProfile);
-            v_HalProfile.Dock = DockStyle.Fill;
-        }
-
-        private void V_HalUtamaPemilik_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            control.Dock = DockStyle.Fill;
+            control.BringToFront();
+            control.Focus();
+            panelmain.Controls.Add(control);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            DialogResult dialogResult = MessageBox.Show("Apakah anda yakin ingin keluar?", "Keluar", MessageBoxButtons.OKCancel);
+            if (dialogResult == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else if (dialogResult == DialogResult.Cancel)
+            {
+                
+            }
+            
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            panelmain.Controls.Clear();
-            panelmain.Controls.Add(v_HalProfile);
-            v_HalProfile.Dock = DockStyle.Fill;
+            V_HalProfile v_HalProfile = new V_HalProfile();
+
+            LoadUserControl(v_HalProfile);
         }
 
         private void btnBarang_Click(object sender, EventArgs e)
         {
-            panelmain.Controls.Clear();
-            panelmain.Controls.Add(v_HalBarang);
-            v_HalBarang.Dock = DockStyle.Fill;
+            LoadUserControl(v_HalBarang);
         }
 
         private void btnTransaksi_Click(object sender, EventArgs e)
         {
-            panelmain.Controls.Clear();
-            panelmain.Controls.Add(v_HalTransaksi);
-            v_HalTransaksi.Dock = DockStyle.Fill;
+            LoadUserControl(v_HalTransaksi);
+
         }
 
         private void btnLaporan_Click(object sender, EventArgs e)
         {
-            panelmain.Controls.Clear();
-            panelmain.Controls.Add(v_HalLaporan);
-            v_HalLaporan.Dock = DockStyle.Fill;
+            LoadUserControl(v_HalLaporan);
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            panelmain.Controls.Clear();
-            panelmain.Controls.Add(v_HalAdmin);
-            v_HalAdmin.Dock = DockStyle.Fill;
+            LoadUserControl(v_HalAdmin);
+
+        }
+
+        private void panelmain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -51,5 +51,6 @@
 
         private Label label1;
         private DataGridView dataGridViewTransaksi;
+
     }
 }
