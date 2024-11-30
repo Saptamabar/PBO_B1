@@ -34,10 +34,9 @@ namespace PBO_B1.Views
             }
             dataGridAdmin.DataSource = data_admin;
 
-            if (dataGridAdmin.Columns["akun_id"] != null)
-                dataGridAdmin.Columns["akun_id"].HeaderText = "ID";
+            dataGridAdmin.Columns["akun_id"].Visible = false;
 
-            
+
             DataGridViewTextBoxColumn nomorKolom = new DataGridViewTextBoxColumn
             {
                 HeaderText = "No",
@@ -53,6 +52,7 @@ namespace PBO_B1.Views
                 Text = "Edit",
                 UseColumnTextForButtonValue = true,
             };
+
             DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn
             {
                 Name = "Delete",
@@ -70,12 +70,38 @@ namespace PBO_B1.Views
                     dataGridAdmin.Rows[i].Cells["Nomor"].Value = (i + 1).ToString();
                 }
             };
-            
+
             dataGridAdmin.ReadOnly = true;
 
         }
 
+        private void dataGridAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == dataGridAdmin.Columns["EditColumn"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridAdmin.Rows[e.RowIndex];
+                int id = Convert.ToInt32(row.Cells["Akun_id"].Value);
+                DataTable dataAkun = C_Admin.getDataAkunById(id);
+                v_HalTambahAdmin.LoadData(dataAkun);
+                V_HalUtamaPemilik.LoadUserControl(v_HalTambahAdmin);
+            }
+
+            if (e.ColumnIndex == dataGridAdmin.Columns["DeleteColumn"].Index && e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(dataGridAdmin.Rows[e.RowIndex].Cells["Akun_id"].Value);
+
+                DialogResult dialogResult = MessageBox.Show("Yakin ingin menghapus data?", "Hapus Data", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    C_Admin.DeleteAkun(id);
+                    MessageBox.Show("Data berhasil dihapus!");
+                    dataGridAdmin.DataSource = C_Admin.Admin();
+                }
+            }
+
+
+        }
 
     }
-
 }
