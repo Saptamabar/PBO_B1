@@ -35,20 +35,23 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(336, 234);
+            label1.Location = new Point(420, 292);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(81, 20);
+            label1.Size = new Size(96, 25);
             label1.TabIndex = 0;
             label1.Text = "Belum Jadi";
             // 
             // V_HalUtamaKaryawan
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
             Controls.Add(label1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "V_HalUtamaKaryawan";
             Text = "V_HalUtamaKaryawan";
+            Load += V_HalUtamaKaryawan_Load;
             ResumeLayout(false);
             PerformLayout();
         }

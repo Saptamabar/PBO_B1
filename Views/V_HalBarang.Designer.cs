@@ -141,7 +141,7 @@
             // 
             // V_HalBarang
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 128, 0);
             Controls.Add(tableLayoutPanel1);

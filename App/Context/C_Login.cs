@@ -43,8 +43,7 @@ namespace PBO_B1.App.Context
                 };
             Session.CurrentUser = loginAkun;
             return loginAkun;
-
-
         }
+
     }
 }

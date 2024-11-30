@@ -78,5 +78,10 @@ namespace PBO_B1.Views
             LoadUserControl(v_HalAdmin);
 
         }
+
+        private void panelmain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
