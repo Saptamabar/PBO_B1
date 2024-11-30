@@ -1,3 +1,5 @@
+using PBO_B1.Views;
+
 namespace PBO_B1
 {
     internal static class Program

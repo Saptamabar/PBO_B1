@@ -16,7 +16,7 @@ namespace PBO_B1.Views
 {
     public partial class V_HalProfile : UserControl
     {
-        
+
         public V_HalProfile()
         {
             InitializeComponent();
@@ -30,14 +30,15 @@ namespace PBO_B1.Views
             lblnama.Text = data.Nama;
             if (!string.IsNullOrEmpty(data.foto_profile))
             {
-                Image image = Image.FromFile(data.foto_profile);
-                Fotoprofile.Image = image;
+                //Image image = Image.FromFile(data.foto_profile);
+                //Fotoprofile.Image = image;
             }
+
         }
 
         private void LabelNama_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -49,27 +50,37 @@ namespace PBO_B1.Views
 
         private void LabelUsername_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void LabelJabatan_Click(object sender, EventArgs e)
         {
-            ;
+            
         }
 
         private void LabelEmail_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void LabelNoHP_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void LabelPassword_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void panelmain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblnama_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

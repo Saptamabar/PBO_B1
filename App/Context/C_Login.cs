@@ -12,13 +12,7 @@ namespace PBO_B1.App.Context
 {
     internal class C_Login : DatabaseWrapper
     {
-        public static DataTable All()
-        {
-            string query = @"
-                SELECT * FROM akun";
-            DataTable datapengguna = queryExecutor(query);
-            return datapengguna;
-        }
+        
         public M_Akun Validate(string username, string password)
         {
             M_Akun loginAkun = null;
@@ -49,8 +43,7 @@ namespace PBO_B1.App.Context
                 };
             Session.CurrentUser = loginAkun;
             return loginAkun;
-
-
         }
+
     }
 }
