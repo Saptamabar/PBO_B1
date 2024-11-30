@@ -53,7 +53,7 @@
             Fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
             Fotoprofile.BorderStyle = BorderStyle.FixedSingle;
             Fotoprofile.Location = new Point(117, 137);
-            Fotoprofile.Margin = new Padding(2, 2, 2, 2);
+            Fotoprofile.Margin = new Padding(2);
             Fotoprofile.Name = "Fotoprofile";
             Fotoprofile.Size = new Size(120, 160);
             Fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
@@ -71,7 +71,7 @@
             panelprofile.Controls.Add(LabelUsername);
             panelprofile.Controls.Add(LabelNama);
             panelprofile.Location = new Point(357, 137);
-            panelprofile.Margin = new Padding(2, 2, 2, 2);
+            panelprofile.Margin = new Padding(2);
             panelprofile.Name = "panelprofile";
             panelprofile.Size = new Size(482, 298);
             panelprofile.TabIndex = 1;
@@ -160,7 +160,7 @@
             btnEdit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEdit.ForeColor = Color.Black;
             btnEdit.Location = new Point(132, 398);
-            btnEdit.Margin = new Padding(2, 2, 2, 2);
+            btnEdit.Margin = new Padding(2);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(94, 37);
             btnEdit.TabIndex = 2;
@@ -175,8 +175,9 @@
             panelmain.Controls.Add(btnEdit);
             panelmain.Controls.Add(panelprofile);
             panelmain.Controls.Add(Fotoprofile);
+            panelmain.Dock = DockStyle.Fill;
             panelmain.Location = new Point(0, 0);
-            panelmain.Margin = new Padding(2, 2, 2, 2);
+            panelmain.Margin = new Padding(2);
             panelmain.Name = "panelmain";
             panelmain.Size = new Size(922, 648);
             panelmain.TabIndex = 3;
@@ -213,7 +214,7 @@
             BackgroundImageLayout = ImageLayout.Zoom;
             Controls.Add(panelmain);
             DoubleBuffered = true;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "V_HalProfile";
             Size = new Size(922, 648);
             ((System.ComponentModel.ISupportInitialize)Fotoprofile).EndInit();
