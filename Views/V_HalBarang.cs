@@ -25,27 +25,35 @@ namespace PBO_B1.Views
 
             foreach (var data in barangArray)
             {
-                int barang_id = data.barang_id;
-                string nama_barang = data.nama_barang;
-                int harga = data.harga;
-                DateOnly tanggal_pembelian = data.tanggal_pembelian;
-                string foto_barang = data.foto_barang;
-                string kategori = data.kategori;
-                string merk = data.merk;
 
-                ShowBarang showBarang = new ShowBarang(nama_barang, harga, tanggal_pembelian, foto_barang, kategori, merk);
-                Panel reviewPanel = showBarang.CreateItem();
+                Panel reviewPanel = C_Barang.CreateItem(data);
                 reviewPanel.BringToFront();
-                reviewPanel.BackColor = Color.FromArgb(255, 128, 0);
-                reviewPanel.BorderStyle = BorderStyle.FixedSingle;
                 PanelBarang.Controls.Add(reviewPanel);
 
             }
 
         }
 
-        
+        private void TBSearchbar_Click(object sender, EventArgs e)
+        {
+            TBSearchbar.Text = string.Empty;
+        }
 
-        
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonEditBarang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnTambahBarang_Click(object sender, EventArgs e)
+        {
+            V_HalTambahBarang v_HalTambahBarang = new V_HalTambahBarang();
+            V_HalUtamaPemilik.LoadUserControl(v_HalTambahBarang);
+            
+        }
     }
 }
