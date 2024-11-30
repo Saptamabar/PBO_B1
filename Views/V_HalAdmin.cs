@@ -13,6 +13,7 @@ namespace PBO_B1.Views
 {
     public partial class V_HalAdmin : UserControl
     {
+        V_HalTambahAdmin v_HalTambahAdmin = new V_HalTambahAdmin();
         public V_HalAdmin()
         {
             InitializeComponent();
@@ -83,7 +84,7 @@ namespace PBO_B1.Views
                 DataGridViewRow row = dataGridAdmin.Rows[e.RowIndex];
                 int id = Convert.ToInt32(row.Cells["Akun_id"].Value);
                 DataTable dataAkun = C_Admin.getDataAkunById(id);
-                v_HalTambahAdmin.LoadData(dataAkun);
+                //v_HalTambahAdmin.LoadData(dataAkun);
                 V_HalUtamaPemilik.LoadUserControl(v_HalTambahAdmin);
             }
 
