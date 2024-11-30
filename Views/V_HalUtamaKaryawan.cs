@@ -16,5 +16,10 @@ namespace PBO_B1.Views
         {
             InitializeComponent();
         }
+
+        private void V_HalUtamaKaryawan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
