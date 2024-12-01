@@ -1,4 +1,5 @@
-﻿using PBO_B1.App.Models;
+﻿using PBO_B1.App.Context;
+using PBO_B1.App.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace PBO_B1.Views
     public partial class V_HalTambahBarang : UserControl
     {
         M_Barang data = new M_Barang();
+        public bool IsEditMode { get; set; } = false;
         public V_HalTambahBarang()
         {
             InitializeComponent();
@@ -67,7 +69,99 @@ namespace PBO_B1.Views
 
         private void Buttonsimpan_Click(object sender, EventArgs e)
         {
+            data.nama_barang = TbNamaBarang.Text;
+            data.jumlah = (int)Convert.ToInt64(TBStok.Text);
+            data.harga = (int)Convert.ToInt64(TBHarga.Text);
+            data.tanggal_pembelian = DateOnly.FromDateTime(TanggalPembelian.Value);
+            data.kategori = daftarKategori.Text;
+            data.merk_merk = daftraMerk.Text;
 
+            
+            if (IsEditMode)
+            {
+                DialogResult dialogResult = MessageBox.Show("Yakin ingin mengubah data?", "Edit Data", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    C_Barang.UpdateBarang(data);
+                    MessageBox.Show("Data berhasil diperbarui!");
+                    V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
+                }
+
+            }
+            else
+            {
+                C_Barang.AddBarang(data);
+                 MessageBox.Show("Data berhasil ditambahkan!");
+                 V_HalUtamaPemilik.LoadUserControl(new V_HalAdmin());
+                
+            }
+        }
+
+        public void LoadData(M_Barang dataedit)
+        {
+            data.barang_id = dataedit.barang_id;
+            TbNamaBarang.Text = dataedit.nama_barang;
+            TBHarga.Text = dataedit.harga.ToString();
+            TBStok.Text = dataedit.jumlah.ToString();
+            Fotobarang.Image = !string.IsNullOrEmpty(dataedit.foto_barang) && File.Exists(dataedit.foto_barang)
+                    ? Image.FromFile(dataedit.foto_barang)
+                    : Properties.Resources.DeafultImageBarang;
+            daftarKategori.Text = dataedit.kategori.ToString();
+            daftraMerk.Text = dataedit.merk;
+            DateOnly dateOnly = dataedit.tanggal_pembelian;
+
+            DateTime dateTime = dateOnly.ToDateTime(TimeOnly.MinValue);
+
+            TanggalPembelian.Value = dateTime;
+
+
+
+            IsEditMode = true;
+
+            UpdateButtonText();
+
+        }
+
+        private void UpdateButtonText()
+        {
+            Buttonsimpan.Text = IsEditMode ? "Update" : "Add";
+        }
+
+        private void V_HalTambahBarang_Load(object sender, EventArgs e)
+        {
+            daftarKategori.Items.Clear();
+            M_Kategori[] daftar_barang = C_Barang.LoadKategori();
+            foreach (var data in daftar_barang)
+            {
+                daftarKategori.Items.Add(data.nama_kategori);
+            }
+
+            daftraMerk.Items.Clear();
+            M_Merk[] daftar_merk = C_Barang.LoadMerk();
+            foreach (var data in daftar_merk)
+            {
+                daftraMerk.Items.Add(data.merk);
+            }
+        }
+
+        private void TBHarga_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBHarga_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("Input harus berupa angka", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true; // Membatalkan karakter yang tidak valid
+            }
+
+        }
+
+        private void btnBatal_Click(object sender, EventArgs e)
+        {
+            V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
         }
     }
 }

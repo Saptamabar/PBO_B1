@@ -24,8 +24,8 @@ namespace PBO_B1.Views
             lblnama.Text = data.Nama;
             if (!string.IsNullOrEmpty(data.foto_profile))
             {
-                //image = Image.FromFile(data.foto_profile);
-                //fotoprofile.Image = image;
+                image = Image.FromFile(data.foto_profile);
+                fotoprofile.Image = image;
             }
 
         }

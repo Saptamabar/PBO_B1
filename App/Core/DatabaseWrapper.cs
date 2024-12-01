@@ -80,7 +80,6 @@ namespace PBO_B1.App.Core
                 command.Parameters.AddRange(parameters);
             command.Prepare();
 
-            // Eksekusi dan return reader tanpa menutup koneksi
             return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
 

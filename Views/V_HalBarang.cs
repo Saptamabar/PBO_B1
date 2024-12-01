@@ -18,6 +18,7 @@ namespace PBO_B1.Views
         {
             InitializeComponent();
             ShowItems();
+            ShowKategori();
         }
         private void ShowItems()
         {
@@ -29,9 +30,18 @@ namespace PBO_B1.Views
                 Panel reviewPanel = C_Barang.CreateItem(data);
                 reviewPanel.BringToFront();
                 PanelBarang.Controls.Add(reviewPanel);
-
             }
 
+        }
+
+        private void ShowKategori()
+        {
+            ComboBoxKategori.Items.Clear();
+            M_Kategori[] daftar_barang = C_Barang.LoadKategori();
+            foreach( var data in daftar_barang)
+            {
+                ComboBoxKategori.Items.Add(data.nama_kategori);
+            }
         }
 
         private void TBSearchbar_Click(object sender, EventArgs e)
@@ -39,21 +49,21 @@ namespace PBO_B1.Views
             TBSearchbar.Text = string.Empty;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonEditBarang_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnTambahBarang_Click(object sender, EventArgs e)
         {
             V_HalTambahBarang v_HalTambahBarang = new V_HalTambahBarang();
             V_HalUtamaPemilik.LoadUserControl(v_HalTambahBarang);
-            
+
+        }
+
+        private void ComboBoxKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PanelBarang_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

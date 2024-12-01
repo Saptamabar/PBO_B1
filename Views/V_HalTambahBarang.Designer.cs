@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             Panelbarangbaru = new Panel();
-            comboBox1 = new ComboBox();
+            daftraMerk = new ComboBox();
+            daftarKategori = new ComboBox();
             TanggalPembelian = new DateTimePicker();
             TBStok = new TextBox();
             TBHarga = new TextBox();
-            TBMerk = new TextBox();
             TbNamaBarang = new TextBox();
             Buttonsimpan = new Button();
             Fotobarang = new PictureBox();
+            btnBatal = new Button();
             Panelbarangbaru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Fotobarang).BeginInit();
             SuspendLayout();
@@ -46,11 +47,12 @@
             Panelbarangbaru.BackColor = Color.Transparent;
             Panelbarangbaru.BackgroundImage = Properties.Resources.Base_Form_Barang;
             Panelbarangbaru.BackgroundImageLayout = ImageLayout.Zoom;
-            Panelbarangbaru.Controls.Add(comboBox1);
+            Panelbarangbaru.Controls.Add(btnBatal);
+            Panelbarangbaru.Controls.Add(daftraMerk);
+            Panelbarangbaru.Controls.Add(daftarKategori);
             Panelbarangbaru.Controls.Add(TanggalPembelian);
             Panelbarangbaru.Controls.Add(TBStok);
             Panelbarangbaru.Controls.Add(TBHarga);
-            Panelbarangbaru.Controls.Add(TBMerk);
             Panelbarangbaru.Controls.Add(TbNamaBarang);
             Panelbarangbaru.Controls.Add(Buttonsimpan);
             Panelbarangbaru.Controls.Add(Fotobarang);
@@ -59,14 +61,23 @@
             Panelbarangbaru.Size = new Size(833, 587);
             Panelbarangbaru.TabIndex = 0;
             // 
-            // comboBox1
+            // daftraMerk
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Bangunan", "Gatau Lanutannya apa" });
-            comboBox1.Location = new Point(365, 244);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(394, 28);
-            comboBox1.TabIndex = 7;
+            daftraMerk.FormattingEnabled = true;
+            daftraMerk.Items.AddRange(new object[] { "Bangunan", "Gatau Lanutannya apa" });
+            daftraMerk.Location = new Point(365, 154);
+            daftraMerk.Name = "daftraMerk";
+            daftraMerk.Size = new Size(394, 28);
+            daftraMerk.TabIndex = 8;
+            // 
+            // daftarKategori
+            // 
+            daftarKategori.FormattingEnabled = true;
+            daftarKategori.Items.AddRange(new object[] { "Bangunan", "Gatau Lanutannya apa" });
+            daftarKategori.Location = new Point(365, 244);
+            daftarKategori.Name = "daftarKategori";
+            daftarKategori.Size = new Size(394, 28);
+            daftarKategori.TabIndex = 7;
             // 
             // TanggalPembelian
             // 
@@ -84,6 +95,7 @@
             TBStok.Name = "TBStok";
             TBStok.Size = new Size(394, 24);
             TBStok.TabIndex = 6;
+            TBStok.KeyPress += TBHarga_KeyPress;
             // 
             // TBHarga
             // 
@@ -93,15 +105,8 @@
             TBHarga.Name = "TBHarga";
             TBHarga.Size = new Size(394, 24);
             TBHarga.TabIndex = 5;
-            // 
-            // TBMerk
-            // 
-            TBMerk.BorderStyle = BorderStyle.None;
-            TBMerk.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TBMerk.Location = new Point(365, 156);
-            TBMerk.Name = "TBMerk";
-            TBMerk.Size = new Size(394, 24);
-            TBMerk.TabIndex = 3;
+            TBHarga.TextChanged += TBHarga_TextChanged;
+            TBHarga.KeyPress += TBHarga_KeyPress;
             // 
             // TbNamaBarang
             // 
@@ -117,7 +122,7 @@
             Buttonsimpan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Buttonsimpan.ForeColor = Color.Black;
             Buttonsimpan.Image = Properties.Resources.BG_Button_tambah;
-            Buttonsimpan.Location = new Point(120, 361);
+            Buttonsimpan.Location = new Point(190, 364);
             Buttonsimpan.Name = "Buttonsimpan";
             Buttonsimpan.Size = new Size(123, 46);
             Buttonsimpan.TabIndex = 1;
@@ -136,6 +141,19 @@
             Fotobarang.TabStop = false;
             Fotobarang.Click += Fotobarang_Click;
             // 
+            // btnBatal
+            // 
+            btnBatal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBatal.ForeColor = Color.Black;
+            btnBatal.Image = Properties.Resources.BG_Button_tambah;
+            btnBatal.Location = new Point(46, 364);
+            btnBatal.Name = "btnBatal";
+            btnBatal.Size = new Size(123, 46);
+            btnBatal.TabIndex = 9;
+            btnBatal.Text = "Batal";
+            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.Click += btnBatal_Click;
+            // 
             // V_HalTambahBarang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -143,6 +161,7 @@
             Controls.Add(Panelbarangbaru);
             Name = "V_HalTambahBarang";
             Size = new Size(1152, 810);
+            Load += V_HalTambahBarang_Load;
             Panelbarangbaru.ResumeLayout(false);
             Panelbarangbaru.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Fotobarang).EndInit();
@@ -155,10 +174,11 @@
         private PictureBox Fotobarang;
         private Button Buttonsimpan;
         private TextBox TbNamaBarang;
-        private ComboBox comboBox1;
+        private ComboBox daftarKategori;
         private DateTimePicker TanggalPembelian;
         private TextBox TBStok;
         private TextBox TBHarga;
-        private TextBox TBMerk;
+        private ComboBox daftraMerk;
+        private Button btnBatal;
     }
 }

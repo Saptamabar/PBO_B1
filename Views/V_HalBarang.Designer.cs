@@ -50,11 +50,12 @@
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel1.Size = new Size(1152, 810);
+            tableLayoutPanel1.Size = new Size(1134, 759);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // PanelBarang
@@ -62,11 +63,13 @@
             PanelBarang.AutoScroll = true;
             PanelBarang.BackColor = Color.White;
             PanelBarang.Dock = DockStyle.Fill;
-            PanelBarang.Location = new Point(3, 165);
+            PanelBarang.Location = new Point(2, 153);
+            PanelBarang.Margin = new Padding(2);
             PanelBarang.Name = "PanelBarang";
-            PanelBarang.Padding = new Padding(10);
-            PanelBarang.Size = new Size(1146, 642);
+            PanelBarang.Padding = new Padding(8);
+            PanelBarang.Size = new Size(1130, 604);
             PanelBarang.TabIndex = 0;
+            PanelBarang.Paint += PanelBarang_Paint;
             // 
             // panel1
             // 
@@ -76,18 +79,20 @@
             panel1.Controls.Add(BtnTambahBarang);
             panel1.Controls.Add(Panelseacrhbar);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1146, 156);
+            panel1.Size = new Size(1134, 151);
             panel1.TabIndex = 1;
             // 
             // kategori
             // 
             kategori.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             kategori.ForeColor = Color.White;
-            kategori.Location = new Point(64, 43);
+            kategori.Location = new Point(53, 74);
+            kategori.Margin = new Padding(2, 0, 2, 0);
             kategori.Name = "kategori";
-            kategori.Size = new Size(105, 25);
+            kategori.Size = new Size(109, 26);
             kategori.TabIndex = 3;
             kategori.Text = "Kategori :";
             // 
@@ -97,10 +102,12 @@
             ComboBoxKategori.ForeColor = Color.Black;
             ComboBoxKategori.FormattingEnabled = true;
             ComboBoxKategori.Items.AddRange(new object[] { "Bangunan", "Air", "Api", "Udara" });
-            ComboBoxKategori.Location = new Point(64, 71);
+            ComboBoxKategori.Location = new Point(53, 102);
+            ComboBoxKategori.Margin = new Padding(2);
             ComboBoxKategori.Name = "ComboBoxKategori";
-            ComboBoxKategori.Size = new Size(151, 31);
+            ComboBoxKategori.Size = new Size(122, 31);
             ComboBoxKategori.TabIndex = 2;
+            ComboBoxKategori.SelectedIndexChanged += ComboBoxKategori_SelectedIndexChanged;
             // 
             // BtnTambahBarang
             // 
@@ -108,9 +115,10 @@
             BtnTambahBarang.BackgroundImageLayout = ImageLayout.Zoom;
             BtnTambahBarang.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BtnTambahBarang.ForeColor = Color.Black;
-            BtnTambahBarang.Location = new Point(956, 61);
+            BtnTambahBarang.Location = new Point(954, 79);
+            BtnTambahBarang.Margin = new Padding(2);
             BtnTambahBarang.Name = "BtnTambahBarang";
-            BtnTambahBarang.Size = new Size(139, 49);
+            BtnTambahBarang.Size = new Size(141, 47);
             BtnTambahBarang.TabIndex = 1;
             BtnTambahBarang.Text = "Tambah";
             BtnTambahBarang.UseVisualStyleBackColor = false;
@@ -121,9 +129,10 @@
             Panelseacrhbar.BackgroundImage = (Image)resources.GetObject("Panelseacrhbar.BackgroundImage");
             Panelseacrhbar.BackgroundImageLayout = ImageLayout.Zoom;
             Panelseacrhbar.Controls.Add(TBSearchbar);
-            Panelseacrhbar.Location = new Point(320, 50);
+            Panelseacrhbar.Location = new Point(356, 65);
+            Panelseacrhbar.Margin = new Padding(2);
             Panelseacrhbar.Name = "Panelseacrhbar";
-            Panelseacrhbar.Size = new Size(529, 66);
+            Panelseacrhbar.Size = new Size(447, 68);
             Panelseacrhbar.TabIndex = 0;
             // 
             // TBSearchbar
@@ -132,21 +141,23 @@
             TBSearchbar.BorderStyle = BorderStyle.None;
             TBSearchbar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TBSearchbar.ForeColor = Color.Black;
-            TBSearchbar.Location = new Point(77, 18);
+            TBSearchbar.Location = new Point(64, 21);
+            TBSearchbar.Margin = new Padding(2);
             TBSearchbar.Name = "TBSearchbar";
-            TBSearchbar.Size = new Size(417, 27);
+            TBSearchbar.Size = new Size(334, 27);
             TBSearchbar.TabIndex = 0;
             TBSearchbar.Text = "Cari disini..";
             TBSearchbar.Click += TBSearchbar_Click;
             // 
             // V_HalBarang
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 128, 0);
             Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(2);
             Name = "V_HalBarang";
-            Size = new Size(1152, 810);
+            Size = new Size(1134, 759);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             Panelseacrhbar.ResumeLayout(false);

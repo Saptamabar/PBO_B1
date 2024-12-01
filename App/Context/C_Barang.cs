@@ -1,6 +1,9 @@
-﻿using PBO_B1.App.Core;
+﻿using Npgsql;
+using PBO_B1.App.Core;
 using PBO_B1.App.Models;
 using PBO_B1.Properties;
+using PBO_B1.Views;
+using System.Collections.Generic;
 using System.Data;
 using System.Resources;
 
@@ -12,7 +15,6 @@ namespace PBO_B1.App.Context
         {
             string query = "select * from barang";
 
-            // Panggil queryExecutor untuk mengambil data
             DataTable databarang = queryExecutor(query);
 
             // Mapping data dari DataTable ke List<M_Barang>
@@ -34,7 +36,7 @@ namespace PBO_B1.App.Context
 
         public static Panel CreateItem(M_Barang data)
         {
-            // Buat panel utama
+
             Panel panelbasebarang = new Panel
             {
                 BackgroundImage = Properties.Resources.Base_panel_barang,
@@ -178,8 +180,9 @@ namespace PBO_B1.App.Context
 
             void ButtonEditBarang_Click(object sender, EventArgs e)
             {
-                MessageBox.Show($"Anda mengklik Barang : {data.nama_barang}", "OK", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+                V_HalTambahBarang v_HalTambahBarang = new V_HalTambahBarang();
+                v_HalTambahBarang.LoadData(data);
+                V_HalUtamaPemilik.LoadUserControl(v_HalTambahBarang);
             }
 
 
@@ -201,7 +204,87 @@ namespace PBO_B1.App.Context
             return panelbasebarang;
         }
 
+        public static void AddBarang(M_Barang addbarang)
+        {
+            string query = $"INSERT INTO barang (nama_barang, harga, jumlah, tanggal_pembelian, foto_barang, kategori_nama_kategori, merk_merk) " +
+                $"VALUES(@nama_barang, @harga, @jumlah, @tanggal_pembelian, @foto_barang, @kategori_nama_kategori, @merk_merk)";
+            
+            NpgsqlParameter[] parameters =
+            {
+                new NpgsqlParameter("@nama_barang", addbarang.nama_barang),
+                new NpgsqlParameter("@harga", addbarang.harga),
+                new NpgsqlParameter("@jumlah", addbarang.jumlah),
+                new NpgsqlParameter("@tanggal_pembelian", addbarang.tanggal_pembelian),
+                new NpgsqlParameter("@foto_barang", DbType.String){ Value = !string.IsNullOrEmpty(addbarang.foto_barang) ? addbarang.foto_barang : DBNull.Value },
+                new NpgsqlParameter("@kategori_nama_kategori", addbarang.kategori),
+                new NpgsqlParameter("@merk_merk", DbType.String) {Value = addbarang.merk_merk}
+            };
+
+            commandExecutor(query, parameters);
+        }
+
+        public static void UpdateBarang(M_Barang addbarang)
+        {
+            string query = $"update barang set nama_barang = @nama_barang, " +
+                $"harga = @harga, " +
+                $"jumlah = @jumlah, " +
+                $"tanggal_pembelian = " +
+                $"@tanggal_pembelian, " +
+                $"foto_barang = " +
+                $"@foto_barang, " +
+                $"kategori_nama_kategori = @kategori_nama_kategori, " +
+                $"merk_merk = @merk_merk " +
+                $"where barang_id = @barang_id";
         
+            NpgsqlParameter[] parameters =
+            {
+                new NpgsqlParameter("@barang_id", addbarang.barang_id),
+                new NpgsqlParameter("@nama_barang", addbarang.nama_barang),
+                new NpgsqlParameter("@harga", addbarang.harga),
+                new NpgsqlParameter("@jumlah", addbarang.jumlah),
+                new NpgsqlParameter("@tanggal_pembelian", addbarang.tanggal_pembelian),
+                new NpgsqlParameter("@foto_barang", DbType.String){ Value = !string.IsNullOrEmpty(addbarang.foto_barang) ? addbarang.foto_barang : DBNull.Value },
+                new NpgsqlParameter("@kategori_nama_kategori", addbarang.kategori),
+                new NpgsqlParameter("@merk_merk", DbType.String) {Value = addbarang.merk_merk}
+            };
+
+            commandExecutor(query, parameters);
+        } 
+
+        public static M_Kategori[] LoadKategori()
+        {
+            string query = "select * from kategori";
+
+            DataTable datakategori = queryExecutor(query);
+
+            
+            List<M_Kategori> Daftar_kategori = datakategori.AsEnumerable().Select(row => new M_Kategori
+            {
+                nama_kategori = row.Field<string>("nama_kategori")
+            }).ToList();
+
+            
+            return Daftar_kategori.ToArray();
+        }
+
+        public static M_Merk[] LoadMerk()
+        {
+            string query = "select * from merk";
+
+            DataTable datamerk = queryExecutor(query);
+
+
+            List<M_Merk> Daftar_merk = datamerk.AsEnumerable().Select(row => new M_Merk
+            {
+                merk_id = row.Field<int>("merk_id"),
+                merk = row.Field<string>("merk"),
+
+            }).ToList();
+
+
+            return Daftar_merk.ToArray();
+        }
+
     }
 
 

@@ -63,6 +63,16 @@ namespace PBO_B1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Base_Form_Admin {
+            get {
+                object obj = ResourceManager.GetObject("Base_Form_Admin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Base_Form_Barang {
             get {
                 object obj = ResourceManager.GetObject("Base_Form_Barang", resourceCulture);

@@ -29,7 +29,7 @@ namespace PBO_B1.App.Context
 
                 if (reader.Read())
                 {
-                    loginAkun = new M_Akun(username, password)
+                    loginAkun = new M_Akun()
                     {
                         Akun_id = (int)reader["akun_id"],
                         Username = (string)reader["username"],

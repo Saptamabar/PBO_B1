@@ -39,12 +39,10 @@
             tbNama = new TextBox();
             btnSimpan = new Button();
             btnBatal = new Button();
-            panelmain = new Panel();
             lblnama = new Label();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)fotoprofile).BeginInit();
             panelprofileubah.SuspendLayout();
-            panelmain.SuspendLayout();
             SuspendLayout();
             // 
             // fotoprofile
@@ -159,21 +157,6 @@
             btnBatal.UseVisualStyleBackColor = false;
             btnBatal.Click += btnBatal_Click;
             // 
-            // panelmain
-            // 
-            panelmain.BackColor = Color.White;
-            panelmain.Controls.Add(lblnama);
-            panelmain.Controls.Add(label1);
-            panelmain.Controls.Add(btnBatal);
-            panelmain.Controls.Add(fotoprofile);
-            panelmain.Controls.Add(btnSimpan);
-            panelmain.Controls.Add(panelprofileubah);
-            panelmain.Dock = DockStyle.Fill;
-            panelmain.Location = new Point(0, 0);
-            panelmain.Name = "panelmain";
-            panelmain.Size = new Size(1152, 810);
-            panelmain.TabIndex = 4;
-            // 
             // lblnama
             // 
             lblnama.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -198,14 +181,19 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panelmain);
+            BackColor = Color.White;
+            Controls.Add(lblnama);
+            Controls.Add(label1);
+            Controls.Add(btnBatal);
+            Controls.Add(fotoprofile);
+            Controls.Add(btnSimpan);
+            Controls.Add(panelprofileubah);
             Name = "V_HalProfileUbah";
             Size = new Size(1152, 810);
             Load += V_HalProfileUbah_Load;
             ((System.ComponentModel.ISupportInitialize)fotoprofile).EndInit();
             panelprofileubah.ResumeLayout(false);
             panelprofileubah.PerformLayout();
-            panelmain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -220,7 +208,6 @@
         private TextBox tbNohp;
         private TextBox tbUsername;
         private Button btnBatal;
-        private Panel panelmain;
         private Label label1;
         private Label lblnama;
         private Label labeljabatan;

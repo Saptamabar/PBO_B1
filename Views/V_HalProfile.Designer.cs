@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalProfile));
-            Fotoprofile = new PictureBox();
             panelprofile = new Panel();
             LabelPassword = new Label();
             LabelEmail = new Label();
@@ -37,28 +36,13 @@
             LabelNoHP = new Label();
             LabelUsername = new Label();
             LabelNama = new Label();
+            Fotoprofile = new PictureBox();
             btnEdit = new Button();
-            panelmain = new Panel();
-            lblnama = new Label();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)Fotoprofile).BeginInit();
+            lblnama = new Label();
             panelprofile.SuspendLayout();
-            panelmain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Fotoprofile).BeginInit();
             SuspendLayout();
-            // 
-            // Fotoprofile
-            // 
-            Fotoprofile.BackColor = Color.White;
-            Fotoprofile.BackgroundImage = (Image)resources.GetObject("Fotoprofile.BackgroundImage");
-            Fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
-            Fotoprofile.BorderStyle = BorderStyle.FixedSingle;
-            Fotoprofile.Location = new Point(117, 137);
-            Fotoprofile.Margin = new Padding(2);
-            Fotoprofile.Name = "Fotoprofile";
-            Fotoprofile.Size = new Size(120, 160);
-            Fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
-            Fotoprofile.TabIndex = 0;
-            Fotoprofile.TabStop = false;
             // 
             // panelprofile
             // 
@@ -70,17 +54,17 @@
             panelprofile.Controls.Add(LabelNoHP);
             panelprofile.Controls.Add(LabelUsername);
             panelprofile.Controls.Add(LabelNama);
-            panelprofile.Location = new Point(357, 137);
+            panelprofile.Location = new Point(446, 171);
             panelprofile.Margin = new Padding(2);
             panelprofile.Name = "panelprofile";
-            panelprofile.Size = new Size(482, 298);
+            panelprofile.Size = new Size(603, 373);
             panelprofile.TabIndex = 1;
             // 
             // LabelPassword
             // 
             LabelPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelPassword.ForeColor = Color.Black;
-            LabelPassword.Location = new Point(267, 221);
+            LabelPassword.Location = new Point(336, 279);
             LabelPassword.Margin = new Padding(2, 0, 2, 0);
             LabelPassword.Name = "LabelPassword";
             LabelPassword.Size = new Size(189, 29);
@@ -93,7 +77,7 @@
             // 
             LabelEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelEmail.ForeColor = Color.Black;
-            LabelEmail.Location = new Point(267, 142);
+            LabelEmail.Location = new Point(336, 181);
             LabelEmail.Margin = new Padding(2, 0, 2, 0);
             LabelEmail.Name = "LabelEmail";
             LabelEmail.Size = new Size(189, 29);
@@ -106,7 +90,7 @@
             // 
             LabelJabatan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelJabatan.ForeColor = Color.Black;
-            LabelJabatan.Location = new Point(267, 61);
+            LabelJabatan.Location = new Point(336, 79);
             LabelJabatan.Margin = new Padding(2, 0, 2, 0);
             LabelJabatan.Name = "LabelJabatan";
             LabelJabatan.Size = new Size(189, 29);
@@ -119,7 +103,7 @@
             // 
             LabelNoHP.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelNoHP.ForeColor = Color.Black;
-            LabelNoHP.Location = new Point(29, 221);
+            LabelNoHP.Location = new Point(38, 280);
             LabelNoHP.Margin = new Padding(2, 0, 2, 0);
             LabelNoHP.Name = "LabelNoHP";
             LabelNoHP.Size = new Size(189, 29);
@@ -132,7 +116,7 @@
             // 
             LabelUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelUsername.ForeColor = Color.Black;
-            LabelUsername.Location = new Point(29, 142);
+            LabelUsername.Location = new Point(38, 181);
             LabelUsername.Margin = new Padding(2, 0, 2, 0);
             LabelUsername.Name = "LabelUsername";
             LabelUsername.Size = new Size(189, 29);
@@ -145,7 +129,7 @@
             // 
             LabelNama.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelNama.ForeColor = Color.Black;
-            LabelNama.Location = new Point(29, 61);
+            LabelNama.Location = new Point(38, 79);
             LabelNama.Margin = new Padding(2, 0, 2, 0);
             LabelNama.Name = "LabelNama";
             LabelNama.Size = new Size(189, 29);
@@ -154,12 +138,26 @@
             LabelNama.TextAlign = ContentAlignment.MiddleLeft;
             LabelNama.Click += LabelNama_Click;
             // 
+            // Fotoprofile
+            // 
+            Fotoprofile.BackColor = Color.White;
+            Fotoprofile.BackgroundImage = (Image)resources.GetObject("Fotoprofile.BackgroundImage");
+            Fotoprofile.BackgroundImageLayout = ImageLayout.Zoom;
+            Fotoprofile.BorderStyle = BorderStyle.FixedSingle;
+            Fotoprofile.Location = new Point(146, 171);
+            Fotoprofile.Margin = new Padding(2);
+            Fotoprofile.Name = "Fotoprofile";
+            Fotoprofile.Size = new Size(150, 200);
+            Fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
+            Fotoprofile.TabIndex = 0;
+            Fotoprofile.TabStop = false;
+            // 
             // btnEdit
             // 
             btnEdit.BackColor = Color.FromArgb(255, 128, 0);
             btnEdit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEdit.ForeColor = Color.Black;
-            btnEdit.Location = new Point(132, 398);
+            btnEdit.Location = new Point(174, 420);
             btnEdit.Margin = new Padding(2);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(94, 37);
@@ -168,43 +166,28 @@
             btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
-            // panelmain
+            // label1
             // 
-            panelmain.Controls.Add(lblnama);
-            panelmain.Controls.Add(label1);
-            panelmain.Controls.Add(btnEdit);
-            panelmain.Controls.Add(panelprofile);
-            panelmain.Controls.Add(Fotoprofile);
-            panelmain.Dock = DockStyle.Fill;
-            panelmain.Location = new Point(0, 0);
-            panelmain.Margin = new Padding(2);
-            panelmain.Name = "panelmain";
-            panelmain.Size = new Size(922, 648);
-            panelmain.TabIndex = 3;
-            panelmain.Paint += panelmain_Paint;
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(95, 69);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(283, 52);
+            label1.TabIndex = 3;
+            label1.Text = "Selamat Datang";
             // 
             // lblnama
             // 
             lblnama.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblnama.ForeColor = Color.Black;
-            lblnama.Location = new Point(349, 55);
+            lblnama.Location = new Point(359, 69);
             lblnama.Margin = new Padding(2, 0, 2, 0);
             lblnama.Name = "lblnama";
-            lblnama.Size = new Size(226, 42);
+            lblnama.Size = new Size(283, 52);
             lblnama.TabIndex = 4;
             lblnama.Text = "Selamat datang";
             lblnama.Click += lblnama_Click;
-            // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(76, 55);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(294, 42);
-            label1.TabIndex = 3;
-            label1.Text = "Selamat Datang";
             // 
             // V_HalProfile
             // 
@@ -212,29 +195,31 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
-            Controls.Add(panelmain);
+            Controls.Add(lblnama);
+            Controls.Add(label1);
+            Controls.Add(btnEdit);
+            Controls.Add(Fotoprofile);
+            Controls.Add(panelprofile);
             DoubleBuffered = true;
             Margin = new Padding(2);
             Name = "V_HalProfile";
-            Size = new Size(922, 648);
-            ((System.ComponentModel.ISupportInitialize)Fotoprofile).EndInit();
+            Size = new Size(1152, 810);
             panelprofile.ResumeLayout(false);
-            panelmain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Fotoprofile).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox Fotoprofile;
         private Panel panelprofile;
-        private Label LabelNama;
-        private Label LabelUsername;
-        private Label LabelJabatan;
-        private Label LabelNoHP;
         private Label LabelPassword;
         private Label LabelEmail;
+        private Label LabelJabatan;
+        private Label LabelNoHP;
+        private Label LabelUsername;
+        private Label LabelNama;
+        private PictureBox Fotoprofile;
         private Button btnEdit;
-        private Panel panelmain;
         private Label label1;
         private Label lblnama;
     }

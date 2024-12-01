@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PBO_B1.App.Models
 {
-    internal class M_Barang
+    public class M_Barang
     {
         [Key]
         public int barang_id { get; set; }

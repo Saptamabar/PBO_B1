@@ -20,7 +20,7 @@ namespace PBO_B1.App.Context
         private static string table = "akun";
         public static DataTable All()
         {
-            string query = @"select * from akun";
+            string query = "select * from akun where jabatan = 'Admin'";
             DataTable DataAkun = queryExecutor(query);
             return DataAkun;
         }
@@ -61,7 +61,6 @@ namespace PBO_B1.App.Context
 
             DataTable result = queryExecutor(query, parameters);
 
-            // Jika ada setidaknya satu row dengan Username yang sama
             return Convert.ToInt32(result.Rows[0][0]) > 0;
         }
 
@@ -70,8 +69,8 @@ namespace PBO_B1.App.Context
         {
             if (!CheckUsernameExists(addAkun.Username))
             {
-                AddAkun(addAkun); // Tambah data
-                return true; // Data berhasil ditambahkan
+                AddAkun(addAkun);
+                return true;
                 
             }
             else
@@ -84,7 +83,7 @@ namespace PBO_B1.App.Context
 
         public static void AddAkun(M_Akun addAkun)
         {
-            string query = $"INSERT INTO {table} (Username, Password, Nama, jabatan, no_hp, email) VALUES(@Username, @Password, @Nama, @jabatan, @no_hp, @email)";
+            string query = $"INSERT INTO {table} (Username, Password, Nama, jabatan, foto_profile, no_hp, email) VALUES(@Username, @Password, @Nama, @jabatan, @foto_profile, @no_hp, @email)";
 
             NpgsqlParameter[] parameters =
             {
@@ -92,7 +91,7 @@ namespace PBO_B1.App.Context
                 new NpgsqlParameter("@Password", addAkun.Password),
                 new NpgsqlParameter("@Nama", addAkun.Nama),
                 new NpgsqlParameter("@jabatan", addAkun.jabatan),
-                //new NpgsqlParameter("@foto_profile", addAkun.foto_profile),
+                new NpgsqlParameter("@foto_profile", DbType.String){ Value = !string.IsNullOrEmpty(addAkun.foto_profile) ? addAkun.foto_profile : DBNull.Value },
                 new NpgsqlParameter("@no_hp", addAkun.no_hp),
                 new NpgsqlParameter("@email", addAkun.Email)
             };
@@ -108,6 +107,7 @@ namespace PBO_B1.App.Context
                      Password = @Password,
                      Nama = @Nama,
                      jabatan = @jabatan,
+                     foto_profile = @foto_profile,
                      no_hp = @no_hp,
                      email = @Email
                  WHERE 
@@ -120,7 +120,7 @@ namespace PBO_B1.App.Context
                 new NpgsqlParameter("@Password", editAkun.Password),
                 new NpgsqlParameter("@Nama", editAkun.Nama),
                 new NpgsqlParameter("@jabatan", editAkun.jabatan),
-                //new NpgsqlParameter("@foto_profile", editAkun.foto_profile =),
+                new NpgsqlParameter("@foto_profile", editAkun.foto_profile),
                 new NpgsqlParameter("@no_hp", editAkun.no_hp),
                 new NpgsqlParameter("@email", editAkun.Email)
             };

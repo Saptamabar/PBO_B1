@@ -9,6 +9,8 @@ namespace PBO_B1.Views
 {
     public partial class V_HalAdmin : UserControl
     {
+        V_HalTambahAdmin v_HalTambahAdmin = new V_HalTambahAdmin();
+
         public V_HalAdmin()
         {
             InitializeComponent();
@@ -17,14 +19,29 @@ namespace PBO_B1.Views
 
         private void V_HalAdmin_Load(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Clear();
-            dataGridView1.Refresh();
+            // Bersihkan semua kolom
+            dataGridAdmin.Columns.Clear();
+
+            // Tambahkan kolom nomor
+            DataGridViewTextBoxColumn nomorColumn = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "No",
+                Name = "nomor",
+                ReadOnly = true // Kolom hanya-baca
+            };
+            dataGridAdmin.Columns.Add(nomorColumn);
+
+            // Set DataSource
             DataTable dataAkun = C_Admin.All();
-            dataGridView1.DataSource = dataAkun;
-            dataGridView1.AutoGenerateColumns = true;
+            dataGridAdmin.DataSource = dataAkun;
 
+            dataGridAdmin.ReadOnly = true;
+            dataGridAdmin.AutoGenerateColumns = false;
+            dataGridAdmin.Columns["Akun_id"].Visible = false;
+            
 
-            if (!dataGridView1.Columns.Contains("EditColumn"))
+            // Tambahkan kolom Edit dan Hapus jika belum ada
+            if (!dataGridAdmin.Columns.Contains("EditColumn"))
             {
                 DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn
                 {
@@ -33,9 +50,10 @@ namespace PBO_B1.Views
                     Text = "Edit",
                     UseColumnTextForButtonValue = true
                 };
-                dataGridView1.Columns.Add(editColumn);
+                dataGridAdmin.Columns.Add(editColumn);
             }
-            if (!dataGridView1.Columns.Contains("DeleteColumn"))
+
+            if (!dataGridAdmin.Columns.Contains("DeleteColumn"))
             {
                 DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn
                 {
@@ -44,31 +62,45 @@ namespace PBO_B1.Views
                     Text = "Hapus",
                     UseColumnTextForButtonValue = true
                 };
-                dataGridView1.Columns.Add(deleteColumn);
+                dataGridAdmin.Columns.Add(deleteColumn);
+            }
+
+            // Pastikan event DataBindingComplete ditangani
+            dataGridAdmin.DataBindingComplete += DataGridAdmin_DataBindingComplete;
+        }
+
+        private void DataGridAdmin_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            // Set nilai untuk kolom nomor
+            for (int i = 0; i < dataGridAdmin.Rows.Count; i++)
+            {
+                dataGridAdmin.Rows[i].Cells["nomor"].Value = (i + 1).ToString();
             }
         }
+
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex == dataGridView1.Columns["EditColumn"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridAdmin.Columns["EditColumn"].Index && e.RowIndex >= 0)
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = dataGridAdmin.Rows[e.RowIndex];
                 int id = Convert.ToInt32(row.Cells["Akun_id"].Value);
                 DataTable dataAkun = C_Admin.getDataAkunById(id);
                 v_HalTambahAdmin.LoadData(dataAkun);
                 V_HalUtamaPemilik.LoadUserControl(v_HalTambahAdmin);
             }
 
-            if (e.ColumnIndex == dataGridView1.Columns["DeleteColumn"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridAdmin.Columns["DeleteColumn"].Index && e.RowIndex >= 0)
             {
-                int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Akun_id"].Value);
+                int id = Convert.ToInt32(dataGridAdmin.Rows[e.RowIndex].Cells["Akun_id"].Value);
 
                 DialogResult dialogResult = MessageBox.Show("Yakin ingin menghapus data?", "Hapus Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     C_Admin.DeleteAkun(id);
                     MessageBox.Show("Data berhasil dihapus!");
-                    dataGridView1.DataSource = C_Admin.All();
+                    dataGridAdmin.DataSource = C_Admin.All();
                 }
             }
         }
@@ -78,7 +110,6 @@ namespace PBO_B1.Views
 
         }
 
-        V_HalTambahAdmin v_HalTambahAdmin = new V_HalTambahAdmin();
         private void btnTambahAdmin_Click(object sender, EventArgs e)
         {
             V_HalUtamaPemilik.LoadUserControl(v_HalTambahAdmin);
