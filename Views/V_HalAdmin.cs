@@ -38,7 +38,8 @@ namespace PBO_B1.Views
             dataGridAdmin.ReadOnly = true;
             dataGridAdmin.AutoGenerateColumns = false;
             dataGridAdmin.Columns["Akun_id"].Visible = false;
-            
+            dataGridAdmin.Columns["dihapus"].Visible = false;
+
 
             // Tambahkan kolom Edit dan Hapus jika belum ada
             if (!dataGridAdmin.Columns.Contains("EditColumn"))

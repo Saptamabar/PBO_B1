@@ -13,11 +13,11 @@ namespace PBO_B1.App.Context
     {
         public static M_Barang[] getAllBarang()
         {
-            string query = "select * from barang";
+            string query = "select * from barang where dihapus = False";
 
             DataTable databarang = queryExecutor(query);
 
-            // Mapping data dari DataTable ke List<M_Barang>
+            
             List<M_Barang> Daftar_barang = databarang.AsEnumerable().Select(row => new M_Barang
             {
                 barang_id = row.Field<int>("barang_id"),
@@ -249,7 +249,19 @@ namespace PBO_B1.App.Context
             };
 
             commandExecutor(query, parameters);
-        } 
+        }
+
+        public static void DeleteBarang(int id)
+        {
+            string query = $"update barang set dihapus = True where barang_id = @barang_id";
+
+            NpgsqlParameter[] parameters =
+            {
+                new NpgsqlParameter("@barang_id", id)
+            };
+
+            commandExecutor(query, parameters);
+        }
 
         public static M_Kategori[] LoadKategori()
         {

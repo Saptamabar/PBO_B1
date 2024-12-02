@@ -10,12 +10,9 @@ namespace PBO_B1.Views
         public V_HalTransaksi()
         {
             InitializeComponent();
+            LoadDataTransaksi();
         }
 
-        private void V_HalTransaksi_Load(object sender, EventArgs e)
-        {
-            LoadDataTransaksi(); // Memuat data saat form dimuat
-        }
 
         // Method untuk memuat data ke DataGridView
         private void LoadDataTransaksi()
@@ -52,7 +49,7 @@ namespace PBO_B1.Views
         private void label1_Click(object sender, EventArgs e)
         {
             // Ketika label1 diklik, refresh DataGridView dengan memuat ulang data
-            LoadDataTransaksi(); // Memanggil LoadDataTransaksi untuk mengupdate data
+            // Memanggil LoadDataTransaksi untuk mengupdate data
         }
 
         // Event handler untuk klik pada DataGridView

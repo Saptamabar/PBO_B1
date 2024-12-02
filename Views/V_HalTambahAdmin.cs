@@ -36,15 +36,6 @@ namespace PBO_B1.Views
             
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void V_HalTambahAdmin_Load(object sender, EventArgs e)
         {
@@ -81,10 +72,7 @@ namespace PBO_B1.Views
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {

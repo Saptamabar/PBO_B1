@@ -20,7 +20,7 @@ namespace PBO_B1.App.Context
         private static string table = "akun";
         public static DataTable All()
         {
-            string query = "select * from akun where jabatan = 'Admin'";
+            string query = "select * from akun where jabatan = 'Admin' and dihapus = false";
             DataTable DataAkun = queryExecutor(query);
             return DataAkun;
         }
@@ -131,7 +131,7 @@ namespace PBO_B1.App.Context
 
         public static void DeleteAkun(int id)
         {
-            string query = $"DELETE FROM {table} WHERE Akun_id = @Akun_id";
+            string query = $"UPDATE {table} SET dihapus = true WHERE Akun_id = @Akun_id";
 
             NpgsqlParameter[] parameters =
             {

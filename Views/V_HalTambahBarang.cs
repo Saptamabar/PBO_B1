@@ -1,4 +1,5 @@
-﻿using PBO_B1.App.Context;
+﻿using Npgsql;
+using PBO_B1.App.Context;
 using PBO_B1.App.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace PBO_B1.Views
         public V_HalTambahBarang()
         {
             InitializeComponent();
+
         }
 
         private void Fotobarang_Click(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace PBO_B1.Views
             data.kategori = daftarKategori.Text;
             data.merk_merk = daftraMerk.Text;
 
-            
+
             if (IsEditMode)
             {
                 DialogResult dialogResult = MessageBox.Show("Yakin ingin mengubah data?", "Edit Data", MessageBoxButtons.YesNo);
@@ -91,9 +93,9 @@ namespace PBO_B1.Views
             else
             {
                 C_Barang.AddBarang(data);
-                 MessageBox.Show("Data berhasil ditambahkan!");
-                 V_HalUtamaPemilik.LoadUserControl(new V_HalAdmin());
-                
+                MessageBox.Show("Data berhasil ditambahkan!");
+                V_HalUtamaPemilik.LoadUserControl(new V_HalAdmin());
+
             }
         }
 
@@ -113,19 +115,16 @@ namespace PBO_B1.Views
             DateTime dateTime = dateOnly.ToDateTime(TimeOnly.MinValue);
 
             TanggalPembelian.Value = dateTime;
-
-
-
+            BtnHapus.Visible = true;
+            BtnHapus.Enabled = true;
             IsEditMode = true;
+            Buttonsimpan.Text = "Update";
 
-            UpdateButtonText();
+           
 
         }
 
-        private void UpdateButtonText()
-        {
-            Buttonsimpan.Text = IsEditMode ? "Update" : "Add";
-        }
+      
 
         private void V_HalTambahBarang_Load(object sender, EventArgs e)
         {
@@ -154,7 +153,7 @@ namespace PBO_B1.Views
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 MessageBox.Show("Input harus berupa angka", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Handled = true; // Membatalkan karakter yang tidak valid
+                e.Handled = true; 
             }
 
         }
@@ -162,6 +161,27 @@ namespace PBO_B1.Views
         private void btnBatal_Click(object sender, EventArgs e)
         {
             V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
+        }
+
+        private void BtnHapus_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                $"Apakah Anda yakin ingin menghapus {data.nama_barang}?",
+                "Konfirmasi",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                C_Barang.DeleteBarang(data.barang_id);
+                V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
+                MessageBox.Show("Barang berhasil dihapus.", "Hapus barang", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Barang tidak dihapus", "Hapus barang", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

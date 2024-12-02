@@ -20,7 +20,6 @@ namespace PBO_B1.App.Context
                     a.username AS username_akun,
                     a.nama AS nama_akun,
                     b.nama_barang,
-                    b.kategori,
                     dt.harga AS harga_barang,
                     dt.jumlah AS jumlah_barang
                 FROM 

@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalTambahBarang));
             Panelbarangbaru = new Panel();
+            BtnHapus = new Button();
+            btnBatal = new Button();
             daftraMerk = new ComboBox();
             daftarKategori = new ComboBox();
             TanggalPembelian = new DateTimePicker();
@@ -37,7 +40,6 @@
             TbNamaBarang = new TextBox();
             Buttonsimpan = new Button();
             Fotobarang = new PictureBox();
-            btnBatal = new Button();
             Panelbarangbaru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Fotobarang).BeginInit();
             SuspendLayout();
@@ -47,6 +49,7 @@
             Panelbarangbaru.BackColor = Color.Transparent;
             Panelbarangbaru.BackgroundImage = Properties.Resources.Base_Form_Barang;
             Panelbarangbaru.BackgroundImageLayout = ImageLayout.Zoom;
+            Panelbarangbaru.Controls.Add(BtnHapus);
             Panelbarangbaru.Controls.Add(btnBatal);
             Panelbarangbaru.Controls.Add(daftraMerk);
             Panelbarangbaru.Controls.Add(daftarKategori);
@@ -60,6 +63,34 @@
             Panelbarangbaru.Name = "Panelbarangbaru";
             Panelbarangbaru.Size = new Size(833, 587);
             Panelbarangbaru.TabIndex = 0;
+            // 
+            // BtnHapus
+            // 
+            BtnHapus.BackgroundImage = (Image)resources.GetObject("BtnHapus.BackgroundImage");
+            BtnHapus.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnHapus.Enabled = false;
+            BtnHapus.FlatAppearance.BorderSize = 0;
+            BtnHapus.FlatStyle = FlatStyle.Flat;
+            BtnHapus.Location = new Point(46, 24);
+            BtnHapus.Name = "BtnHapus";
+            BtnHapus.Size = new Size(42, 49);
+            BtnHapus.TabIndex = 10;
+            BtnHapus.UseVisualStyleBackColor = true;
+            BtnHapus.Visible = false;
+            BtnHapus.Click += BtnHapus_Click;
+            // 
+            // btnBatal
+            // 
+            btnBatal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBatal.ForeColor = Color.Black;
+            btnBatal.Image = Properties.Resources.BG_Button_tambah;
+            btnBatal.Location = new Point(46, 364);
+            btnBatal.Name = "btnBatal";
+            btnBatal.Size = new Size(123, 46);
+            btnBatal.TabIndex = 9;
+            btnBatal.Text = "Batal";
+            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.Click += btnBatal_Click;
             // 
             // daftraMerk
             // 
@@ -141,19 +172,6 @@
             Fotobarang.TabStop = false;
             Fotobarang.Click += Fotobarang_Click;
             // 
-            // btnBatal
-            // 
-            btnBatal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBatal.ForeColor = Color.Black;
-            btnBatal.Image = Properties.Resources.BG_Button_tambah;
-            btnBatal.Location = new Point(46, 364);
-            btnBatal.Name = "btnBatal";
-            btnBatal.Size = new Size(123, 46);
-            btnBatal.TabIndex = 9;
-            btnBatal.Text = "Batal";
-            btnBatal.UseVisualStyleBackColor = true;
-            btnBatal.Click += btnBatal_Click;
-            // 
             // V_HalTambahBarang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -180,5 +198,6 @@
         private TextBox TBHarga;
         private ComboBox daftraMerk;
         private Button btnBatal;
+        private Button BtnHapus;
     }
 }

@@ -6,11 +6,11 @@ namespace PBO_B1.Views
 {
     public partial class V_HalProfileUbah : UserControl
     {
-        private byte[] imageBytes;
 
         C_Profile profile = new C_Profile();
         M_Akun data = Session.CurrentUser;
         Image image;
+        string destinationPath;
 
         public V_HalProfileUbah()
         {
@@ -42,6 +42,7 @@ namespace PBO_B1.Views
 
         private void btnBatal_Click(object sender, EventArgs e)
         {
+            fotoprofile.Image = Image.FromFile(data.foto_profile);
             V_HalProfile v_HalProfile = new V_HalProfile();
 
             V_HalUtamaPemilik.LoadUserControl(v_HalProfile);
@@ -76,14 +77,13 @@ namespace PBO_B1.Views
 
                         // Pastikan nama file memiliki ekstensi
                         string fileExtension = Path.GetExtension(sourcePath);
-                        string destinationPath = Path.Combine(destinationFolder, fileName);
+                        destinationPath = Path.Combine(destinationFolder, fileName);
 
                         // Salin file ke folder tujuan
                         File.Copy(sourcePath, destinationPath, overwrite: true);
 
                         // Simpan path ke dalam data
-                        data.foto_profile = destinationPath;
-                        image = Image.FromFile(data.foto_profile);
+                        image = Image.FromFile(destinationPath);
                         fotoprofile.Image = image;
                     }
                 }
@@ -99,6 +99,7 @@ namespace PBO_B1.Views
             data.Nama = tbNama.Text;
             data.Username = tbUsername.Text;
             data.Password = tbPassword.Text;
+            data.foto_profile = destinationPath;
             if (double.TryParse(tbNohp.Text, out _) == true)
             {
                 data.no_hp = tbNohp.Text;

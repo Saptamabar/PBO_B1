@@ -35,7 +35,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Name = "V_HalLaporan";
-            Size = new Size(1152, 810);
+            Size = new Size(1134, 759);
             ResumeLayout(false);
         }
 

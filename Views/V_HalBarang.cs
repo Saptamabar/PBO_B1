@@ -52,6 +52,7 @@ namespace PBO_B1.Views
         private void BtnTambahBarang_Click(object sender, EventArgs e)
         {
             V_HalTambahBarang v_HalTambahBarang = new V_HalTambahBarang();
+
             V_HalUtamaPemilik.LoadUserControl(v_HalTambahBarang);
 
         }
