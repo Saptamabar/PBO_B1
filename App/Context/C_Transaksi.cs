@@ -1,19 +1,84 @@
-﻿using PBO_B1.App.Core;
+﻿using Npgsql;
+using PBO_B1.App.Core;
 using PBO_B1.App.Models;
 using PBO_B1.Views;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PBO_B1.App.Context
 {
     class C_Transaksi : DatabaseWrapper
     {
         public static List<M_Barang> ListKeranjang = new List<M_Barang>();
+
+        public static void InsertTransaksiandDetail()
+        {
+            AddTransaksi();
+            int transaksi_id = Getidtransaksi();
+            AddDetailtransaksi(transaksi_id);
+        }
+
+        public static void AddTransaksi()
+        {
+            string query = "INSERT INTO transaksi (tanggal, total, akun_username) " +
+                "VALUES (@tanggal, @total, @akun_username)";
+            NpgsqlParameter[] parameters =
+                {
+                new NpgsqlParameter("@tanggal",DbType.Date) {Value = DateTime.Today.Date},
+                new NpgsqlParameter("@total",V_DetailTransaksi.JumlahTotal),
+                new NpgsqlParameter("@akun_username",Session.CurrentUser.Username)
+            };
+
+            commandExecutor(query, parameters);
+        }
+
+        public static int Getidtransaksi()
+        {
+            int id_transaksi = 0;
+
+            string query = "SELECT * FROM transaksi ORDER BY transaksi_id DESC LIMIT 1;";
+
+            NpgsqlParameter[] parameters =
+            { };
+
+            using (NpgsqlDataReader reader = ExecuteReaderCommand(query, parameters))
+
+                if (reader.Read())
+                {
+                    id_transaksi = (int)reader["transaksi_id"];
+                };
+            
+            return id_transaksi;
+        }
+
+        public static void AddDetailtransaksi(int transaksi_id)
+        {
+            M_Barang[] data = getkeranjang();
+            foreach (M_Barang bar in data)
+            {
+                string query = "INSERT INTO detail_transaksi (harga, jumlah, barang_barang_id, transaksi_transaksi_id) " +
+                "VALUES (@harga, @jumlah, @barang_id, @transaksi_id)";
+                NpgsqlParameter[] parameters =
+                {
+                    new NpgsqlParameter("@harga",bar.harga),
+                    new NpgsqlParameter("@jumlah",bar.jumlah),
+                    new NpgsqlParameter("@barang_id",bar.barang_id),
+                    new NpgsqlParameter("@transaksi_id",transaksi_id)
+                };
+
+                commandExecutor(query, parameters);
+            }
+            
+        }
+
         public static M_Barang[] getAllBarang()
         {
             string query = "select * from barang where dihapus = False";
@@ -297,7 +362,9 @@ namespace PBO_B1.App.Context
         }
         public static void setkeranjang(M_Barang[] barangArray)
         {
+            
             ListKeranjang = barangArray.ToList();
+            
         }
     }
 }

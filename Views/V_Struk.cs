@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace PBO_B1.Views
 {
     public partial class V_Struk : Form
     {
+        Bitmap memoryImage;
         public V_Struk()
         {
             InitializeComponent();
@@ -84,15 +86,54 @@ namespace PBO_B1.Views
             {
 
                 int bayar = (int)Convert.ToInt64(Bayar.Text);
-                int kembali =  bayar - V_DetailTransaksi.JumlahTotal;
-                if (kembali  < 0)
+                int kembali = bayar - V_DetailTransaksi.JumlahTotal;
+                if (kembali < 0)
                 {
-                    MessageBox.Show("Uang anda kurang","Info",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pembayaran tidak mencukupi", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 Kembali.Text = "Rp " + kembali.ToString();
 
             }
+        }
+
+        private void btnBayar_Click(object sender, EventArgs e)
+        {
+            C_Transaksi.InsertTransaksiandDetail();
+            if (!string.IsNullOrWhiteSpace(Kembali.Text))
+            {
+                btnBayar.Hide();
+                Batal.Hide();
+                MessageBox.Show("Transaksi berhasil tersimpan", "Tersimpan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                List<M_Barang> list = new List<M_Barang>();
+                M_Barang[] arraykosong = list.ToArray();
+                C_Transaksi.setkeranjang(arraykosong);
+
+
+                // Tangkapan layar menggunakan DrawToBitmap
+                memoryImage = new Bitmap(this.Width, this.Height);
+                this.DrawToBitmap(memoryImage, new Rectangle(0, 0, this.Width, this.Height));
+
+                // Pratinjau dan cetak dokumen
+                printPreviewDialog1.Document = printDocument1;
+                //printPreviewDialog1.PrintPreviewControl.Zoom = 0;
+                printPreviewDialog1.ShowDialog();
+                printDocument1.Print();
+                this.Close();
+                V_HalUtamaPemilik.LoadUserControl(new V_HalLaporan());
+            }
+            else
+            {
+                MessageBox.Show("Pembayaran harus terisi", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+        private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
+        {
+
+            e.Graphics.DrawImage(memoryImage, 0, 0);
+
         }
     }
 }
