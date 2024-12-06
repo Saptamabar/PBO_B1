@@ -94,7 +94,7 @@ namespace PBO_B1.Views
             {
                 C_Barang.AddBarang(data);
                 MessageBox.Show("Data berhasil ditambahkan!");
-                V_HalUtamaPemilik.LoadUserControl(new V_HalAdmin());
+                V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
 
             }
         }

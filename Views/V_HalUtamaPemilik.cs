@@ -59,24 +59,26 @@ namespace PBO_B1.Views
 
         private void btnBarang_Click(object sender, EventArgs e)
         {
+            V_HalBarang v_HalBarang = new V_HalBarang();
             LoadUserControl(v_HalBarang);
         }
 
         private void btnTransaksi_Click(object sender, EventArgs e)
         {
-            LoadUserControl(v_HalTransaksi);
-
+            V_HalLaporan v_HalLaporan = new V_HalLaporan();
+            LoadUserControl(v_HalLaporan);
         }
 
         private void btnLaporan_Click(object sender, EventArgs e)
         {
-            LoadUserControl(v_HalLaporan);
+            V_HalTransaksi v_HalTransaksi = new V_HalTransaksi();
+            LoadUserControl(v_HalTransaksi);
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
+            V_HalAdmin v_HalAdmin = new V_HalAdmin();
             LoadUserControl(v_HalAdmin);
-
         }
 
         private void panelmain_Paint(object sender, PaintEventArgs e)

@@ -30,7 +30,6 @@ namespace PBO_B1.App.Context
                 merk = row.Field<string>("merk_merk")
             }).ToList();
 
-            // Konversi List<M_Barang> ke array dan kembalikan
             return Daftar_barang.ToArray();
         }
 
@@ -74,7 +73,6 @@ namespace PBO_B1.App.Context
                     ? Image.FromFile(data.foto_barang)
                     : Properties.Resources.DeafultImageBarang,
                 SizeMode = PictureBoxSizeMode.Zoom,
-
             };
 
             Label Merk = new Label

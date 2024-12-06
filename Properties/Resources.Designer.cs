@@ -113,9 +113,59 @@ namespace PBO_B1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Button_hapus {
+            get {
+                object obj = ResourceManager.GetObject("Button_hapus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_tambah__barang {
+            get {
+                object obj = ResourceManager.GetObject("Button_tambah _barang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeafultImageBarang {
             get {
                 object obj = ResourceManager.GetObject("DeafultImageBarang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_Struk {
+            get {
+                object obj = ResourceManager.GetObject("Logo Struk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tombol_Kurang_Keranjang {
+            get {
+                object obj = ResourceManager.GetObject("Tombol_Kurang_Keranjang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tombol_Tambah_Keranjang {
+            get {
+                object obj = ResourceManager.GetObject("Tombol_Tambah_Keranjang", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

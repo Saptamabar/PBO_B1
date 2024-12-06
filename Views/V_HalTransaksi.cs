@@ -20,7 +20,7 @@ namespace PBO_B1.Views
             try
             {
                 // Ambil data dari C_Transaksi
-                DataTable dataTransaksi = C_Transaksi.All();
+                DataTable dataTransaksi = C_Laporan.All();
 
                 // Debugging: Cek apakah data ada
                 if (dataTransaksi == null || dataTransaksi.Rows.Count == 0)

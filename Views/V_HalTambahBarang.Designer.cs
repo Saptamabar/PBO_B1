@@ -94,6 +94,7 @@
             // 
             // daftraMerk
             // 
+            daftraMerk.FlatStyle = FlatStyle.Flat;
             daftraMerk.FormattingEnabled = true;
             daftraMerk.Items.AddRange(new object[] { "Bangunan", "Gatau Lanutannya apa" });
             daftraMerk.Location = new Point(365, 154);
@@ -103,6 +104,7 @@
             // 
             // daftarKategori
             // 
+            daftarKategori.FlatStyle = FlatStyle.Flat;
             daftarKategori.FormattingEnabled = true;
             daftarKategori.Items.AddRange(new object[] { "Bangunan", "Gatau Lanutannya apa" });
             daftarKategori.Location = new Point(365, 244);
