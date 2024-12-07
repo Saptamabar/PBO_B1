@@ -24,6 +24,10 @@ namespace PBO_B1.App.Context
             AddTransaksi();
             int transaksi_id = Getidtransaksi();
             AddDetailtransaksi(transaksi_id);
+            SetAllBarang();
+            List<M_Barang> list = new List<M_Barang>();
+            M_Barang[] arraykosong = list.ToArray();
+            setkeranjang(arraykosong);
         }
 
         public static void AddTransaksi()
@@ -100,6 +104,49 @@ namespace PBO_B1.App.Context
 
             return Daftar_barang.ToArray();
         }
+
+        public static void SetAllBarang()
+        {
+            M_Barang[] barang = getkeranjang();
+
+            foreach (M_Barang bar in barang)
+            {
+                int jumlah = 0;
+                int sisa = 0;
+
+                string query = "select * from barang where dihapus = False and barang_id = @barang_id";
+                NpgsqlParameter[] parameters =
+                {
+            new NpgsqlParameter("@barang_id", bar.barang_id)
+        };
+
+                using (NpgsqlDataReader reader = ExecuteReaderCommand(query, parameters))
+                {
+                    if (reader.Read())
+                    {
+                        jumlah = (int)reader["jumlah"];
+                        sisa = jumlah - bar.jumlah;
+                    }
+                    else
+                    {
+                        throw new Exception($"Barang dengan ID {bar.barang_id} tidak ditemukan.");
+                    }
+                }
+
+                string query2 = "update barang set " +
+                                "jumlah = @jumlah " +
+                                "where barang_id = @barang_id";
+
+                NpgsqlParameter[] parameters2 =
+                {
+            new NpgsqlParameter("@jumlah", sisa),
+            new NpgsqlParameter("@barang_id", bar.barang_id)
+        };
+
+                commandExecutor(query2, parameters2);
+            }
+        }
+
 
         public static Panel CreateItem(M_Barang data)
         {

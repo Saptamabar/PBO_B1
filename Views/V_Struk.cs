@@ -99,15 +99,13 @@ namespace PBO_B1.Views
 
         private void btnBayar_Click(object sender, EventArgs e)
         {
-            C_Transaksi.InsertTransaksiandDetail();
             if (!string.IsNullOrWhiteSpace(Kembali.Text))
             {
+                C_Transaksi.InsertTransaksiandDetail();
                 btnBayar.Hide();
                 Batal.Hide();
                 MessageBox.Show("Transaksi berhasil tersimpan", "Tersimpan", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                List<M_Barang> list = new List<M_Barang>();
-                M_Barang[] arraykosong = list.ToArray();
-                C_Transaksi.setkeranjang(arraykosong);
+               
 
 
                 // Tangkapan layar menggunakan DrawToBitmap
