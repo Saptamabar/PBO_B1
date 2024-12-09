@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_Struk));
             Batal = new Button();
             pictureBox1 = new PictureBox();
@@ -91,6 +92,14 @@
             Datastruk.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             Datastruk.BackgroundColor = Color.White;
             Datastruk.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            Datastruk.DefaultCellStyle = dataGridViewCellStyle1;
             Datastruk.GridColor = Color.White;
             Datastruk.Location = new Point(22, 299);
             Datastruk.Name = "Datastruk";

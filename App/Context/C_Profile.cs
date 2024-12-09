@@ -14,11 +14,10 @@ namespace PBO_B1.App.Context
 {
     internal class C_Profile : DatabaseWrapper
     {
-
         public void Updateprofile()
         {
-            // Query untuk menyimpan data
-            string query = "UPDATE akun SET username = @username, " +
+
+            string query = "UPDATE akun SET " +
                             "password = @password, " +
                             "nama = @nama," +
                             "jabatan = @jabatan, " +
@@ -31,7 +30,6 @@ namespace PBO_B1.App.Context
             NpgsqlParameter[] parameters = new NpgsqlParameter[]
             {
                 new NpgsqlParameter("@id", Session.CurrentUser.Akun_id),
-                new NpgsqlParameter("@username", Session.CurrentUser.Username),
                 new NpgsqlParameter("@password", Session.CurrentUser.Password),
                 new NpgsqlParameter("@nama", Session.CurrentUser.Nama),
                 new NpgsqlParameter("@jabatan", Session.CurrentUser.jabatan),

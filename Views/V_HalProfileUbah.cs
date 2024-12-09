@@ -10,7 +10,7 @@ namespace PBO_B1.Views
         C_Profile profile = new C_Profile();
         M_Akun data = Session.CurrentUser;
         Image image;
-        string destinationPath;
+        string destinationPath = null;
 
         public V_HalProfileUbah()
         {
@@ -96,10 +96,13 @@ namespace PBO_B1.Views
 
         private void btnSimpan_Click(object sender, EventArgs e)
         {
+            if (!String.IsNullOrEmpty(destinationPath))
+            {
+                data.foto_profile = destinationPath;
+            }
             data.Nama = tbNama.Text;
             data.Username = tbUsername.Text;
             data.Password = tbPassword.Text;
-            data.foto_profile = destinationPath;
             if (double.TryParse(tbNohp.Text, out _) == true)
             {
                 data.no_hp = tbNohp.Text;
