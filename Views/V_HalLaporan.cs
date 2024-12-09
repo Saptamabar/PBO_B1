@@ -20,7 +20,7 @@ namespace PBO_B1.Views
         {
             InitializeComponent();
             ShowItems();
-
+            ShowKategori();
         }
         private void ShowItems()
         {
@@ -36,6 +36,16 @@ namespace PBO_B1.Views
 
         }
 
+        private void ShowKategori()
+        {
+            CBKategori.Items.Clear();
+            M_Kategori[] daftar_barang = C_Barang.LoadKategori();
+            foreach (var data in daftar_barang)
+            {
+                CBKategori.Items.Add(data.nama_kategori);
+            }
+        }
+
         public static void ShowKeranjang()
         {
             M_Barang[] barangArray = C_Transaksi.getkeranjang();
@@ -49,25 +59,7 @@ namespace PBO_B1.Views
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnKurang_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnTambah_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -79,6 +71,45 @@ namespace PBO_B1.Views
             }
             V_DetailTransaksi v_DetailTransaksi = new V_DetailTransaksi();
             V_HalUtamaPemilik.LoadUserControl(v_DetailTransaksi);
+        }
+
+        private void TBSearchbar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                panelbasebarang.Controls.Clear();
+                M_Barang[] barangArray = C_Barang.Getbarangbysearch(TBSearchbar.Text);
+
+                foreach (var data in barangArray)
+                {
+
+                    Panel reviewPanel = C_Transaksi.CreateItem(data);
+                    reviewPanel.BringToFront();
+                    panelbasebarang.Controls.Add(reviewPanel);
+                }
+
+            }
+        }
+
+        private void CBKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            panelbasebarang.Controls.Clear();
+            M_Barang[] barangArray = C_Barang.Getbarangbykategori(CBKategori.Text);
+
+            foreach (var data in barangArray)
+            {
+
+                Panel reviewPanel = C_Transaksi.CreateItem(data);
+                reviewPanel.BringToFront();
+                panelbasebarang.Controls.Add(reviewPanel);
+            }
+        }
+
+       
+
+        private void TBSearchbar_Click(object sender, EventArgs e)
+        {
+            TBSearchbar.Text = string.Empty;
         }
     }
 }

@@ -33,6 +33,52 @@ namespace PBO_B1.App.Context
             return Daftar_barang.ToArray();
         }
 
+        public static M_Barang[] Getbarangbysearch(string search)
+        {
+            string query = "select * from barang where dihapus = False AND nama_barang ILIKE 'keyword%';";
+
+            query = query.Replace("keyword", search);
+
+            DataTable databarang = queryExecutor(query);
+
+            List<M_Barang> Daftar_barang = databarang.AsEnumerable().Select(row => new M_Barang
+            {
+                barang_id = row.Field<int>("barang_id"),
+                nama_barang = row.Field<string>("nama_barang"),
+                harga = row.Field<int>("harga"),
+                jumlah = row.Field<int>("jumlah"),
+                tanggal_pembelian = DateOnly.FromDateTime(row.Field<DateTime>("tanggal_pembelian")),
+                foto_barang = row.Field<string>("foto_barang"),
+                kategori = row.Field<string>("kategori_nama_kategori"),
+                merk = row.Field<string>("merk_merk")
+            }).ToList();
+
+            return Daftar_barang.ToArray();
+        }
+
+        public static M_Barang[] Getbarangbykategori(string kategori)
+        {
+            string query = "select * from barang where dihapus = False AND kategori_nama_kategori = 'keyword' ;";
+
+            query = query.Replace("keyword", kategori);
+
+            DataTable databarang = queryExecutor(query);
+
+            List<M_Barang> Daftar_barang = databarang.AsEnumerable().Select(row => new M_Barang
+            {
+                barang_id = row.Field<int>("barang_id"),
+                nama_barang = row.Field<string>("nama_barang"),
+                harga = row.Field<int>("harga"),
+                jumlah = row.Field<int>("jumlah"),
+                tanggal_pembelian = DateOnly.FromDateTime(row.Field<DateTime>("tanggal_pembelian")),
+                foto_barang = row.Field<string>("foto_barang"),
+                kategori = row.Field<string>("kategori_nama_kategori"),
+                merk = row.Field<string>("merk_merk")
+            }).ToList();
+
+            return Daftar_barang.ToArray();
+        }
+
         public static Panel CreateItem(M_Barang data)
         {
 

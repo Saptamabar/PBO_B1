@@ -38,7 +38,7 @@ namespace PBO_B1.Views
         {
             ComboBoxKategori.Items.Clear();
             M_Kategori[] daftar_barang = C_Barang.LoadKategori();
-            foreach( var data in daftar_barang)
+            foreach (var data in daftar_barang)
             {
                 ComboBoxKategori.Items.Add(data.nama_kategori);
             }
@@ -59,12 +59,44 @@ namespace PBO_B1.Views
 
         private void ComboBoxKategori_SelectedIndexChanged(object sender, EventArgs e)
         {
+            PanelBarang.Controls.Clear();
+            M_Barang[] barangArray = C_Barang.Getbarangbykategori(ComboBoxKategori.Text);
 
+            foreach (var data in barangArray)
+            {
+
+                Panel reviewPanel = C_Barang.CreateItem(data);
+                reviewPanel.BringToFront();
+                PanelBarang.Controls.Add(reviewPanel);
+            }
         }
 
         private void PanelBarang_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void TBSearchbar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TbSeacrhbar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                PanelBarang.Controls.Clear();
+                M_Barang[] barangArray = C_Barang.Getbarangbysearch(TBSearchbar.Text);
+
+                foreach (var data in barangArray)
+                {
+
+                    Panel reviewPanel = C_Barang.CreateItem(data);
+                    reviewPanel.BringToFront();
+                    PanelBarang.Controls.Add(reviewPanel);
+                }
+
+            }
         }
     }
 }

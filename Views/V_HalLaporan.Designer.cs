@@ -28,15 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalLaporan));
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             panelbasebarang = new FlowLayoutPanel();
             panel1 = new Panel();
+            panel2 = new Panel();
+            TBSearchbar = new TextBox();
+            CBKategori = new ComboBox();
+            label1 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             button1 = new Button();
             flowpanelkeranjang = new FlowLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -83,11 +90,55 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 128, 0);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(CBKategori);
+            panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(895, 144);
             panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Zoom;
+            panel2.Controls.Add(TBSearchbar);
+            panel2.Location = new Point(271, 47);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(402, 61);
+            panel2.TabIndex = 2;
+            // 
+            // TBSearchbar
+            // 
+            TBSearchbar.BorderStyle = BorderStyle.None;
+            TBSearchbar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TBSearchbar.Location = new Point(55, 16);
+            TBSearchbar.Name = "TBSearchbar";
+            TBSearchbar.Size = new Size(305, 27);
+            TBSearchbar.TabIndex = 0;
+            TBSearchbar.Text = "Cari disni...";
+            TBSearchbar.Click += TBSearchbar_Click;
+            TBSearchbar.KeyPress += TBSearchbar_KeyPress;
+            // 
+            // CBKategori
+            // 
+            CBKategori.FormattingEnabled = true;
+            CBKategori.Location = new Point(50, 78);
+            CBKategori.Name = "CBKategori";
+            CBKategori.Size = new Size(151, 28);
+            CBKategori.TabIndex = 1;
+            CBKategori.SelectedIndexChanged += CBKategori_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(50, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(151, 25);
+            label1.TabIndex = 0;
+            label1.Text = "Kategori :";
             // 
             // tableLayoutPanel3
             // 
@@ -135,6 +186,9 @@
             Size = new Size(1134, 759);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -147,7 +201,11 @@
         private TableLayoutPanel tableLayoutPanel3;
         private Button button1;
         private Label Harga;
-        private static FlowLayoutPanel panelbasebarang;
+        private Label label1;
+        private FlowLayoutPanel panelbasebarang;
+        private Panel panel2;
+        private ComboBox CBKategori;
+        private TextBox TBSearchbar;
         public static FlowLayoutPanel flowpanelkeranjang;
     }
 }

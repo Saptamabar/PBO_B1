@@ -3,7 +3,9 @@ using PBO_B1.App.Core;
 using PBO_B1.App.Models;
 using System;
 using System.Data;
+using System.Numerics;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace PBO_B1.App.Context
 {
@@ -46,6 +48,50 @@ namespace PBO_B1.App.Context
 
             return dataTransaksi;
         }
+
+        public static DataTable getbytanggal(DateOnly tanggalAwal, DateOnly tanggalAkhir)
+        {
+            string query = @"
+        SELECT 
+            t.transaksi_id,
+            t.tanggal AS tanggal_transaksi,
+            t.total AS total_transaksi,
+            a.username AS username_akun,
+            a.nama AS nama_akun,
+            b.nama_barang,
+            dt.harga AS harga_barang,
+            dt.jumlah AS jumlah_barang
+        FROM 
+            transaksi t
+        INNER JOIN 
+            akun a ON t.akun_username = a.username
+        INNER JOIN 
+            detail_transaksi dt ON t.transaksi_id = dt.transaksi_transaksi_id
+        INNER JOIN 
+            barang b ON dt.barang_barang_id = b.barang_id
+        WHERE 
+            t.tanggal BETWEEN @tanggalawal AND @tanggalakhir;
+    ";
+
+            // Pastikan parameter menggunakan nama yang benar sesuai query
+            NpgsqlParameter[] parameters =
+            {
+        new NpgsqlParameter("@tanggalawal", DbType.Date) { Value = tanggalAwal },
+        new NpgsqlParameter("@tanggalakhir", DbType.Date) { Value = tanggalAkhir }
+    };
+
+            // Eksekusi query dan dapatkan DataTable
+            DataTable dataTransaksi = queryExecutor(query, parameters);
+
+            // Debugging: Pastikan dataTransaksi tidak null atau kosong
+            if (dataTransaksi == null || dataTransaksi.Rows.Count == 0)
+            {
+                MessageBox.Show("Tidak ada data transaksi ditemukan.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return dataTransaksi;
+        }
+
 
         // Mengambil transaksi berdasarkan ID
         public static DataTable GetById(int transaksiId)
@@ -126,5 +172,52 @@ namespace PBO_B1.App.Context
 
             return transaksi;
         }
+
+        public static string getbarangterlaris()
+        {
+            string Hasil = null;
+            string query = "SELECT b.nama_barang, SUM(d.jumlah) AS total_jumlah FROM detail_transaksi d JOIN barang b ON d.barang_barang_id = b.barang_id GROUP BY b.nama_barang ORDER BY total_jumlah DESC LIMIT 1;";
+            using (NpgsqlDataReader reader = ExecuteReaderCommand(query)) // Pastikan ExecuteReaderCommand ada dan benar
+            {
+                if (reader.Read())
+                {
+                    Hasil = (string)reader["nama_barang"];
+                }
+                
+            }
+            return Hasil;
+        }
+
+        public static string getjumlahtransaksi()
+        {
+            string Hasil = null;
+            string query = "select count(*) from transaksi";
+            using (NpgsqlDataReader reader = ExecuteReaderCommand(query)) // Pastikan ExecuteReaderCommand ada dan benar
+            {
+                if (reader.Read())
+                {
+                    Hasil = (string)reader["count"].ToString();
+                }
+
+            }
+            return Hasil;
+        }
+
+        public static string gettotalpenjualan()
+        {
+            string Hasil = null;
+            string query = "select sum(total) from transaksi";
+            using (NpgsqlDataReader reader = ExecuteReaderCommand(query)) // Pastikan ExecuteReaderCommand ada dan benar
+            {
+                if (reader.Read())
+                {
+                    Hasil = (string)reader["sum"].ToString();
+                }
+
+            }
+            return Hasil;
+        }
+
+        
     }
 }

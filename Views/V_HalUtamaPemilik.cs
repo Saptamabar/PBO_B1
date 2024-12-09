@@ -8,24 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBO_B1.App.Context;
+using PBO_B1.App.Core;
 
 
 namespace PBO_B1.Views
 {
     public partial class V_HalUtamaPemilik : Form
     {
-        
-        V_HalBarang v_HalBarang = new V_HalBarang();
-        V_HalTransaksi v_HalTransaksi = new V_HalTransaksi();
-        V_HalLaporan v_HalLaporan = new V_HalLaporan();
-        V_HalAdmin v_HalAdmin = new V_HalAdmin();
-        V_HalProfileUbah v_HalProfileUbah = new V_HalProfileUbah();
+
+
         public V_HalUtamaPemilik()
         {
             V_HalProfile v_HalProfile = new V_HalProfile();
             InitializeComponent();
             LoadUserControl(v_HalProfile);
-         }
+        }
 
         public static void LoadUserControl(Control control)
         {
@@ -45,9 +42,9 @@ namespace PBO_B1.Views
             }
             else if (dialogResult == DialogResult.Cancel)
             {
-                
+
             }
-            
+
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -84,6 +81,15 @@ namespace PBO_B1.Views
         private void panelmain_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void V_HalUtamaPemilik_Load(object sender, EventArgs e)
+        {
+            if (Session.CurrentUser.jabatan == "Admin")
+            {
+                btnAdmin.Visible = false;
+                btnLaporan.Visible = false;
+            }
         }
     }
 }

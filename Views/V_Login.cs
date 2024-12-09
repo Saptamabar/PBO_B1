@@ -35,18 +35,12 @@ namespace PBO_B1
 
             if (login_Akun != null)
             {
-                if (login_Akun.jabatan == "Owner")
-                {
-                    Hide();
-                    V_HalUtamaPemilik Halutama = new V_HalUtamaPemilik();
-                    Halutama.ShowDialog();
-                }
-                else
-                {
-                    Hide() ;
-                    V_HalUtamaKaryawan halUtamaKaryawan = new V_HalUtamaKaryawan();
-                    halUtamaKaryawan.ShowDialog();
-                }
+                
+                Hide();
+                V_HalUtamaPemilik Halutama = new V_HalUtamaPemilik();
+                Halutama.ShowDialog();
+                
+                
             }
             else
             {

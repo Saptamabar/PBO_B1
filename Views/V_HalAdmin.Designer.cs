@@ -52,6 +52,7 @@
             dataGridAdmin.Location = new Point(2, 153);
             dataGridAdmin.Margin = new Padding(2);
             dataGridAdmin.Name = "dataGridAdmin";
+            dataGridAdmin.RowHeadersVisible = false;
             dataGridAdmin.RowHeadersWidth = 62;
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridAdmin.RowsDefaultCellStyle = dataGridViewCellStyle1;

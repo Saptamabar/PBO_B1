@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PBO_B1.Views
 {
@@ -10,34 +11,36 @@ namespace PBO_B1.Views
         public V_HalTransaksi()
         {
             InitializeComponent();
+            Loaddata();
             LoadDataTransaksi();
         }
 
 
+        private void Loaddata()
+        {
+            BarangTerlaris.Text = ": " + C_Laporan.getbarangterlaris();
+            JumlahTransaksi.Text = ": " + C_Laporan.getjumlahtransaksi();
+            TotalPenjualan.Text = ": Rp " + C_Laporan.gettotalpenjualan();
+        }
         // Method untuk memuat data ke DataGridView
         private void LoadDataTransaksi()
         {
             try
             {
-                // Ambil data dari C_Transaksi
+
                 DataTable dataTransaksi = C_Laporan.All();
 
-                // Debugging: Cek apakah data ada
                 if (dataTransaksi == null || dataTransaksi.Rows.Count == 0)
                 {
                     MessageBox.Show("Tidak ada data transaksi ditemukan.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                // Debugging: Log jumlah data yang diterima
-                Console.WriteLine($"Jumlah data transaksi: {dataTransaksi.Rows.Count}");
+                dataGridTransaksi.DataSource = dataTransaksi;
 
-                // Isi DataGridView dengan data
-                dataGridViewTransaksi.DataSource = dataTransaksi;
 
-                // (Opsional) Atur properti DataGridView
-                dataGridViewTransaksi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridViewTransaksi.ReadOnly = true; // Data hanya untuk ditampilkan
+                dataGridTransaksi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridTransaksi.ReadOnly = true;
             }
             catch (Exception ex)
             {
@@ -45,17 +48,49 @@ namespace PBO_B1.Views
             }
         }
 
-        // Event handler untuk klik pada label1
-        private void label1_Click(object sender, EventArgs e)
+        private void LoadDataTransaksi(DateOnly tanggalawal, DateOnly tanggalakhir)
         {
-            // Ketika label1 diklik, refresh DataGridView dengan memuat ulang data
-            // Memanggil LoadDataTransaksi untuk mengupdate data
+            try
+            {
+
+                DataTable dataTransaksi = C_Laporan.getbytanggal(tanggalawal, tanggalakhir);
+
+                if (dataTransaksi == null || dataTransaksi.Rows.Count == 0)
+                {
+                    MessageBox.Show("Tidak ada data transaksi ditemukan.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                dataGridTransaksi.DataSource = dataTransaksi;
+
+
+                dataGridTransaksi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridTransaksi.ReadOnly = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Gagal memuat data transaksi: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        // Event handler untuk klik pada DataGridView
-        private void dataGridViewTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void label4_Click(object sender, EventArgs e)
         {
-            // Anda bisa tambahkan logika di sini jika ingin aksi khusus saat user klik cell.
+
+        }
+
+        private void TanggalAwal_ValueChanged(object sender, EventArgs e)
+        {
+            DateOnly tanggalawal = DateOnly.FromDateTime(TanggalAwal.Value);
+            DateOnly tanggalakhir = DateOnly.FromDateTime(TanggalAkhir.Value);
+            LoadDataTransaksi(tanggalawal, tanggalakhir);
+        }
+
+        private void TanggalAkhir_ValueChanged(object sender, EventArgs e)
+        {
+            DateOnly tanggalawal = DateOnly.FromDateTime(TanggalAwal.Value);
+            DateOnly tanggalakhir = DateOnly.FromDateTime(TanggalAkhir.Value);
+            LoadDataTransaksi(tanggalawal, tanggalakhir);
         }
     }
 }

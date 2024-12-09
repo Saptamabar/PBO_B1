@@ -206,6 +206,7 @@ namespace PBO_B1.Views
             Name = "V_HalUtamaPemilik";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Patungan";
+            Load += V_HalUtamaPemilik_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

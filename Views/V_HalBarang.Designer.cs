@@ -148,6 +148,8 @@
             TBSearchbar.TabIndex = 0;
             TBSearchbar.Text = "Cari disini..";
             TBSearchbar.Click += TBSearchbar_Click;
+            TBSearchbar.TextChanged += TBSearchbar_TextChanged;
+            TBSearchbar.KeyPress += TbSeacrhbar_KeyPress;
             // 
             // V_HalBarang
             // 
