@@ -119,7 +119,7 @@ namespace PBO_B1.Views
 
         private void labeljabatan_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Jabatan tidak dapat dirubah", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Jabatan tidak dapat diubah", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
