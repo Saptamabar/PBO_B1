@@ -16,7 +16,7 @@ namespace PBO_B1.App.Context
         public M_Akun Validate(string username, string password)
         {
             M_Akun loginAkun = null;
-            string query = "SELECT * FROM akun WHERE username = @username AND password = @password";
+            string query = "SELECT * FROM akun WHERE username = @username AND password = @password AND dihapus = False";
 
             // Parameter untuk query
             NpgsqlParameter[] parameters =

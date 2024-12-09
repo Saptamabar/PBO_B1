@@ -120,7 +120,7 @@ namespace PBO_B1.App.Context
                 new NpgsqlParameter("@Password", editAkun.Password),
                 new NpgsqlParameter("@Nama", editAkun.Nama),
                 new NpgsqlParameter("@jabatan", editAkun.jabatan),
-                new NpgsqlParameter("@foto_profile",DbType.String){ Value = !string.IsNullOrEmpty(editAkun.foto_profile) ? editAkun.foto_profile : DBNull.Value},
+                new NpgsqlParameter("@foto_profile",DbType.String){ Value = !string.IsNullOrEmpty(editAkun.foto_profile) ? editAkun.foto_profile :  DBNull.Value},
                 new NpgsqlParameter("@no_hp", editAkun.no_hp),
                 new NpgsqlParameter("@email", editAkun.Email)
             };
