@@ -119,9 +119,6 @@ namespace PBO_B1.Views
             BtnHapus.Enabled = true;
             IsEditMode = true;
             Buttonsimpan.Text = "Update";
-
-           
-
         }
 
       
