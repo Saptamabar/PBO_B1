@@ -34,7 +34,6 @@ namespace PBO_B1.App.Context
                 new NpgsqlParameter("@nama", Session.CurrentUser.Nama),
                 new NpgsqlParameter("@jabatan", Session.CurrentUser.jabatan),
                 new NpgsqlParameter("@foto_profile", DbType.String) {Value = Session.CurrentUser.foto_profile},
-
                 new NpgsqlParameter("@no_hp", Session.CurrentUser.no_hp),
                 new NpgsqlParameter("@email", Session.CurrentUser.Email),
 
