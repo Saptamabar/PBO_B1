@@ -35,7 +35,7 @@ namespace PBO_B1.App.Context
 
         public static M_Barang[] Getbarangbysearch(string search)
         {
-            string query = "select * from barang where dihapus = False AND nama_barang ILIKE 'keyword%';";
+            string query = "select * from barang where dihapus = False AND nama_barang ILIKE 'keyword%' ;";
 
             query = query.Replace("keyword", search);
 
@@ -243,7 +243,10 @@ namespace PBO_B1.App.Context
             panelbasebarang.Controls.Add(FotoBarang);
             panelbasebarang.Controls.Add(NamaBarang);
 
-
+            if (Session.CurrentUser.jabatan == "Admin")
+            {
+                ButtonEditBarang.Visible = false;
+            }
 
             return panelbasebarang;
         }

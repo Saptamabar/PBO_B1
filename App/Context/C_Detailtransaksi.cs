@@ -1,17 +1,17 @@
-﻿using PBO_B1.App.Models;
+﻿using PBO_B1.App.Core;
+using PBO_B1.App.Models;
 using PBO_B1.Views;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Text;
 using System.Linq;
-
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBO_B1.App.Context
 {
-    class C_Detailtransaksi
+    class C_Detailtransaksi : DatabaseWrapper
     {
         public static Panel CreateItem(M_Barang data)
         {

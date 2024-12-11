@@ -1,4 +1,5 @@
 ﻿using PBO_B1.App.Context;
+using PBO_B1.App.Core;
 using PBO_B1.App.Models;
 using System;
 using System.Collections.Generic;
@@ -96,6 +97,14 @@ namespace PBO_B1.Views
                     PanelBarang.Controls.Add(reviewPanel);
                 }
 
+            }
+        }
+
+        private void V_HalBarang_Load(object sender, EventArgs e)
+        {
+            if (Session.CurrentUser.jabatan == "Admin")
+            {
+                BtnTambahBarang.Visible = false;
             }
         }
     }
