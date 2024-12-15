@@ -118,7 +118,7 @@ namespace PBO_B1.Views
                 printPreviewDialog1.ShowDialog();
                 printDocument1.Print();
                 this.Close();
-                V_HalUtamaPemilik.LoadUserControl(new V_HalLaporan());
+                V_HalUtamaPemilik.LoadUserControl(new V_HalTransaksi());
             }
             else
             {

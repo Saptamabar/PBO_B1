@@ -285,7 +285,7 @@ namespace PBO_B1.App.Context
                     ListKeranjang.Add(databarangkeranjang);
                 }
 
-                V_HalLaporan.ShowKeranjang();
+                V_HalTransaksi.ShowKeranjang();
             }
 
             ButtonTambahKeranjang.Click += ButtonTambahKeranjang_Click;
@@ -387,7 +387,7 @@ namespace PBO_B1.App.Context
                             ListKeranjang.Remove(itemToRemove);
 
                             // Optionally, update the UI to reflect the removal
-                            V_HalLaporan.ShowKeranjang();
+                            V_HalTransaksi.ShowKeranjang();
                             
                         }
                     }

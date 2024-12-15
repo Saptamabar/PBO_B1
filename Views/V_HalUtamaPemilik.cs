@@ -62,14 +62,15 @@ namespace PBO_B1.Views
 
         private void btnTransaksi_Click(object sender, EventArgs e)
         {
-            V_HalLaporan v_HalLaporan = new V_HalLaporan();
+            V_HalTransaksi v_HalLaporan = new V_HalTransaksi();
             LoadUserControl(v_HalLaporan);
         }
 
         private void btnLaporan_Click(object sender, EventArgs e)
         {
-            V_HalTransaksi v_HalTransaksi = new V_HalTransaksi();
-            LoadUserControl(v_HalTransaksi);
+            V_HalLaporan1 v_Cobabaru = new V_HalLaporan1();
+            V_HalLaporan2 v_HalTransaksi = new V_HalLaporan2();
+            LoadUserControl(v_Cobabaru);
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)

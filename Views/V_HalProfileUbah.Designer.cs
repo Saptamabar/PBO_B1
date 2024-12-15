@@ -114,10 +114,12 @@
             // 
             // tbUsername
             // 
+            tbUsername.BackColor = Color.White;
             tbUsername.BorderStyle = BorderStyle.None;
             tbUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbUsername.Location = new Point(38, 180);
             tbUsername.Name = "tbUsername";
+            tbUsername.ReadOnly = true;
             tbUsername.Size = new Size(229, 27);
             tbUsername.TabIndex = 1;
             // 
