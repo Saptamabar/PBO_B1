@@ -17,7 +17,7 @@ namespace PBO_B1.App.Context
 
             DataTable databarang = queryExecutor(query);
 
-            
+
             List<M_Barang> Daftar_barang = databarang.AsEnumerable().Select(row => new M_Barang
             {
                 barang_id = row.Field<int>("barang_id"),
@@ -109,7 +109,7 @@ namespace PBO_B1.App.Context
 
             PictureBox FotoBarang = new PictureBox
             {
-                BackColor= Color.Transparent,
+                BackColor = Color.Transparent,
                 Location = new Point(32, 49),
                 Name = "FotoBarang",
                 Size = new Size(145, 139),
@@ -120,6 +120,28 @@ namespace PBO_B1.App.Context
                     : Properties.Resources.DeafultImageBarang,
                 SizeMode = PictureBoxSizeMode.Zoom,
             };
+
+            try
+            {
+                if (!string.IsNullOrEmpty(data.foto_barang) && File.Exists(data.foto_barang))
+                {
+                    using (var stream = new FileStream(data.foto_barang, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    {
+                        FotoBarang.Image = Image.FromStream(stream);
+                    }
+                }
+                else
+                {
+                    FotoBarang.Image = Properties.Resources.DeafultImageBarang;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Fallback to default image if loading fails
+                FotoBarang.Image = Properties.Resources.DeafultImageBarang;
+                // Optional: Log the error
+                // System.Diagnostics.Debug.WriteLine($"Error loading image: {ex.Message}");
+            }
 
             Label Merk = new Label
             {
@@ -231,7 +253,7 @@ namespace PBO_B1.App.Context
 
 
             ButtonEditBarang.Click += ButtonEditBarang_Click;
-            
+
 
             panelbasebarang.Controls.Add(ButtonEditBarang);
             panelbasebarang.Controls.Add(Harga);
@@ -255,7 +277,7 @@ namespace PBO_B1.App.Context
         {
             string query = $"INSERT INTO barang (nama_barang, harga, jumlah, tanggal_pembelian, foto_barang, kategori_nama_kategori, merk_merk) " +
                 $"VALUES(@nama_barang, @harga, @jumlah, @tanggal_pembelian, @foto_barang, @kategori_nama_kategori, @merk_merk)";
-            
+
             NpgsqlParameter[] parameters =
             {
                 new NpgsqlParameter("@nama_barang", addbarang.nama_barang),
@@ -277,25 +299,31 @@ namespace PBO_B1.App.Context
                 $"jumlah = @jumlah, " +
                 $"tanggal_pembelian = " +
                 $"@tanggal_pembelian, " +
-                $"foto_barang = " +
-                $"@foto_barang, " +
+                (string.IsNullOrEmpty(addbarang.foto_barang)
+                       ? "" // Tidak mengubah kolom foto_barang jika kosong
+                       : "foto_barang = @foto_barang, ") +
                 $"kategori_nama_kategori = @kategori_nama_kategori, " +
                 $"merk_merk = @merk_merk " +
                 $"where barang_id = @barang_id";
-        
-            NpgsqlParameter[] parameters =
+
+            List<NpgsqlParameter> parameters = new List<NpgsqlParameter>
             {
                 new NpgsqlParameter("@barang_id", addbarang.barang_id),
                 new NpgsqlParameter("@nama_barang", addbarang.nama_barang),
                 new NpgsqlParameter("@harga", addbarang.harga),
                 new NpgsqlParameter("@jumlah", addbarang.jumlah),
                 new NpgsqlParameter("@tanggal_pembelian", addbarang.tanggal_pembelian),
-                new NpgsqlParameter("@foto_barang", DbType.String){ Value = !string.IsNullOrEmpty(addbarang.foto_barang) ? addbarang.foto_barang : DBNull.Value },
+                //new NpgsqlParameter("@foto_barang", DbType.String){ Value = !string.IsNullOrEmpty(addbarang.foto_barang)},
                 new NpgsqlParameter("@kategori_nama_kategori", addbarang.kategori),
                 new NpgsqlParameter("@merk_merk", DbType.String) {Value = addbarang.merk_merk}
             };
 
-            commandExecutor(query, parameters);
+            if (!string.IsNullOrEmpty(addbarang.foto_barang))
+            {
+                parameters.Add(new NpgsqlParameter("@foto_barang", addbarang.foto_barang));
+            }
+
+            commandExecutor(query, parameters.ToArray());
         }
 
         public static void DeleteBarang(int id)
@@ -316,13 +344,13 @@ namespace PBO_B1.App.Context
 
             DataTable datakategori = queryExecutor(query);
 
-            
+
             List<M_Kategori> Daftar_kategori = datakategori.AsEnumerable().Select(row => new M_Kategori
             {
                 nama_kategori = row.Field<string>("nama_kategori")
             }).ToList();
 
-            
+
             return Daftar_kategori.ToArray();
         }
 
