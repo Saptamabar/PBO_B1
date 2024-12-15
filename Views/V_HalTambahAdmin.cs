@@ -195,6 +195,8 @@ namespace PBO_B1.Views
         private void UpdateButtonText()
         {
             btnSimpan.Text = IsEditMode ? "Update" : "Add";
+            tbUsername.ReadOnly = IsEditMode ? true : false;
+            tbUsername.BackColor = Color.White;
         }
 
         private void FotoProfile_Click(object sender, EventArgs e)

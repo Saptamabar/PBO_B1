@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PBO_B1.Views
 {
@@ -18,6 +17,7 @@ namespace PBO_B1.Views
     {
         M_Barang data = new M_Barang();
         public bool IsEditMode { get; set; } = false;
+        string destinationPath = null;
         public V_HalTambahBarang()
         {
             InitializeComponent();
@@ -52,14 +52,12 @@ namespace PBO_B1.Views
 
                         // Pastikan nama file memiliki ekstensi
                         string fileExtension = Path.GetExtension(sourcePath);
-                        string destinationPath = Path.Combine(destinationFolder, fileName);
+                        destinationPath = Path.Combine(destinationFolder, fileName);
 
                         // Salin file ke folder tujuan
                         File.Copy(sourcePath, destinationPath, overwrite: true);
 
-                        // Simpan path ke dalam data
-                        data.foto_barang = destinationPath;
-                        Fotobarang.Image = Image.FromFile(data.foto_barang);
+                        Fotobarang.Image = Image.FromFile(destinationPath);
                     }
                 }
                 catch (Exception ex)
@@ -71,31 +69,43 @@ namespace PBO_B1.Views
 
         private void Buttonsimpan_Click(object sender, EventArgs e)
         {
-            data.nama_barang = TbNamaBarang.Text;
-            data.jumlah = (int)Convert.ToInt64(TBStok.Text);
-            data.harga = (int)Convert.ToInt64(TBHarga.Text);
-            data.tanggal_pembelian = DateOnly.FromDateTime(TanggalPembelian.Value);
-            data.kategori = daftarKategori.Text;
-            data.merk_merk = daftraMerk.Text;
-
-
-            if (IsEditMode)
+            if (!String.IsNullOrEmpty(destinationPath))
             {
-                DialogResult dialogResult = MessageBox.Show("Yakin ingin mengubah data?", "Edit Data", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    C_Barang.UpdateBarang(data);
-                    MessageBox.Show("Data berhasil diperbarui!");
-                    V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
-                }
-
+                data.foto_barang = destinationPath;
             }
-            else
+            try
             {
-                C_Barang.AddBarang(data);
-                MessageBox.Show("Data berhasil ditambahkan!");
-                V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
 
+                data.nama_barang = TbNamaBarang.Text;
+                data.jumlah = (int)Convert.ToInt64(TBStok.Text);
+                data.harga = (int)Convert.ToInt64(TBHarga.Text);
+                data.tanggal_pembelian = DateOnly.FromDateTime(TanggalPembelian.Value);
+                data.kategori = daftarKategori.Text;
+                data.merk_merk = daftraMerk.Text;
+
+
+                if (IsEditMode)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Yakin ingin mengubah data?", "Edit Data", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        C_Barang.UpdateBarang(data);
+                        MessageBox.Show("Data berhasil diperbarui!");
+                        V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
+                    }
+
+                }
+                else
+                {
+                    C_Barang.AddBarang(data);
+                    MessageBox.Show("Data berhasil ditambahkan!");
+                    V_HalUtamaPemilik.LoadUserControl(new V_HalBarang());
+
+                }
+            }
+            catch (Exception ex) 
+            { 
+                MessageBox.Show("Data harus lengkap", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -108,6 +118,7 @@ namespace PBO_B1.Views
             Fotobarang.Image = !string.IsNullOrEmpty(dataedit.foto_barang) && File.Exists(dataedit.foto_barang)
                     ? Image.FromFile(dataedit.foto_barang)
                     : Properties.Resources.DeafultImageBarang;
+            data.foto_barang = dataedit.foto_barang;
             daftarKategori.Text = dataedit.kategori.ToString();
             daftraMerk.Text = dataedit.merk;
             DateOnly dateOnly = dataedit.tanggal_pembelian;

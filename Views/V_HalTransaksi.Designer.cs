@@ -2,211 +2,216 @@
 {
     partial class V_HalTransaksi
     {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            dataGridTransaksi = new DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_HalTransaksi));
             tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            panelbasebarang = new FlowLayoutPanel();
             panel1 = new Panel();
-            TanggalAkhir = new DateTimePicker();
-            TanggalAwal = new DateTimePicker();
-            label5 = new Label();
-            label4 = new Label();
-            BarangTerlaris = new Label();
-            TotalPenjualan = new Label();
-            JumlahTransaksi = new Label();
-            label3 = new Label();
-            label2 = new Label();
+            panel2 = new Panel();
+            TBSearchbar = new TextBox();
+            CBKategori = new ComboBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridTransaksi).BeginInit();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            button1 = new Button();
+            flowpanelkeranjang = new FlowLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
-            // 
-            // dataGridTransaksi
-            // 
-            dataGridTransaksi.AllowUserToAddRows = false;
-            dataGridTransaksi.AllowUserToDeleteRows = false;
-            dataGridTransaksi.AllowUserToResizeColumns = false;
-            dataGridTransaksi.AllowUserToResizeRows = false;
-            dataGridTransaksi.BackgroundColor = Color.White;
-            dataGridTransaksi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridTransaksi.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridTransaksi.Location = new Point(3, 165);
-            dataGridTransaksi.Name = "dataGridTransaksi";
-            dataGridTransaksi.RowHeadersVisible = false;
-            dataGridTransaksi.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridTransaksi.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridTransaksi.Size = new Size(1146, 642);
-            dataGridTransaksi.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(dataGridTransaksi, 0, 1);
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel1.Size = new Size(1152, 810);
-            tableLayoutPanel1.TabIndex = 2;
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(1134, 759);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(panelbasebarang, 0, 1);
+            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel2.Size = new Size(901, 753);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // panelbasebarang
+            // 
+            panelbasebarang.AutoScroll = true;
+            panelbasebarang.BackColor = Color.White;
+            panelbasebarang.Dock = DockStyle.Fill;
+            panelbasebarang.Location = new Point(3, 153);
+            panelbasebarang.Name = "panelbasebarang";
+            panelbasebarang.Size = new Size(895, 597);
+            panelbasebarang.TabIndex = 0;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 128, 0);
-            panel1.Controls.Add(TanggalAkhir);
-            panel1.Controls.Add(TanggalAwal);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(BarangTerlaris);
-            panel1.Controls.Add(TotalPenjualan);
-            panel1.Controls.Add(JumlahTransaksi);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(CBKategori);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1146, 156);
-            panel1.TabIndex = 2;
+            panel1.Size = new Size(895, 144);
+            panel1.TabIndex = 1;
             // 
-            // TanggalAkhir
+            // panel2
             // 
-            TanggalAkhir.Location = new Point(1008, 75);
-            TanggalAkhir.Name = "TanggalAkhir";
-            TanggalAkhir.Size = new Size(107, 27);
-            TanggalAkhir.TabIndex = 9;
-            TanggalAkhir.ValueChanged += TanggalAkhir_ValueChanged;
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Zoom;
+            panel2.Controls.Add(TBSearchbar);
+            panel2.Location = new Point(271, 47);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(402, 61);
+            panel2.TabIndex = 2;
             // 
-            // TanggalAwal
+            // TBSearchbar
             // 
-            TanggalAwal.Location = new Point(834, 75);
-            TanggalAwal.Name = "TanggalAwal";
-            TanggalAwal.Size = new Size(107, 27);
-            TanggalAwal.TabIndex = 8;
-            TanggalAwal.ValueChanged += TanggalAwal_ValueChanged;
+            TBSearchbar.BorderStyle = BorderStyle.None;
+            TBSearchbar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TBSearchbar.Location = new Point(55, 16);
+            TBSearchbar.Name = "TBSearchbar";
+            TBSearchbar.Size = new Size(305, 27);
+            TBSearchbar.TabIndex = 0;
+            TBSearchbar.Text = "Cari disni...";
+            TBSearchbar.Click += TBSearchbar_Click;
+            TBSearchbar.KeyPress += TBSearchbar_KeyPress;
             // 
-            // label5
+            // CBKategori
             // 
-            label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(990, 45);
-            label5.Name = "label5";
-            label5.Size = new Size(137, 27);
-            label5.TabIndex = 7;
-            label5.Text = "Tanggal akhir :";
-            // 
-            // label4
-            // 
-            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(817, 45);
-            label4.Name = "label4";
-            label4.Size = new Size(137, 27);
-            label4.TabIndex = 6;
-            label4.Text = "Tanggal awal :";
-            // 
-            // BarangTerlaris
-            // 
-            BarangTerlaris.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BarangTerlaris.ForeColor = Color.White;
-            BarangTerlaris.Location = new Point(216, 101);
-            BarangTerlaris.Name = "BarangTerlaris";
-            BarangTerlaris.Size = new Size(168, 27);
-            BarangTerlaris.TabIndex = 5;
-            BarangTerlaris.Text = ": ";
-            // 
-            // TotalPenjualan
-            // 
-            TotalPenjualan.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TotalPenjualan.ForeColor = Color.White;
-            TotalPenjualan.Location = new Point(216, 62);
-            TotalPenjualan.Name = "TotalPenjualan";
-            TotalPenjualan.Size = new Size(168, 27);
-            TotalPenjualan.TabIndex = 4;
-            TotalPenjualan.Text = ": ";
-            // 
-            // JumlahTransaksi
-            // 
-            JumlahTransaksi.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            JumlahTransaksi.ForeColor = Color.White;
-            JumlahTransaksi.Location = new Point(216, 25);
-            JumlahTransaksi.Name = "JumlahTransaksi";
-            JumlahTransaksi.Size = new Size(168, 27);
-            JumlahTransaksi.TabIndex = 3;
-            JumlahTransaksi.Text = ": ";
-            JumlahTransaksi.Click += label4_Click;
-            // 
-            // label3
-            // 
-            label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(30, 101);
-            label3.Name = "label3";
-            label3.Size = new Size(180, 27);
-            label3.TabIndex = 2;
-            label3.Text = "Barang terlaris";
-            // 
-            // label2
-            // 
-            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(30, 62);
-            label2.Name = "label2";
-            label2.Size = new Size(180, 27);
-            label2.TabIndex = 1;
-            label2.Text = "Total Penjualan";
+            CBKategori.FormattingEnabled = true;
+            CBKategori.Location = new Point(50, 78);
+            CBKategori.Name = "CBKategori";
+            CBKategori.Size = new Size(151, 28);
+            CBKategori.TabIndex = 1;
+            CBKategori.SelectedIndexChanged += CBKategori_SelectedIndexChanged;
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(30, 25);
+            label1.Location = new Point(50, 50);
             label1.Name = "label1";
-            label1.Size = new Size(180, 27);
+            label1.Size = new Size(151, 25);
             label1.TabIndex = 0;
-            label1.Text = "Jumlah Transaksi";
+            label1.Text = "Kategori :";
             // 
-            // V_HalTransaksi
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.BackColor = Color.FromArgb(224, 224, 224);
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(button1, 0, 1);
+            tableLayoutPanel3.Controls.Add(flowpanelkeranjang, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(910, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 2;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel3.Size = new Size(221, 753);
+            tableLayoutPanel3.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(255, 128, 0);
+            button1.BackgroundImageLayout = ImageLayout.None;
+            button1.Dock = DockStyle.Fill;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(3, 680);
+            button1.Name = "button1";
+            button1.Size = new Size(215, 70);
+            button1.TabIndex = 0;
+            button1.Text = "Checkout";
+            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // flowpanelkeranjang
+            // 
+            flowpanelkeranjang.AutoScroll = true;
+            flowpanelkeranjang.BackColor = Color.FromArgb(255, 128, 0);
+            flowpanelkeranjang.Dock = DockStyle.Fill;
+            flowpanelkeranjang.Location = new Point(3, 3);
+            flowpanelkeranjang.Name = "flowpanelkeranjang";
+            flowpanelkeranjang.Size = new Size(215, 671);
+            flowpanelkeranjang.TabIndex = 1;
+            // 
+            // V_HalLaporan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Name = "V_HalTransaksi";
-            Size = new Size(1152, 810);
-            ((System.ComponentModel.ISupportInitialize)dataGridTransaksi).EndInit();
+            Name = "V_HalLaporan";
+            Size = new Size(1134, 759);
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
-        private DataGridView dataGridTransaksi;
+        #endregion
+
         private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel2;
         private Panel panel1;
-        private Label label2;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Button button1;
+        private Label Harga;
         private Label label1;
-        private Label BarangTerlaris;
-        private Label TotalPenjualan;
-        private Label JumlahTransaksi;
-        private Label label3;
-        private DateTimePicker TanggalAkhir;
-        private DateTimePicker TanggalAwal;
-        private Label label5;
-        private Label label4;
+        private FlowLayoutPanel panelbasebarang;
+        private Panel panel2;
+        private ComboBox CBKategori;
+        private TextBox TBSearchbar;
+        public static FlowLayoutPanel flowpanelkeranjang;
     }
 }

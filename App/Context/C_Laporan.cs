@@ -175,15 +175,15 @@ namespace PBO_B1.App.Context
 
         public static string getbarangterlaris()
         {
-            string Hasil = null;
             string query = "SELECT b.nama_barang, SUM(d.jumlah) AS total_jumlah FROM detail_transaksi d JOIN barang b ON d.barang_barang_id = b.barang_id GROUP BY b.nama_barang ORDER BY total_jumlah DESC LIMIT 1;";
+            string Hasil = null;
             using (NpgsqlDataReader reader = ExecuteReaderCommand(query)) // Pastikan ExecuteReaderCommand ada dan benar
             {
                 if (reader.Read())
                 {
-                    Hasil = (string)reader["nama_barang"];
+                    Hasil = (string)reader["nama_barang"].ToString();
                 }
-                
+
             }
             return Hasil;
         }
@@ -218,6 +218,65 @@ namespace PBO_B1.App.Context
             return Hasil;
         }
 
-        
+        public static DataTable getcharttransaksi()
+        {
+            string query = "SELECT t.tanggal AS tanggal_transaksi, SUM(t.total) AS total_transaksi_harian FROM transaksi t GROUP BY t.tanggal ORDER BY t.tanggal;";
+            DataTable dataTransaksi = queryExecutor(query); // Pastikan queryExecutor mengembalikan DataTable
+
+            // Debugging: Pastikan dataTransaksi tidak null atau kosong
+            if (dataTransaksi == null || dataTransaksi.Rows.Count == 0)
+            {
+                MessageBox.Show("Tidak ada data transaksi ditemukan.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Console.WriteLine($"Data transaksi ditemukan: {dataTransaksi.Rows.Count} rows.");
+            }
+
+            return dataTransaksi;
+        }
+
+        public static DataTable gettop3barang()
+        {
+            string query = "WITH barang_terlaris AS (" +
+                "SELECT " +
+                "b.nama_barang, " +
+                "SUM(d.jumlah) AS total_jumlah " +
+                "FROM" +
+                " detail_transaksi d " +
+                "JOIN " +
+                "barang b ON d.barang_barang_id = b.barang_id " +
+                "GROUP BY " +
+                "b.nama_barang " +
+                "ORDER BY " +
+                "total_jumlah DESC " +
+                "LIMIT 3) " +
+                "SELECT " +
+                "nama_barang, " +
+                "total_jumlah " +
+                "FROM " +
+                "barang_terlaris " +
+                "UNION ALL " +
+                "SELECT 'Barang Lainnya' AS nama_barang, " +
+                "SUM(d.jumlah) AS total_jumlah FROM " +
+                "detail_transaksi d " +
+                "JOIN " +
+                "barang b ON d.barang_barang_id = b.barang_id WHERE " +
+                "b.nama_barang NOT IN (SELECT nama_barang FROM barang_terlaris);";
+            DataTable dataTransaksi = queryExecutor(query); // Pastikan queryExecutor mengembalikan DataTable
+
+            // Debugging: Pastikan dataTransaksi tidak null atau kosong
+            if (dataTransaksi == null || dataTransaksi.Rows.Count == 0)
+            {
+                MessageBox.Show("Tidak ada data transaksi ditemukan.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Console.WriteLine($"Data transaksi ditemukan: {dataTransaksi.Rows.Count} rows.");
+            }
+
+            return dataTransaksi;
+        }
+
     }
 }

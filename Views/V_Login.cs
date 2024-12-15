@@ -38,7 +38,7 @@ namespace PBO_B1
                 
                 Hide();
                 V_Loadingscreen loadingscreen = new V_Loadingscreen();
-                loadingscreen.ShowDialog();
+                //loadingscreen.ShowDialog();
                 V_HalUtamaPemilik Halutama = new V_HalUtamaPemilik();
                 Halutama.ShowDialog();
                 
