@@ -73,7 +73,23 @@ namespace PBO_B1.Views
 
         }
 
-        
+        private bool IsValidEmail(string email)
+        {
+            // Regular expression untuk memeriksa format email
+            var emailRegex = new System.Text.RegularExpressions.Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+
+            // Cek apakah email sesuai dengan pola
+            return emailRegex.IsMatch(email);
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            // Regular expression untuk memastikan nomor HP dimulai dengan 0 dan panjangnya antara 10-15 digit
+            var phoneRegex = new System.Text.RegularExpressions.Regex(@"^0\d{9,14}$");
+
+            // Cek apakah nomor HP sesuai dengan pola
+            return phoneRegex.IsMatch(phoneNumber);
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -84,7 +100,70 @@ namespace PBO_B1.Views
             data.jabatan = "Admin";
             data.no_hp = tbNohp.Text;
             data.Email = tbEmail.Text;
-            
+
+            //Pengecekan data tidak boleh kosong
+            if (string.IsNullOrWhiteSpace(data.Username) ||
+                string.IsNullOrWhiteSpace(data.Password) ||
+                string.IsNullOrWhiteSpace(data.Nama) ||
+                string.IsNullOrWhiteSpace(data.no_hp) ||
+                string.IsNullOrWhiteSpace(data.Email))
+            {
+                MessageBox.Show("Data kosong, tidak dapat menambahkan data.");
+                return;
+            }
+
+            //Pengecekan panjang maksimal username
+
+            if (data.Username.Length > 20)
+            {
+                MessageBox.Show("Username tidak boleh lebih dari 20 karakter.");
+                return;
+            }
+
+            // Pengecekan panjang maksimal password
+            if (data.Password.Length > 20)
+            {
+                MessageBox.Show("Password tidak boleh lebih dari 20 karakter.");
+                return;
+            }
+
+            // Pengecekan panjang maksimal nama
+            if (data.Nama.Length > 100)
+            {
+                MessageBox.Show("Nama tidak boleh lebih dari 100 karakter.");
+                return;
+            }
+
+
+            // Pengecekan panjang maksimal nomor HP (misalnya 15 digit)
+            if (data.no_hp.Length < 10 || data.no_hp.Length > 15)
+            {
+                MessageBox.Show("Nomor HP harus terdiri dari 10 hingga 15 digit.");
+                return;
+            }
+
+
+            // Pengecekan apakah no_hp hanya berisi angka
+            if (!IsValidPhoneNumber(data.no_hp))
+            {
+                MessageBox.Show("Nomor HP harus dimulai dengan 0 dan berisi antara 10 hingga 15 digit angka.");
+                return;
+            }
+
+            // Pengecekan panjang maksimal email
+            if (data.Email.Length > 50)
+            {
+                MessageBox.Show("Email tidak boleh lebih dari 50 karakter.");
+                return;
+            }
+
+            // Pengecekan format email
+            if (!IsValidEmail(data.Email))
+            {
+                MessageBox.Show("Email tidak valid. Pastikan email mengandung '@' dan '.' setelahnya.");
+                return;
+            }
+
 
             if (IsEditMode)
             {

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PBO_B1.V_Login" Collapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAAACAAAACAAAACQAQAAAAAADEAAA=</HashCode>
+      <FileName>Views\V_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Program">
+    <Position X="18.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Properties.Resources">
+    <Position X="5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAACAABAAAAAGgAgBGAAAAQAAAAASAAAgAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Context.C_Admin">
+    <Position X="8.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAABBAAAAAAAAAABAAAAAAIABAAgIAAA=</HashCode>
+      <FileName>App\Context\C_Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Context.C_Barang">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAAABAAAAAAAABAAAACAAgCAAAAAAAAQAAAAAAAgA=</HashCode>
+      <FileName>App\Context\C_Barang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Context.C_Detailtransaksi">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Context\C_Detailtransaksi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Context.C_Laporan">
+    <Position X="1.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAABEAAAAAAAAAAAAAAAAAAIAAAAAACIE=</HashCode>
+      <FileName>App\Context\C_Laporan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Context.C_Login">
+    <Position X="3.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Context\C_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Context.C_Profile">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Context\C_Profile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Context.C_Transaksi">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAQAAEAABAABAAAAAAAAAEAAAAACAAAAAAAAAAgig=</HashCode>
+      <FileName>App\Context\C_Transaksi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Core.DatabaseWrapper" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACAAACAAAAAAAEAABAEAAAASQAAIAAAEAAAAAAAA=</HashCode>
+      <FileName>App\Core\DatabaseWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Core.Session">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Core\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Models.M_Akun" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAIQAAQAAAAAAIAAACAAABACAAAAA=</HashCode>
+      <FileName>App\Models\M_Akun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Models.M_Barang" Collapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAgAAAAAAAAEAAAgAIAAACEIAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>App\Models\M_Barang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Models.M_Kategori" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Models\M_Kategori.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Models.M_Merk">
+    <Position X="24.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Models\M_Merk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.App.Models.M_Transaksi">
+    <Position X="22" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAoABAQAAAAIAAAQABAAAAQAAAAgAAA=</HashCode>
+      <FileName>App\Models\M_Transaksi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_DetailTransaksi" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACBCAASAAAAIAAAAAAAAwAQEKA=</HashCode>
+      <FileName>Views\V_DetailTransaksi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalAdmin">
+    <Position X="7.5" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAQAACAAAAAAAACAAAACBAAgAAEAAAIgASAAACA=</HashCode>
+      <FileName>Views\V_HalAdmin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalBarang" Collapsed="true">
+    <Position X="15" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACCAAAEACACgAACCAAAAAABEAAIAAQAIACk=</HashCode>
+      <FileName>Views\V_HalBarang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalLaporan" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACQADAAABAACACAAAyCJAAIAABAgEAAAQAAQCA=</HashCode>
+      <FileName>Views\V_HalLaporan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalProfile" Collapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABgAAAECQACBIARACAAAACASAEAAAgRQAwEAAAAAA=</HashCode>
+      <FileName>Views\V_HalProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalProfileUbah" Collapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAASEEABEACACGAAACEEAAEYCACAAQFCAMAAA=</HashCode>
+      <FileName>Views\V_HalProfileUbah.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalTambahAdmin">
+    <Position X="12.75" Y="8.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAASAUAIAACACEKAASABAAAYCAIGBQASBEAwA=</HashCode>
+      <FileName>Views\V_HalTambahAdmin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalTambahBarang">
+    <Position X="24" Y="5.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAQAAABCAQAAEAAECACEACAACAIgAAAACQIAhoAQA=</HashCode>
+      <FileName>Views\V_HalTambahBarang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalTransaksi" Collapsed="true">
+    <Position X="19.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQAAAECAJAQAACgAAACAIAAAACAAACAAQAAADA=</HashCode>
+      <FileName>Views\V_HalTransaksi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_HalUtamaPemilik" Collapsed="true">
+    <Position X="21" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCBACBACAIBIAAAACAgAACAAAAAAAIBAACDSBAECA=</HashCode>
+      <FileName>Views\V_HalUtamaPemilik.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PBO_B1.Views.V_Struk">
+    <Position X="2.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACALACAQAFQAAECAAQACAAAAUAIACEAAgABAFAA=</HashCode>
+      <FileName>Views\V_Struk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

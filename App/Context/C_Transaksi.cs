@@ -85,7 +85,7 @@ namespace PBO_B1.App.Context
 
         public static M_Barang[] getAllBarang()
         {
-            string query = "select * from barang where dihapus = False";
+            string query = "select * from barang where dihapus = False  and jumlah > 0";
 
             DataTable databarang = queryExecutor(query);
 

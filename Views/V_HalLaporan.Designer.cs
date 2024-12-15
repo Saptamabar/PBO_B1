@@ -151,20 +151,26 @@
             tableLayoutPanel3.Location = new Point(910, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel3.Size = new Size(221, 753);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(255, 128, 0);
+            button1.BackgroundImageLayout = ImageLayout.None;
             button1.Dock = DockStyle.Fill;
-            button1.Location = new Point(3, 605);
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(3, 680);
             button1.Name = "button1";
-            button1.Size = new Size(215, 145);
+            button1.Size = new Size(215, 70);
             button1.TabIndex = 0;
             button1.Text = "Checkout";
-            button1.UseVisualStyleBackColor = true;
+            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // flowpanelkeranjang
@@ -174,7 +180,7 @@
             flowpanelkeranjang.Dock = DockStyle.Fill;
             flowpanelkeranjang.Location = new Point(3, 3);
             flowpanelkeranjang.Name = "flowpanelkeranjang";
-            flowpanelkeranjang.Size = new Size(215, 596);
+            flowpanelkeranjang.Size = new Size(215, 671);
             flowpanelkeranjang.TabIndex = 1;
             // 
             // V_HalLaporan

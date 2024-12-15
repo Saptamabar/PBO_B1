@@ -160,6 +160,7 @@
             Margin = new Padding(2);
             Name = "V_HalBarang";
             Size = new Size(1134, 759);
+            Load += V_HalBarang_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             Panelseacrhbar.ResumeLayout(false);
