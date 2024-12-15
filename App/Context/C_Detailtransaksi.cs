@@ -121,6 +121,7 @@ namespace PBO_B1.App.Context
                 Image = !string.IsNullOrEmpty(data.foto_barang) && File.Exists(data.foto_barang)
                     ? Image.FromFile(data.foto_barang)
                     : Properties.Resources.DeafultImageBarang,
+                BackColor = Color.FromArgb(255, 128, 0),
                 Location = new Point(30, 23),
                 Name = "Fotobarang",
                 Size = new Size(130, 130),
