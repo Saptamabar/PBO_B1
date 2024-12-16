@@ -9,8 +9,6 @@ namespace PBO_B1.App.Core
 {
     internal class Session
     {
-
         public static M_Akun CurrentUser { get; set; }
-
     }
 }

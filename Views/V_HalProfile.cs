@@ -73,11 +73,6 @@ namespace PBO_B1.Views
 
         }
 
-        private void panelmain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void lblnama_Click(object sender, EventArgs e)
         {
 

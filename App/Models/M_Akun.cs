@@ -9,8 +9,6 @@ namespace PBO_B1.App.Models
     public class M_Akun
     {
         public M_Akun() { }
-       
-
         public int Akun_id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

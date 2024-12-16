@@ -115,14 +115,15 @@ namespace PBO_B1.Views
             else
             {
                 MessageBox.Show("No HP harus berupa angka!", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             }
-            
+
         }
 
         private void labeljabatan_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Jabatan tidak dapat dirubah", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }
