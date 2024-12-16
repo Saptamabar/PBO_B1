@@ -24,6 +24,7 @@ namespace PBO_B1.Views
         public void LoadData(DataTable data)
         {
             tbUsername.Text = data.Rows[0]["Username"].ToString();
+            tbUsername.ReadOnly = true;
             tbPassword.Text = data.Rows[0]["Password"].ToString();
             tbNama.Text = data.Rows[0]["Nama"].ToString();
             tbNohp.Text = data.Rows[0]["no_hp"].ToString();
