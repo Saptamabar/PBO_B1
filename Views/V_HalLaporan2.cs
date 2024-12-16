@@ -36,11 +36,23 @@ namespace PBO_B1.Views
                     return;
                 }
 
+                DataGridViewTextBoxColumn nomorColumn = new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "No",
+                    Name = "nomor",
+                    ReadOnly = true
+                };
+
+                dataGridTransaksi.Columns.Add(nomorColumn);
+
                 dataGridTransaksi.DataSource = dataTransaksi;
+                
 
-
+                dataGridTransaksi.Columns["transaksi_id"].Visible = false;
                 dataGridTransaksi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridTransaksi.ReadOnly = true;
+                dataGridTransaksi.DataBindingComplete += DataGridTransaksi_DataBindingComplete;
+
             }
             catch (Exception ex)
             {
@@ -63,9 +75,9 @@ namespace PBO_B1.Views
 
                 dataGridTransaksi.DataSource = dataTransaksi;
 
-
                 dataGridTransaksi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridTransaksi.ReadOnly = true;
+                dataGridTransaksi.DataBindingComplete += DataGridTransaksi_DataBindingComplete;
             }
             catch (Exception ex)
             {
@@ -91,6 +103,15 @@ namespace PBO_B1.Views
             DateOnly tanggalawal = DateOnly.FromDateTime(TanggalAwal.Value);
             DateOnly tanggalakhir = DateOnly.FromDateTime(TanggalAkhir.Value);
             LoadDataTransaksi(tanggalawal, tanggalakhir);
+        }
+
+        private void DataGridTransaksi_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            // Set nilai untuk kolom nomor
+            for (int i = 0; i < dataGridTransaksi.Rows.Count; i++)
+            {
+                dataGridTransaksi.Rows[i].Cells["nomor"].Value = (i + 1).ToString();
+            }
         }
     }
 }
