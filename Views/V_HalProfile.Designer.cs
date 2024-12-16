@@ -151,6 +151,7 @@
             Fotoprofile.SizeMode = PictureBoxSizeMode.Zoom;
             Fotoprofile.TabIndex = 0;
             Fotoprofile.TabStop = false;
+            Fotoprofile.Click += Fotoprofile_Click;
             // 
             // btnEdit
             // 

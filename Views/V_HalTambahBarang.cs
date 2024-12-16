@@ -44,7 +44,7 @@ namespace PBO_B1.Views
                         // Tentukan nama file baru
                         string fileName = Path.GetFileName(sourcePath);
 
-                        string destinationFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Foto_barang");
+                        string destinationFolder = "Foto_barang";
                         if (!Directory.Exists(destinationFolder))
                         {
                             Directory.CreateDirectory(destinationFolder);
