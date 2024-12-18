@@ -35,5 +35,5 @@ Proyek ini dibuat sebagai tugas akhir dari mata kuliah PBO. Sistem yang dibuat m
 ## Penggunaan
 Berikan petunjuk tentang bagaimana menggunakan atau menjalankan proyek ini. Misalnya:
 1. Ketika di halaman login anda dapat melakukan login dengan akun owner yang memiliki username dan password.
-   Username : owner
-   Password : pass123
+- Username : owner
+- Password : pass123
