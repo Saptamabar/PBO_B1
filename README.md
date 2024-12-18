@@ -28,7 +28,7 @@ Proyek ini dibuat sebagai tugas akhir dari mata kuliah PBO. Sistem yang dibuat m
     ```
 2. Buka proyek di Visual Studio.
 3. Buka PGAdmin 4 Kemudian buat sebuah database bernama 'Patungan'
-4. Restore isi dari database menggunakan file yang ada pada branch database
+4. Restore isi dari database menggunakan file bernama 'Patungan.sql'
 5. Buka file DatabaseWrapper.cs Ubah username dan password database sesuai dengan akun postgreSQL anda
 6. Bangun dan jalankan proyek.
 
